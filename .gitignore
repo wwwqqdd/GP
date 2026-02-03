@@ -29,3 +29,4 @@ Plugins/*/Intermediate/
 # 大型缓存文件
 *.cache
 *.bin
+Plugins/ALS_System/Intermediate/
