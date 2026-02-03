@@ -31,3 +31,4 @@ Plugins/*/Intermediate/
 *.bin
 Plugins/ALS_System/Intermediate/
 .vs/
+*.DotSettings.user
