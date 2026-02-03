@@ -1,0 +1,32 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\software\\project\\gameplayproject\\plugins\\als_system\\source\\als_system\\private\\aalsplayercontroller.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\software\\project\\gameplayproject\\intermediate\\build\\win64\\x64\\gameplayprojecteditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\als_system\\definitions.als_system.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\source\\als_system\\public\\aalsplayercontroller.h",
+            "d:\\software\\ue_5.6\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\inputactionvalue.h",
+            "d:\\software\\ue_5.6\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputactionvalue.generated.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\intermediate\\build\\win64\\unrealeditor\\inc\\als_system\\uht\\aalsplayercontroller.generated.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\source\\als_system\\public\\alsbasecharacter.h",
+            "d:\\software\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "d:\\software\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "d:\\software\\ue_5.6\\engine\\source\\runtime\\net\\core\\public\\net\\core\\nettoken\\nettokenexportcontext.h",
+            "d:\\software\\ue_5.6\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
+            "d:\\software\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
+            "d:\\software\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "d:\\software\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "d:\\software\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "d:\\software\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\source\\als_system\\public\\library\\alscharacterenumlibrary.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\intermediate\\build\\win64\\unrealeditor\\inc\\als_system\\uht\\alscharacterenumlibrary.generated.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\source\\als_system\\public\\library\\alscharacterstructlibrary.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\intermediate\\build\\win64\\unrealeditor\\inc\\als_system\\uht\\alscharacterstructlibrary.generated.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\intermediate\\build\\win64\\unrealeditor\\inc\\als_system\\uht\\alsbasecharacter.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

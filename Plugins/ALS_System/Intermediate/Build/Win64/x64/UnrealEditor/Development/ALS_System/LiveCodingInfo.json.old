@@ -1,0 +1,24 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.ALS_System.cpp.obj": [
+			"ALSBaseCharacter.gen.cpp.obj",
+			"ALSCharacterEnumLibrary.gen.cpp.obj",
+			"ALSCharacterMovementComponent.gen.cpp.obj",
+			"ALSCharacterStructLibrary.gen.cpp.obj",
+			"ALSDebugComponent.gen.cpp.obj",
+			"ALSPlayerCameraBehavior.gen.cpp.obj",
+			"ALSPlayerController.gen.cpp.obj",
+			"ALS_System.init.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"ALSBaseCharacter.cpp.obj",
+			"ALSCharacterMovementComponent.cpp.obj",
+			"ALSPlayerController.cpp.obj",
+			"ALS_System.cpp.obj",
+			"ALSPlayerCameraBehavior.cpp.obj",
+			"ALSDebugComponent.cpp.obj",
+			"ALSCharacterEnumLibrary.cpp.obj",
+			"ALSCharacterStructLibrary.cpp.obj"
+		]
+	}
+}

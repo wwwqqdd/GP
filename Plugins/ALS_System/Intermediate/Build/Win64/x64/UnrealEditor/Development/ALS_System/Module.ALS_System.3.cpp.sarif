@@ -1,0 +1,2581 @@
+{
+    "version": "2.1.0",
+    "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+    "runs": [
+        {
+            "results": [
+                {
+                    "ruleId": "C2079",
+                    "level": "error",
+                    "message": {
+                        "text": "“UALS_BTTask_GetRandomLocation”使用未定义的 class“ALSV4_CPP_API”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/AI/ALS_BTTask_GetRandomLocation.h"
+                                },
+                                "region": {
+                                    "startLine": 15,
+                                    "startColumn": 21,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALS_BTTask_GetRandomLocation : public UBTTask_BlackboardBase"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“:”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/AI/ALS_BTTask_GetRandomLocation.h"
+                                },
+                                "region": {
+                                    "startLine": 15,
+                                    "startColumn": 51,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALS_BTTask_GetRandomLocation : public UBTTask_BlackboardBase"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“public”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/AI/ALS_BTTask_GetRandomLocation.h"
+                                },
+                                "region": {
+                                    "startLine": 15,
+                                    "startColumn": 53,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALS_BTTask_GetRandomLocation : public UBTTask_BlackboardBase"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“{”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/AI/ALS_BTTask_GetRandomLocation.h"
+                                },
+                                "region": {
+                                    "startLine": 16,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2447",
+                    "level": "error",
+                    "message": {
+                        "text": "“{”: 缺少函数标题(是否是老式的形式表?)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/AI/ALS_BTTask_GetRandomLocation.h"
+                                },
+                                "region": {
+                                    "startLine": 16,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_GetRandomLocation”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 24,
+                                    "startColumn": 37,
+                                    "snippet": {
+                                        "text": "void UALS_BTTask_GetRandomLocation::StaticRegisterNativesUALS_BTTask_GetRandomLocation()"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_GetRandomLocation;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_GetRandomLocation”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_GetRandomLocation”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 28,
+                                    "startColumn": 40,
+                                    "snippet": {
+                                        "text": "UClass* UALS_BTTask_GetRandomLocation::GetPrivateStaticClass()"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_GetRandomLocation;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_GetRandomLocation”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2061",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 标识符“UALS_BTTask_GetRandomLocation”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 30,
+                                    "startColumn": 17,
+                                    "snippet": {
+                                        "text": "\tusing TClass = UALS_BTTask_GetRandomLocation;"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“StaticPackage”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 34,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tStaticPackage(),"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 38,
+                                    "startColumn": 11,
+                                    "snippet": {
+                                        "text": "\t\t\tsizeof(TClass),"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2061",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 标识符“TClass”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 39,
+                                    "startColumn": 12,
+                                    "snippet": {
+                                        "text": "\t\t\talignof(TClass),"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 40,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tTClass::StaticClassFlags,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 41,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tTClass::StaticClassCastFlags(),"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 42,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tTClass::StaticConfigName(),"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 43,
+                                    "startColumn": 54,
+                                    "snippet": {
+                                        "text": "\t\t\t(UClass::ClassConstructorType)InternalConstructor<TClass>,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 44,
+                                    "startColumn": 76,
+                                    "snippet": {
+                                        "text": "\t\t\t(UClass::ClassVTableHelperCtorCallerType)InternalVTableHelperCtorCaller<TClass>,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 45,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tUOBJECT_CPPCLASS_STATICFUNCTIONS_FORCLASS(TClass),"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 46,
+                                    "startColumn": 5,
+                                    "snippet": {
+                                        "text": "\t\t\t&TClass::Super::StaticClass,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 47,
+                                    "startColumn": 5,
+                                    "snippet": {
+                                        "text": "\t\t\t&TClass::WithinClass::StaticClass"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_GetRandomLocation”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 54,
+                                    "startColumn": 40,
+                                    "snippet": {
+                                        "text": "\treturn UALS_BTTask_GetRandomLocation::GetPrivateStaticClass();"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_GetRandomLocation;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_GetRandomLocation”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2923",
+                    "level": "error",
+                    "message": {
+                        "text": "\"TCppClassTypeTraits\": \"UALS_BTTask_GetRandomLocation\" 不是参数 \"CPPCLASS\" 的有效 模板 类型参数"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 98,
+                                    "startColumn": 3,
+                                    "snippet": {
+                                        "text": "\t\tTCppClassTypeTraits<UALS_BTTask_GetRandomLocation>::IsAbstract,"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/AI/ALS_BTTask_GetRandomLocation.h"
+                                },
+                                "region": {
+                                    "startLine": 15,
+                                    "startColumn": 21,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALS_BTTask_GetRandomLocation : public UBTTask_BlackboardBase"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_GetRandomLocation”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2955",
+                    "level": "error",
+                    "message": {
+                        "text": "“TCppClassTypeTraits”: 使用 类 模板 需要 模板 参数列表"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 98,
+                                    "startColumn": 55,
+                                    "snippet": {
+                                        "text": "\t\tTCppClassTypeTraits<UALS_BTTask_GetRandomLocation>::IsAbstract,"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/UE_5.6/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h"
+                                },
+                                "region": {
+                                    "startLine": 2867,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "struct TCppClassTypeTraits : public FCppClassTypeTraitsBase"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“TCppClassTypeTraits”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2397",
+                    "level": "error",
+                    "message": {
+                        "text": "从“TCppClassTypeTraits<CPPCLASS>::<unnamed-enum-IsAbstract>”转换到“bool”需要收缩转换"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 98,
+                                    "startColumn": 55,
+                                    "snippet": {
+                                        "text": "\t\tTCppClassTypeTraits<UALS_BTTask_GetRandomLocation>::IsAbstract,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C4800",
+                    "level": "error",
+                    "message": {
+                        "text": "从“TCppClassTypeTraits<CPPCLASS>::<unnamed-enum-IsAbstract>”到 bool 的隐式转换。信息可能丢失"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 98,
+                                    "startColumn": 55,
+                                    "snippet": {
+                                        "text": "\t\tTCppClassTypeTraits<UALS_BTTask_GetRandomLocation>::IsAbstract,"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 98,
+                                    "startColumn": 55,
+                                    "snippet": {
+                                        "text": "\t\tTCppClassTypeTraits<UALS_BTTask_GetRandomLocation>::IsAbstract,"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "请考虑使用显式强制转换或比较 0 来避免此警告"
+                            }
+                        },
+                        {
+                            "id": 1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/UE_5.6/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h"
+                                },
+                                "region": {
+                                    "startLine": 2870,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\t{"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“TCppClassTypeTraits<CPPCLASS>::<unnamed-enum-IsAbstract>”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C4305",
+                    "message": {
+                        "text": "“初始化”: 从“TCppClassTypeTraits<CPPCLASS>::<unnamed-enum-IsAbstract>”到“bool”截断"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 98,
+                                    "startColumn": 55,
+                                    "snippet": {
+                                        "text": "\t\tTCppClassTypeTraits<UALS_BTTask_GetRandomLocation>::IsAbstract,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2615",
+                    "level": "error",
+                    "message": {
+                        "text": "\"offsetof\" 不能应用于非类类型 \"int\""
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 102,
+                                    "startColumn": 295,
+                                    "snippet": {
+                                        "text": "const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UALS_BTTask_GetRandomLocation_Statics::NewProp_MaxDistance = { \"MaxDistance\", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UALS_BTTask_GetRandomLocation, MaxDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxDistance_MetaData), NewProp_MaxDistance_MetaData) };"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2737",
+                    "level": "error",
+                    "message": {
+                        "text": "“NewProp_MaxDistance”: 必须初始化 const 对象"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 102,
+                                    "startColumn": 105,
+                                    "snippet": {
+                                        "text": "const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UALS_BTTask_GetRandomLocation_Statics::NewProp_MaxDistance = { \"MaxDistance\", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UALS_BTTask_GetRandomLocation, MaxDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxDistance_MetaData), NewProp_MaxDistance_MetaData) };"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2615",
+                    "level": "error",
+                    "message": {
+                        "text": "\"offsetof\" 不能应用于非类类型 \"int\""
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 103,
+                                    "startColumn": 285,
+                                    "snippet": {
+                                        "text": "const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UALS_BTTask_GetRandomLocation_Statics::NewProp_Filter = { \"Filter\", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UALS_BTTask_GetRandomLocation, Filter), Z_Construct_UClass_UClass, Z_Construct_UClass_UNavigationQueryFilter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Filter_MetaData), NewProp_Filter_MetaData) };"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2737",
+                    "level": "error",
+                    "message": {
+                        "text": "“NewProp_Filter”: 必须初始化 const 对象"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 103,
+                                    "startColumn": 105,
+                                    "snippet": {
+                                        "text": "const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UALS_BTTask_GetRandomLocation_Statics::NewProp_Filter = { \"Filter\", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UALS_BTTask_GetRandomLocation, Filter), Z_Construct_UClass_UClass, Z_Construct_UClass_UNavigationQueryFilter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Filter_MetaData), NewProp_Filter_MetaData) };"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_GetRandomLocation”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 115,
+                                    "startColumn": 34,
+                                    "snippet": {
+                                        "text": "\t&UALS_BTTask_GetRandomLocation::StaticClass,"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_GetRandomLocation;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_GetRandomLocation”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2737",
+                    "level": "error",
+                    "message": {
+                        "text": "“ClassParams”: 必须初始化 const 对象"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 114,
+                                    "startColumn": 97,
+                                    "snippet": {
+                                        "text": "const UECodeGen_Private::FClassParams Z_Construct_UClass_UALS_BTTask_GetRandomLocation_Statics::ClassParams = {"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_GetRandomLocation”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 137,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_VTABLE_PTR_HELPER_CTOR(UALS_BTTask_GetRandomLocation);"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_GetRandomLocation;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_GetRandomLocation”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C4430",
+                    "level": "error",
+                    "message": {
+                        "text": "缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 137,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_VTABLE_PTR_HELPER_CTOR(UALS_BTTask_GetRandomLocation);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2550",
+                    "level": "error",
+                    "message": {
+                        "text": "“{ctor}”: 构造函数初始值设定项列表只能在构造函数定义中使用"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 137,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_VTABLE_PTR_HELPER_CTOR(UALS_BTTask_GetRandomLocation);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C4508",
+                    "level": "error",
+                    "message": {
+                        "text": "“{ctor}”: 函数应返回一个值；假定“void”返回类型"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 137,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_VTABLE_PTR_HELPER_CTOR(UALS_BTTask_GetRandomLocation);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_GetRandomLocation”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 138,
+                                    "startColumn": 33,
+                                    "snippet": {
+                                        "text": "UALS_BTTask_GetRandomLocation::~UALS_BTTask_GetRandomLocation() {}"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_GetRandomLocation;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_GetRandomLocation”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C4430",
+                    "level": "error",
+                    "message": {
+                        "text": "缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 138,
+                                    "startColumn": 65,
+                                    "snippet": {
+                                        "text": "UALS_BTTask_GetRandomLocation::~UALS_BTTask_GetRandomLocation() {}"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C4508",
+                    "level": "error",
+                    "message": {
+                        "text": "“{dtor}”: 函数应返回一个值；假定“void”返回类型"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 138,
+                                    "startColumn": 66,
+                                    "snippet": {
+                                        "text": "UALS_BTTask_GetRandomLocation::~UALS_BTTask_GetRandomLocation() {}"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_GetRandomLocation”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 145,
+                                    "startColumn": 86,
+                                    "snippet": {
+                                        "text": "\t\t{ Z_Construct_UClass_UALS_BTTask_GetRandomLocation, UALS_BTTask_GetRandomLocation::StaticClass, TEXT(\"UALS_BTTask_GetRandomLocation\"), &Z_Registration_Info_UClass_UALS_BTTask_GetRandomLocation, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UALS_BTTask_GetRandomLocation), 160681098U) },"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_GetRandomLocation;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_GetRandomLocation”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2440",
+                    "level": "error",
+                    "message": {
+                        "text": "“初始化”: 无法从“initializer list”转换为“const FClassRegisterCompiledInInfo [1]”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 144,
+                                    "startColumn": 62,
+                                    "snippet": {
+                                        "text": "\tstatic constexpr FClassRegisterCompiledInInfo ClassInfo[] = {"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 144,
+                                    "startColumn": 62,
+                                    "snippet": {
+                                        "text": "\tstatic constexpr FClassRegisterCompiledInInfo ClassInfo[] = {"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "元素“1”: 没有从“initializer list”到“const FClassRegisterCompiledInInfo”的转换"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2079",
+                    "level": "error",
+                    "message": {
+                        "text": "“UALS_BTTask_SetFocusToPlayer”使用未定义的 class“ALSV4_CPP_API”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/AI/ALS_BTTask_SetFocusToPlayer.h"
+                                },
+                                "region": {
+                                    "startLine": 12,
+                                    "startColumn": 21,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALS_BTTask_SetFocusToPlayer : public UBTTaskNode"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“:”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/AI/ALS_BTTask_SetFocusToPlayer.h"
+                                },
+                                "region": {
+                                    "startLine": 12,
+                                    "startColumn": 50,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALS_BTTask_SetFocusToPlayer : public UBTTaskNode"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“public”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/AI/ALS_BTTask_SetFocusToPlayer.h"
+                                },
+                                "region": {
+                                    "startLine": 12,
+                                    "startColumn": 52,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALS_BTTask_SetFocusToPlayer : public UBTTaskNode"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“{”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/AI/ALS_BTTask_SetFocusToPlayer.h"
+                                },
+                                "region": {
+                                    "startLine": 13,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2447",
+                    "level": "error",
+                    "message": {
+                        "text": "“{”: 缺少函数标题(是否是老式的形式表?)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/AI/ALS_BTTask_SetFocusToPlayer.h"
+                                },
+                                "region": {
+                                    "startLine": 13,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_SetFocusToPlayer”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 22,
+                                    "startColumn": 36,
+                                    "snippet": {
+                                        "text": "void UALS_BTTask_SetFocusToPlayer::StaticRegisterNativesUALS_BTTask_SetFocusToPlayer()"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_SetFocusToPlayer;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_SetFocusToPlayer”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_SetFocusToPlayer”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 26,
+                                    "startColumn": 39,
+                                    "snippet": {
+                                        "text": "UClass* UALS_BTTask_SetFocusToPlayer::GetPrivateStaticClass()"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_SetFocusToPlayer;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_SetFocusToPlayer”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2084",
+                    "level": "error",
+                    "message": {
+                        "text": "函数“UClass *GetPrivateStaticClass(void)”已有主体"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 26,
+                                    "startColumn": 39,
+                                    "snippet": {
+                                        "text": "UClass* UALS_BTTask_SetFocusToPlayer::GetPrivateStaticClass()"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 28,
+                                    "startColumn": 40,
+                                    "snippet": {
+                                        "text": "UClass* UALS_BTTask_GetRandomLocation::GetPrivateStaticClass()"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“GetPrivateStaticClass”的前一个定义"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2061",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 标识符“UALS_BTTask_SetFocusToPlayer”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 28,
+                                    "startColumn": 17,
+                                    "snippet": {
+                                        "text": "\tusing TClass = UALS_BTTask_SetFocusToPlayer;"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“StaticPackage”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 32,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tStaticPackage(),"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 36,
+                                    "startColumn": 11,
+                                    "snippet": {
+                                        "text": "\t\t\tsizeof(TClass),"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2061",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 标识符“TClass”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 37,
+                                    "startColumn": 12,
+                                    "snippet": {
+                                        "text": "\t\t\talignof(TClass),"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 38,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tTClass::StaticClassFlags,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 39,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tTClass::StaticClassCastFlags(),"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 40,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tTClass::StaticConfigName(),"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 41,
+                                    "startColumn": 54,
+                                    "snippet": {
+                                        "text": "\t\t\t(UClass::ClassConstructorType)InternalConstructor<TClass>,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 42,
+                                    "startColumn": 76,
+                                    "snippet": {
+                                        "text": "\t\t\t(UClass::ClassVTableHelperCtorCallerType)InternalVTableHelperCtorCaller<TClass>,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 43,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tUOBJECT_CPPCLASS_STATICFUNCTIONS_FORCLASS(TClass),"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 44,
+                                    "startColumn": 5,
+                                    "snippet": {
+                                        "text": "\t\t\t&TClass::Super::StaticClass,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“TClass”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 45,
+                                    "startColumn": 5,
+                                    "snippet": {
+                                        "text": "\t\t\t&TClass::WithinClass::StaticClass"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_SetFocusToPlayer”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 52,
+                                    "startColumn": 39,
+                                    "snippet": {
+                                        "text": "\treturn UALS_BTTask_SetFocusToPlayer::GetPrivateStaticClass();"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_SetFocusToPlayer;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_SetFocusToPlayer”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“GetPrivateStaticClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 52,
+                                    "startColumn": 39,
+                                    "snippet": {
+                                        "text": "\treturn UALS_BTTask_SetFocusToPlayer::GetPrivateStaticClass();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2923",
+                    "level": "error",
+                    "message": {
+                        "text": "\"TCppClassTypeTraits\": \"UALS_BTTask_SetFocusToPlayer\" 不是参数 \"CPPCLASS\" 的有效 模板 类型参数"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 72,
+                                    "startColumn": 3,
+                                    "snippet": {
+                                        "text": "\t\tTCppClassTypeTraits<UALS_BTTask_SetFocusToPlayer>::IsAbstract,"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/AI/ALS_BTTask_SetFocusToPlayer.h"
+                                },
+                                "region": {
+                                    "startLine": 12,
+                                    "startColumn": 21,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALS_BTTask_SetFocusToPlayer : public UBTTaskNode"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_SetFocusToPlayer”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2955",
+                    "level": "error",
+                    "message": {
+                        "text": "“TCppClassTypeTraits”: 使用 类 模板 需要 模板 参数列表"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 72,
+                                    "startColumn": 54,
+                                    "snippet": {
+                                        "text": "\t\tTCppClassTypeTraits<UALS_BTTask_SetFocusToPlayer>::IsAbstract,"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/UE_5.6/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h"
+                                },
+                                "region": {
+                                    "startLine": 2867,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "struct TCppClassTypeTraits : public FCppClassTypeTraitsBase"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“TCppClassTypeTraits”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2397",
+                    "level": "error",
+                    "message": {
+                        "text": "从“TCppClassTypeTraits<CPPCLASS>::<unnamed-enum-IsAbstract>”转换到“bool”需要收缩转换"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 72,
+                                    "startColumn": 54,
+                                    "snippet": {
+                                        "text": "\t\tTCppClassTypeTraits<UALS_BTTask_SetFocusToPlayer>::IsAbstract,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C4800",
+                    "level": "error",
+                    "message": {
+                        "text": "从“TCppClassTypeTraits<CPPCLASS>::<unnamed-enum-IsAbstract>”到 bool 的隐式转换。信息可能丢失"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 72,
+                                    "startColumn": 54,
+                                    "snippet": {
+                                        "text": "\t\tTCppClassTypeTraits<UALS_BTTask_SetFocusToPlayer>::IsAbstract,"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 72,
+                                    "startColumn": 54,
+                                    "snippet": {
+                                        "text": "\t\tTCppClassTypeTraits<UALS_BTTask_SetFocusToPlayer>::IsAbstract,"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "请考虑使用显式强制转换或比较 0 来避免此警告"
+                            }
+                        },
+                        {
+                            "id": 1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/UE_5.6/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h"
+                                },
+                                "region": {
+                                    "startLine": 2870,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\t{"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“TCppClassTypeTraits<CPPCLASS>::<unnamed-enum-IsAbstract>”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C4305",
+                    "message": {
+                        "text": "“初始化”: 从“TCppClassTypeTraits<CPPCLASS>::<unnamed-enum-IsAbstract>”到“bool”截断"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 72,
+                                    "startColumn": 54,
+                                    "snippet": {
+                                        "text": "\t\tTCppClassTypeTraits<UALS_BTTask_SetFocusToPlayer>::IsAbstract,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_SetFocusToPlayer”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 82,
+                                    "startColumn": 33,
+                                    "snippet": {
+                                        "text": "\t&UALS_BTTask_SetFocusToPlayer::StaticClass,"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_SetFocusToPlayer;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_SetFocusToPlayer”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2737",
+                    "level": "error",
+                    "message": {
+                        "text": "“ClassParams”: 必须初始化 const 对象"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 81,
+                                    "startColumn": 96,
+                                    "snippet": {
+                                        "text": "const UECodeGen_Private::FClassParams Z_Construct_UClass_UALS_BTTask_SetFocusToPlayer_Statics::ClassParams = {"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_SetFocusToPlayer”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 104,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_VTABLE_PTR_HELPER_CTOR(UALS_BTTask_SetFocusToPlayer);"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_SetFocusToPlayer;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_SetFocusToPlayer”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C4430",
+                    "level": "error",
+                    "message": {
+                        "text": "缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 104,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_VTABLE_PTR_HELPER_CTOR(UALS_BTTask_SetFocusToPlayer);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2084",
+                    "level": "error",
+                    "message": {
+                        "text": "函数“int {ctor}(FVTableHelper &)”已有主体"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 104,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_VTABLE_PTR_HELPER_CTOR(UALS_BTTask_SetFocusToPlayer);"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 137,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_VTABLE_PTR_HELPER_CTOR(UALS_BTTask_GetRandomLocation);"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“{ctor}”的前一个定义"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2550",
+                    "level": "error",
+                    "message": {
+                        "text": "“{ctor}”: 构造函数初始值设定项列表只能在构造函数定义中使用"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 104,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_VTABLE_PTR_HELPER_CTOR(UALS_BTTask_SetFocusToPlayer);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_SetFocusToPlayer”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 105,
+                                    "startColumn": 32,
+                                    "snippet": {
+                                        "text": "UALS_BTTask_SetFocusToPlayer::~UALS_BTTask_SetFocusToPlayer() {}"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_SetFocusToPlayer;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_SetFocusToPlayer”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C4430",
+                    "level": "error",
+                    "message": {
+                        "text": "缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 105,
+                                    "startColumn": 63,
+                                    "snippet": {
+                                        "text": "UALS_BTTask_SetFocusToPlayer::~UALS_BTTask_SetFocusToPlayer() {}"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2084",
+                    "level": "error",
+                    "message": {
+                        "text": "函数“int {dtor}(void)”已有主体"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 105,
+                                    "startColumn": 32,
+                                    "snippet": {
+                                        "text": "UALS_BTTask_SetFocusToPlayer::~UALS_BTTask_SetFocusToPlayer() {}"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_GetRandomLocation.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 138,
+                                    "startColumn": 33,
+                                    "snippet": {
+                                        "text": "UALS_BTTask_GetRandomLocation::~UALS_BTTask_GetRandomLocation() {}"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“{dtor}”的前一个定义"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALS_BTTask_SetFocusToPlayer”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 112,
+                                    "startColumn": 84,
+                                    "snippet": {
+                                        "text": "\t\t{ Z_Construct_UClass_UALS_BTTask_SetFocusToPlayer, UALS_BTTask_SetFocusToPlayer::StaticClass, TEXT(\"UALS_BTTask_SetFocusToPlayer\"), &Z_Registration_Info_UClass_UALS_BTTask_SetFocusToPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UALS_BTTask_SetFocusToPlayer), 4037209391U) },"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALS_BTTask_SetFocusToPlayer;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALS_BTTask_SetFocusToPlayer”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2440",
+                    "level": "error",
+                    "message": {
+                        "text": "“初始化”: 无法从“initializer list”转换为“const FClassRegisterCompiledInInfo [1]”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.3.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 111,
+                                    "startColumn": 62,
+                                    "snippet": {
+                                        "text": "\tstatic constexpr FClassRegisterCompiledInInfo ClassInfo[] = {"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALS_BTTask_SetFocusToPlayer.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 111,
+                                    "startColumn": 62,
+                                    "snippet": {
+                                        "text": "\tstatic constexpr FClassRegisterCompiledInInfo ClassInfo[] = {"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "元素“1”: 没有从“initializer list”到“const FClassRegisterCompiledInInfo”的转换"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "tool": {
+                "driver": {
+                    "name": "MSVC",
+                    "shortDescription": {
+                        "text": "Microsoft Visual C++ Compiler Warnings/Errors"
+                    },
+                    "informationUri": "https://docs.microsoft.com/cpp/error-messages/compiler-errors-1/c-cpp-build-errors"
+                }
+            }
+        }
+    ]
+}
