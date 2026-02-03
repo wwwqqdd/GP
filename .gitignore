@@ -30,3 +30,4 @@ Plugins/*/Intermediate/
 *.cache
 *.bin
 Plugins/ALS_System/Intermediate/
+.vs/
