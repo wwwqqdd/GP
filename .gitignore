@@ -32,3 +32,4 @@ Plugins/*/Intermediate/
 Plugins/ALS_System/Intermediate/
 .vs/
 *.DotSettings.user
+*.sln
