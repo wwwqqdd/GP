@@ -1,0 +1,3271 @@
+{
+    "version": "2.1.0",
+    "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+    "runs": [
+        {
+            "results": [
+                {
+                    "ruleId": "C2079",
+                    "level": "error",
+                    "message": {
+                        "text": "“AALSBaseCharacter”使用未定义的 class“ALSV4_CPP_API”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSBaseCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 30,
+                                    "startColumn": 21,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API AALSBaseCharacter : public ACharacter"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“:”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSBaseCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 30,
+                                    "startColumn": 39,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API AALSBaseCharacter : public ACharacter"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“public”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSBaseCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 30,
+                                    "startColumn": 41,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API AALSBaseCharacter : public ACharacter"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“{”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSBaseCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 31,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2447",
+                    "level": "error",
+                    "message": {
+                        "text": "“{”: 缺少函数标题(是否是老式的形式表?)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSBaseCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 31,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 153,
+                                    "startColumn": 25,
+                                    "snippet": {
+                                        "text": "void AALSBaseCharacter::AimAction(bool bValue)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“FindFunctionChecked”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 155,
+                                    "startColumn": 20,
+                                    "snippet": {
+                                        "text": "\tUFunction* Func = FindFunctionChecked(NAME_AALSBaseCharacter_AimAction);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“ProcessEvent”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 160,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tProcessEvent(Func,&Parms);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“AimAction_Implementation”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 164,
+                                    "startColumn": 3,
+                                    "snippet": {
+                                        "text": "\t\tAimAction_Implementation(bValue);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 200,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execAimAction)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 205,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->AimAction_Implementation(Z_Param_bValue);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 205,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->AimAction_Implementation(Z_Param_bValue);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 212,
+                                    "startColumn": 25,
+                                    "snippet": {
+                                        "text": "void AALSBaseCharacter::CameraHeldAction()"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“FindFunctionChecked”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 214,
+                                    "startColumn": 20,
+                                    "snippet": {
+                                        "text": "\tUFunction* Func = FindFunctionChecked(NAME_AALSBaseCharacter_CameraHeldAction);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“ProcessEvent”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 217,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tProcessEvent(Func,NULL);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“CameraHeldAction_Implementation”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 221,
+                                    "startColumn": 3,
+                                    "snippet": {
+                                        "text": "\t\tCameraHeldAction_Implementation();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 244,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execCameraHeldAction)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 248,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->CameraHeldAction_Implementation();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 248,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->CameraHeldAction_Implementation();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 259,
+                                    "startColumn": 25,
+                                    "snippet": {
+                                        "text": "void AALSBaseCharacter::CameraRightAction(float Value)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“FindFunctionChecked”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 261,
+                                    "startColumn": 20,
+                                    "snippet": {
+                                        "text": "\tUFunction* Func = FindFunctionChecked(NAME_AALSBaseCharacter_CameraRightAction);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“ProcessEvent”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 266,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tProcessEvent(Func,&Parms);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“CameraRightAction_Implementation”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 270,
+                                    "startColumn": 3,
+                                    "snippet": {
+                                        "text": "\t\tCameraRightAction_Implementation(Value);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 301,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execCameraRightAction)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 306,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->CameraRightAction_Implementation(Z_Param_Value);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 306,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->CameraRightAction_Implementation(Z_Param_Value);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 313,
+                                    "startColumn": 25,
+                                    "snippet": {
+                                        "text": "void AALSBaseCharacter::CameraTapAction()"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“FindFunctionChecked”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 315,
+                                    "startColumn": 20,
+                                    "snippet": {
+                                        "text": "\tUFunction* Func = FindFunctionChecked(NAME_AALSBaseCharacter_CameraTapAction);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“ProcessEvent”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 318,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tProcessEvent(Func,NULL);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“CameraTapAction_Implementation”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 322,
+                                    "startColumn": 3,
+                                    "snippet": {
+                                        "text": "\t\tCameraTapAction_Implementation();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 345,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execCameraTapAction)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 349,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->CameraTapAction_Implementation();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 349,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->CameraTapAction_Implementation();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 360,
+                                    "startColumn": 25,
+                                    "snippet": {
+                                        "text": "void AALSBaseCharacter::CameraUpAction(float Value)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“FindFunctionChecked”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 362,
+                                    "startColumn": 20,
+                                    "snippet": {
+                                        "text": "\tUFunction* Func = FindFunctionChecked(NAME_AALSBaseCharacter_CameraUpAction);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“ProcessEvent”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 367,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tProcessEvent(Func,&Parms);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“CameraUpAction_Implementation”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 371,
+                                    "startColumn": 3,
+                                    "snippet": {
+                                        "text": "\t\tCameraUpAction_Implementation(Value);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 402,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execCameraUpAction)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 407,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->CameraUpAction_Implementation(Z_Param_Value);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 407,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->CameraUpAction_Implementation(Z_Param_Value);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 450,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execCanSprint)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 454,
+                                    "startColumn": 26,
+                                    "snippet": {
+                                        "text": "\t*(bool*)Z_Param__Result=P_THIS->CanSprint();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 454,
+                                    "startColumn": 26,
+                                    "snippet": {
+                                        "text": "\t*(bool*)Z_Param__Result=P_THIS->CanSprint();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 486,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execEventOnJumped)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 490,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->EventOnJumped();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 490,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->EventOnJumped();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 522,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execEventOnLanded)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 526,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->EventOnLanded();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 526,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->EventOnLanded();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 537,
+                                    "startColumn": 25,
+                                    "snippet": {
+                                        "text": "void AALSBaseCharacter::ForwardMovementAction(float Value)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“FindFunctionChecked”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 539,
+                                    "startColumn": 20,
+                                    "snippet": {
+                                        "text": "\tUFunction* Func = FindFunctionChecked(NAME_AALSBaseCharacter_ForwardMovementAction);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“ProcessEvent”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 544,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tProcessEvent(Func,&Parms);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“ForwardMovementAction_Implementation”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 548,
+                                    "startColumn": 3,
+                                    "snippet": {
+                                        "text": "\t\tForwardMovementAction_Implementation(Value);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 585,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execForwardMovementAction)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 590,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->ForwardMovementAction_Implementation(Z_Param_Value);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 590,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->ForwardMovementAction_Implementation(Z_Param_Value);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 635,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetAcceleration)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 639,
+                                    "startColumn": 29,
+                                    "snippet": {
+                                        "text": "\t*(FVector*)Z_Param__Result=P_THIS->GetAcceleration();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 639,
+                                    "startColumn": 29,
+                                    "snippet": {
+                                        "text": "\t*(FVector*)Z_Param__Result=P_THIS->GetAcceleration();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 687,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetActualGait)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 692,
+                                    "startColumn": 30,
+                                    "snippet": {
+                                        "text": "\t*(EALSGait*)Z_Param__Result=P_THIS->GetActualGait(EALSGait(Z_Param_AllowedGait));"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 692,
+                                    "startColumn": 30,
+                                    "snippet": {
+                                        "text": "\t*(EALSGait*)Z_Param__Result=P_THIS->GetActualGait(EALSGait(Z_Param_AllowedGait));"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 730,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetAimingRotation)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 734,
+                                    "startColumn": 30,
+                                    "snippet": {
+                                        "text": "\t*(FRotator*)Z_Param__Result=P_THIS->GetAimingRotation();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 734,
+                                    "startColumn": 30,
+                                    "snippet": {
+                                        "text": "\t*(FRotator*)Z_Param__Result=P_THIS->GetAimingRotation();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 773,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetAimYawRate)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 777,
+                                    "startColumn": 27,
+                                    "snippet": {
+                                        "text": "\t*(float*)Z_Param__Result=P_THIS->GetAimYawRate();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 777,
+                                    "startColumn": 27,
+                                    "snippet": {
+                                        "text": "\t*(float*)Z_Param__Result=P_THIS->GetAimYawRate();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 818,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetAllowedGait)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 822,
+                                    "startColumn": 30,
+                                    "snippet": {
+                                        "text": "\t*(EALSGait*)Z_Param__Result=P_THIS->GetAllowedGait();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 822,
+                                    "startColumn": 30,
+                                    "snippet": {
+                                        "text": "\t*(EALSGait*)Z_Param__Result=P_THIS->GetAllowedGait();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 870,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetAnimCurveValue)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 875,
+                                    "startColumn": 27,
+                                    "snippet": {
+                                        "text": "\t*(float*)Z_Param__Result=P_THIS->GetAnimCurveValue(Z_Param_CurveName);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 875,
+                                    "startColumn": 27,
+                                    "snippet": {
+                                        "text": "\t*(float*)Z_Param__Result=P_THIS->GetAnimCurveValue(Z_Param_CurveName);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 926,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetCameraParameters)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 933,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->GetCameraParameters(Z_Param_Out_TPFOVOut,Z_Param_Out_FPFOVOut,Z_Param_Out_bRightShoulderOut);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 933,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tP_THIS->GetCameraParameters(Z_Param_Out_TPFOVOut,Z_Param_Out_FPFOVOut,Z_Param_Out_bRightShoulderOut);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 975,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetDesiredGait)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 979,
+                                    "startColumn": 30,
+                                    "snippet": {
+                                        "text": "\t*(EALSGait*)Z_Param__Result=P_THIS->GetDesiredGait();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 979,
+                                    "startColumn": 30,
+                                    "snippet": {
+                                        "text": "\t*(EALSGait*)Z_Param__Result=P_THIS->GetDesiredGait();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1021,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetDesiredRotationMode)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1025,
+                                    "startColumn": 38,
+                                    "snippet": {
+                                        "text": "\t*(EALSRotationMode*)Z_Param__Result=P_THIS->GetDesiredRotationMode();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1025,
+                                    "startColumn": 38,
+                                    "snippet": {
+                                        "text": "\t*(EALSRotationMode*)Z_Param__Result=P_THIS->GetDesiredRotationMode();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1067,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetDesiredStance)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1071,
+                                    "startColumn": 32,
+                                    "snippet": {
+                                        "text": "\t*(EALSStance*)Z_Param__Result=P_THIS->GetDesiredStance();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1071,
+                                    "startColumn": 32,
+                                    "snippet": {
+                                        "text": "\t*(EALSStance*)Z_Param__Result=P_THIS->GetDesiredStance();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1109,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetFirstPersonCameraTarget)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1113,
+                                    "startColumn": 29,
+                                    "snippet": {
+                                        "text": "\t*(FVector*)Z_Param__Result=P_THIS->GetFirstPersonCameraTarget();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1113,
+                                    "startColumn": 29,
+                                    "snippet": {
+                                        "text": "\t*(FVector*)Z_Param__Result=P_THIS->GetFirstPersonCameraTarget();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1155,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetGait)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1159,
+                                    "startColumn": 30,
+                                    "snippet": {
+                                        "text": "\t*(EALSGait*)Z_Param__Result=P_THIS->GetGait();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1159,
+                                    "startColumn": 30,
+                                    "snippet": {
+                                        "text": "\t*(EALSGait*)Z_Param__Result=P_THIS->GetGait();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1177,
+                                    "startColumn": 34,
+                                    "snippet": {
+                                        "text": "UAnimMontage* AALSBaseCharacter::GetGetUpAnimation(bool bRagdollFaceUpState)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“FindFunctionChecked”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1181,
+                                    "startColumn": 20,
+                                    "snippet": {
+                                        "text": "\tUFunction* Func = FindFunctionChecked(NAME_AALSBaseCharacter_GetGetUpAnimation);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“ProcessEvent”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1182,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tProcessEvent(Func,&Parms);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1266,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetGroundedEntryState)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1270,
+                                    "startColumn": 44,
+                                    "snippet": {
+                                        "text": "\t*(EALSGroundedEntryState*)Z_Param__Result=P_THIS->GetGroundedEntryState();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1270,
+                                    "startColumn": 44,
+                                    "snippet": {
+                                        "text": "\t*(EALSGroundedEntryState*)Z_Param__Result=P_THIS->GetGroundedEntryState();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSBaseCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1312,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "DEFINE_FUNCTION(AALSBaseCharacter::execGetMovementAction)"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 229,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSBaseCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSBaseCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ThisClass”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1316,
+                                    "startColumn": 40,
+                                    "snippet": {
+                                        "text": "\t*(EALSMovementAction*)Z_Param__Result=P_THIS->GetMovementAction();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1316,
+                                    "startColumn": 40,
+                                    "snippet": {
+                                        "text": "\t*(EALSMovementAction*)Z_Param__Result=P_THIS->GetMovementAction();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C1003",
+                    "level": "error",
+                    "message": {
+                        "text": "错误计数超过 100；正在停止编译"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/x64/UnrealEditor/Development/ALS_System/Module.ALS_System.4.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSBaseCharacter.gen.cpp"
+                                },
+                                "region": {
+                                    "startLine": 1316,
+                                    "startColumn": 40,
+                                    "snippet": {
+                                        "text": "\t*(EALSMovementAction*)Z_Param__Result=P_THIS->GetMovementAction();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
+            "tool": {
+                "driver": {
+                    "name": "MSVC",
+                    "shortDescription": {
+                        "text": "Microsoft Visual C++ Compiler Warnings/Errors"
+                    },
+                    "informationUri": "https://docs.microsoft.com/cpp/error-messages/compiler-errors-1/c-cpp-build-errors"
+                }
+            }
+        }
+    ]
+}

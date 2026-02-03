@@ -1,0 +1,28 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\software\\project\\gameplayproject\\plugins\\als_system\\source\\als_system\\private\\library\\alsmathlibrary.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\software\\project\\gameplayproject\\intermediate\\build\\win64\\x64\\gameplayprojecteditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\als_system\\definitions.als_system.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\source\\als_system\\public\\library\\alsmathlibrary.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\source\\als_system\\public\\library\\alscharacterenumlibrary.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\intermediate\\build\\win64\\unrealeditor\\inc\\als_system\\uht\\alscharacterenumlibrary.generated.h",
+            "d:\\software\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetsystemlibrary.h",
+            "d:\\software\\ue_5.6\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "d:\\software\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\kismetsystemlibrary.generated.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\source\\als_system\\public\\library\\alscharacterstructlibrary.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\intermediate\\build\\win64\\unrealeditor\\inc\\als_system\\uht\\alscharacterstructlibrary.generated.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\intermediate\\build\\win64\\unrealeditor\\inc\\als_system\\uht\\alsmathlibrary.generated.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\source\\als_system\\public\\components\\alsdebugcomponent.h",
+            "d:\\software\\project\\gameplayproject\\plugins\\als_system\\intermediate\\build\\win64\\unrealeditor\\inc\\als_system\\uht\\alsdebugcomponent.generated.h",
+            "d:\\software\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\components\\capsulecomponent.h",
+            "d:\\software\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\components\\shapecomponent.h",
+            "d:\\software\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\shapecomponent.generated.h",
+            "d:\\software\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\capsulecomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,2964 @@
+{
+    "version": "2.1.0",
+    "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+    "runs": [
+        {
+            "results": [
+                {
+                    "ruleId": "C2079",
+                    "level": "error",
+                    "message": {
+                        "text": "“AALSBaseCharacter”使用未定义的 class“ALSV4_CPP_API”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSBaseCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 30,
+                                    "startColumn": 21,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API AALSBaseCharacter : public ACharacter"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“:”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSBaseCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 30,
+                                    "startColumn": 39,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API AALSBaseCharacter : public ACharacter"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“public”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSBaseCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 30,
+                                    "startColumn": 41,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API AALSBaseCharacter : public ACharacter"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“{”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSBaseCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 31,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2447",
+                    "level": "error",
+                    "message": {
+                        "text": "“{”: 缺少函数标题(是否是老式的形式表?)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSBaseCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 31,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2079",
+                    "level": "error",
+                    "message": {
+                        "text": "“UALSMantleComponent”使用未定义的 class“ALSV4_CPP_API”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Components/ALSMantleComponent.h"
+                                },
+                                "region": {
+                                    "startLine": 19,
+                                    "startColumn": 21,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALSMantleComponent : public UActorComponent"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“:”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Components/ALSMantleComponent.h"
+                                },
+                                "region": {
+                                    "startLine": 19,
+                                    "startColumn": 41,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALSMantleComponent : public UActorComponent"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“public”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Components/ALSMantleComponent.h"
+                                },
+                                "region": {
+                                    "startLine": 19,
+                                    "startColumn": 43,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALSMantleComponent : public UActorComponent"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“{”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Components/ALSMantleComponent.h"
+                                },
+                                "region": {
+                                    "startLine": 20,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2447",
+                    "level": "error",
+                    "message": {
+                        "text": "“{”: 缺少函数标题(是否是老式的形式表?)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Components/ALSMantleComponent.h"
+                                },
+                                "region": {
+                                    "startLine": 20,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2079",
+                    "level": "error",
+                    "message": {
+                        "text": "“AALSCharacter”使用未定义的 class“ALSV4_CPP_API”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 15,
+                                    "startColumn": 21,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API AALSCharacter : public AALSBaseCharacter"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“:”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 15,
+                                    "startColumn": 35,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API AALSCharacter : public AALSBaseCharacter"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“public”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 15,
+                                    "startColumn": 37,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API AALSCharacter : public AALSBaseCharacter"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“{”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 16,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2447",
+                    "level": "error",
+                    "message": {
+                        "text": "“{”: 缺少函数标题(是否是老式的形式表?)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/ALSCharacter.h"
+                                },
+                                "region": {
+                                    "startLine": 16,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2079",
+                    "level": "error",
+                    "message": {
+                        "text": "“UALSCharacterAnimInstance”使用未定义的 class“ALSV4_CPP_API”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/Animation/ALSCharacterAnimInstance.h"
+                                },
+                                "region": {
+                                    "startLine": 24,
+                                    "startColumn": 21,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALSCharacterAnimInstance : public UAnimInstance"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“:”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/Animation/ALSCharacterAnimInstance.h"
+                                },
+                                "region": {
+                                    "startLine": 24,
+                                    "startColumn": 47,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALSCharacterAnimInstance : public UAnimInstance"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“public”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/Animation/ALSCharacterAnimInstance.h"
+                                },
+                                "region": {
+                                    "startLine": 24,
+                                    "startColumn": 49,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALSCharacterAnimInstance : public UAnimInstance"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“{”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/Animation/ALSCharacterAnimInstance.h"
+                                },
+                                "region": {
+                                    "startLine": 25,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2447",
+                    "level": "error",
+                    "message": {
+                        "text": "“{”: 缺少函数标题(是否是老式的形式表?)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Character/Animation/ALSCharacterAnimInstance.h"
+                                },
+                                "region": {
+                                    "startLine": 25,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2079",
+                    "level": "error",
+                    "message": {
+                        "text": "“UALSDebugComponent”使用未定义的 class“ALSV4_CPP_API”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Components/ALSDebugComponent.h"
+                                },
+                                "region": {
+                                    "startLine": 17,
+                                    "startColumn": 21,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALSDebugComponent : public UActorComponent"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“:”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Components/ALSDebugComponent.h"
+                                },
+                                "region": {
+                                    "startLine": 17,
+                                    "startColumn": 40,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALSDebugComponent : public UActorComponent"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“public”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Components/ALSDebugComponent.h"
+                                },
+                                "region": {
+                                    "startLine": 17,
+                                    "startColumn": 42,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALSDebugComponent : public UActorComponent"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“{”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Components/ALSDebugComponent.h"
+                                },
+                                "region": {
+                                    "startLine": 18,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2447",
+                    "level": "error",
+                    "message": {
+                        "text": "“{”: 缺少函数标题(是否是老式的形式表?)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Components/ALSDebugComponent.h"
+                                },
+                                "region": {
+                                    "startLine": 18,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2079",
+                    "level": "error",
+                    "message": {
+                        "text": "“UALSMathLibrary”使用未定义的 class“ALSV4_CPP_API”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Library/ALSMathLibrary.h"
+                                },
+                                "region": {
+                                    "startLine": 20,
+                                    "startColumn": 21,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALSMathLibrary : public UBlueprintFunctionLibrary"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“:”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Library/ALSMathLibrary.h"
+                                },
+                                "region": {
+                                    "startLine": 20,
+                                    "startColumn": 37,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALSMathLibrary : public UBlueprintFunctionLibrary"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“public”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Library/ALSMathLibrary.h"
+                                },
+                                "region": {
+                                    "startLine": 20,
+                                    "startColumn": 39,
+                                    "snippet": {
+                                        "text": "class ALSV4_CPP_API UALSMathLibrary : public UBlueprintFunctionLibrary"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2143",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误: 缺少“;”(在“{”的前面)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Library/ALSMathLibrary.h"
+                                },
+                                "region": {
+                                    "startLine": 21,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2447",
+                    "level": "error",
+                    "message": {
+                        "text": "“{”: 缺少函数标题(是否是老式的形式表?)"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Public/Library/ALSMathLibrary.h"
+                                },
+                                "region": {
+                                    "startLine": 21,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALSMantleComponent”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 21,
+                                    "startColumn": 28,
+                                    "snippet": {
+                                        "text": "FName UALSMantleComponent::NAME_IgnoreOnlyPawn(TEXT(\"IgnoreOnlyPawn\"));"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSMantleComponent.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 75,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALSMantleComponent;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALSMantleComponent”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALSMantleComponent”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 24,
+                                    "startColumn": 22,
+                                    "snippet": {
+                                        "text": "UALSMantleComponent::UALSMantleComponent()"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSMantleComponent.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 75,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALSMantleComponent;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALSMantleComponent”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C4430",
+                    "level": "error",
+                    "message": {
+                        "text": "缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 25,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "{"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“PrimaryComponentTick”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 26,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tPrimaryComponentTick.bCanEverTick = true;"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“PrimaryComponentTick”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 27,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tPrimaryComponentTick.bStartWithTickEnabled = true;"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTimeline”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 29,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tMantleTimeline = CreateDefaultSubobject<UTimelineComponent>(NAME_MantleTimeline);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“CreateDefaultSubobject”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 29,
+                                    "startColumn": 19,
+                                    "snippet": {
+                                        "text": "\tMantleTimeline = CreateDefaultSubobject<UTimelineComponent>(NAME_MantleTimeline);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C4508",
+                    "level": "error",
+                    "message": {
+                        "text": "“{ctor}”: 函数应返回一个值；假定“void”返回类型"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 30,
+                                    "startColumn": 1,
+                                    "snippet": {
+                                        "text": "}"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALSMantleComponent”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 32,
+                                    "startColumn": 27,
+                                    "snippet": {
+                                        "text": "void UALSMantleComponent::BeginPlay()"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSMantleComponent.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 75,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALSMantleComponent;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALSMantleComponent”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“Super”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 34,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tSuper::BeginPlay();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“GetOwner”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 36,
+                                    "startColumn": 6,
+                                    "snippet": {
+                                        "text": "\tif (GetOwner())"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 38,
+                                    "startColumn": 3,
+                                    "snippet": {
+                                        "text": "\t\tOwnerCharacter = Cast<AALSBaseCharacter>(GetOwner());"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“GetOwner”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 38,
+                                    "startColumn": 44,
+                                    "snippet": {
+                                        "text": "\t\tOwnerCharacter = Cast<AALSBaseCharacter>(GetOwner());"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 39,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "\t\tif (OwnerCharacter)"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“ALSDebugComponent”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 41,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tALSDebugComponent = OwnerCharacter->FindComponentByClass<UALSDebugComponent>();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 41,
+                                    "startColumn": 24,
+                                    "snippet": {
+                                        "text": "\t\t\tALSDebugComponent = OwnerCharacter->FindComponentByClass<UALSDebugComponent>();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2059",
+                    "level": "error",
+                    "message": {
+                        "text": "语法错误:“)”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 41,
+                                    "startColumn": 81,
+                                    "snippet": {
+                                        "text": "\t\t\tALSDebugComponent = OwnerCharacter->FindComponentByClass<UALSDebugComponent>();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 43,
+                                    "startColumn": 29,
+                                    "snippet": {
+                                        "text": "\t\t\tAddTickPrerequisiteActor(OwnerCharacter); // Always tick after owner, so we'll use updated values"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“AddTickPrerequisiteActor”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 43,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tAddTickPrerequisiteActor(OwnerCharacter); // Always tick after owner, so we'll use updated values"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2355",
+                    "level": "error",
+                    "message": {
+                        "text": "“this”: 只能在非静态成员函数或非静态数据成员初始值设定项的内部引用"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 48,
+                                    "startColumn": 34,
+                                    "snippet": {
+                                        "text": "\t\t\tTimelineUpdated.BindUFunction(this, NAME_MantleUpdate);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2355",
+                    "level": "error",
+                    "message": {
+                        "text": "“this”: 只能在非静态成员函数或非静态数据成员初始值设定项的内部引用"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 49,
+                                    "startColumn": 35,
+                                    "snippet": {
+                                        "text": "\t\t\tTimelineFinished.BindUFunction(this, NAME_MantleEnd);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTimeline”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 50,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tMantleTimeline->SetTimelineFinishedFunc(TimelineFinished);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTimeline”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 51,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tMantleTimeline->SetLooping(false);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTimeline”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 52,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tMantleTimeline->SetTimelineLengthMode(TL_TimelineLength);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTimeline”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tMantleTimeline->AddInterpFloat(MantleTimelineCurve, TimelineUpdated);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTimelineCurve”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 53,
+                                    "startColumn": 35,
+                                    "snippet": {
+                                        "text": "\t\t\tMantleTimeline->AddInterpFloat(MantleTimelineCurve, TimelineUpdated);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 55,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tOwnerCharacter->JumpPressedDelegate.AddUniqueDynamic(this, &UALSMantleComponent::OnOwnerJumpInput);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2355",
+                    "level": "error",
+                    "message": {
+                        "text": "“this”: 只能在非静态成员函数或非静态数据成员初始值设定项的内部引用"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 55,
+                                    "startColumn": 40,
+                                    "snippet": {
+                                        "text": "\t\t\tOwnerCharacter->JumpPressedDelegate.AddUniqueDynamic(this, &UALSMantleComponent::OnOwnerJumpInput);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALSMantleComponent”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 55,
+                                    "startColumn": 40,
+                                    "snippet": {
+                                        "text": "\t\t\tOwnerCharacter->JumpPressedDelegate.AddUniqueDynamic(this, &UALSMantleComponent::OnOwnerJumpInput);"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSMantleComponent.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 75,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALSMantleComponent;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALSMantleComponent”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OnOwnerJumpInput”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 55,
+                                    "startColumn": 40,
+                                    "snippet": {
+                                        "text": "\t\t\tOwnerCharacter->JumpPressedDelegate.AddUniqueDynamic(this, &UALSMantleComponent::OnOwnerJumpInput);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 56,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tOwnerCharacter->RagdollStateChangedDelegate.AddUniqueDynamic("
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2355",
+                    "level": "error",
+                    "message": {
+                        "text": "“this”: 只能在非静态成员函数或非静态数据成员初始值设定项的内部引用"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 56,
+                                    "startColumn": 48,
+                                    "snippet": {
+                                        "text": "\t\t\tOwnerCharacter->RagdollStateChangedDelegate.AddUniqueDynamic("
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALSMantleComponent”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 56,
+                                    "startColumn": 48,
+                                    "snippet": {
+                                        "text": "\t\t\tOwnerCharacter->RagdollStateChangedDelegate.AddUniqueDynamic("
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSMantleComponent.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 75,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALSMantleComponent;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALSMantleComponent”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OnOwnerRagdollStateChanged”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 56,
+                                    "startColumn": 48,
+                                    "snippet": {
+                                        "text": "\t\t\tOwnerCharacter->RagdollStateChangedDelegate.AddUniqueDynamic("
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALSMantleComponent”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 63,
+                                    "startColumn": 27,
+                                    "snippet": {
+                                        "text": "void UALSMantleComponent::TickComponent(float DeltaTime, ELevelTick TickType,"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSMantleComponent.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 75,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALSMantleComponent;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALSMantleComponent”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2653",
+                    "level": "error",
+                    "message": {
+                        "text": "“Super”: 不是类或命名空间名称"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 66,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tSuper::TickComponent(DeltaTime, TickType, ThisTickFunction);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 68,
+                                    "startColumn": 6,
+                                    "snippet": {
+                                        "text": "\tif (OwnerCharacter && OwnerCharacter->GetMovementState() == EALSMovementState::InAir)"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 68,
+                                    "startColumn": 24,
+                                    "snippet": {
+                                        "text": "\tif (OwnerCharacter && OwnerCharacter->GetMovementState() == EALSMovementState::InAir)"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 71,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "\t\tif (OwnerCharacter->HasMovementInput())"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“FallingTraceSettings”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 73,
+                                    "startColumn": 16,
+                                    "snippet": {
+                                        "text": "\t\t\tMantleCheck(FallingTraceSettings, EDrawDebugTrace::Type::ForOneFrame);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleCheck”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 73,
+                                    "startColumn": 4,
+                                    "snippet": {
+                                        "text": "\t\t\tMantleCheck(FallingTraceSettings, EDrawDebugTrace::Type::ForOneFrame);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALSMantleComponent”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 78,
+                                    "startColumn": 27,
+                                    "snippet": {
+                                        "text": "void UALSMantleComponent::MantleStart(float MantleHeight, const FALSComponentAndTransform& MantleLedgeWS,"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSMantleComponent.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 75,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALSMantleComponent;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALSMantleComponent”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 81,
+                                    "startColumn": 6,
+                                    "snippet": {
+                                        "text": "\tif (OwnerCharacter == nullptr || !IsValid(MantleLedgeWS.Component) || !IsValid(MantleTimeline))"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTimeline”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 81,
+                                    "startColumn": 81,
+                                    "snippet": {
+                                        "text": "\tif (OwnerCharacter == nullptr || !IsValid(MantleLedgeWS.Component) || !IsValid(MantleTimeline))"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 86,
+                                    "startColumn": 49,
+                                    "snippet": {
+                                        "text": "\tif (MantleType != EALSMantleType::LowMantle && OwnerCharacter->IsA(AALSCharacter::StaticClass()))"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“AALSCharacter”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 86,
+                                    "startColumn": 84,
+                                    "snippet": {
+                                        "text": "\tif (MantleType != EALSMantleType::LowMantle && OwnerCharacter->IsA(AALSCharacter::StaticClass()))"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSCharacter.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 65,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class AALSCharacter;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“AALSCharacter”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2672",
+                    "level": "error",
+                    "message": {
+                        "text": "“StaticClass”: 未找到匹配的重载函数"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 86,
+                                    "startColumn": 84,
+                                    "snippet": {
+                                        "text": "\tif (MantleType != EALSMantleType::LowMantle && OwnerCharacter->IsA(AALSCharacter::StaticClass()))"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/UE_5.6/Engine/Source/Runtime/CoreUObject/Public/UObject/ReflectedTypeAccessors.h"
+                                },
+                                "region": {
+                                    "startLine": 13,
+                                    "startColumn": 45,
+                                    "snippet": {
+                                        "text": "template<typename ClassType> inline UClass* StaticClass()"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "可能是“UClass *StaticClass(void)”"
+                            }
+                        },
+                        {
+                            "id": 1,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 86,
+                                    "startColumn": 84,
+                                    "snippet": {
+                                        "text": "\tif (MantleType != EALSMantleType::LowMantle && OwnerCharacter->IsA(AALSCharacter::StaticClass()))"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "“UClass *StaticClass(void)”: 无法推导“ClassType”的 模板 参数"
+                            },
+                            "properties": {
+                                "nestingLevel": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 88,
+                                    "startColumn": 23,
+                                    "snippet": {
+                                        "text": "\t\tCast<AALSCharacter>(OwnerCharacter)->ClearHeldObject();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“SetComponentTickEnabledAsync”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 92,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tSetComponentTickEnabledAsync(false);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 95,
+                                    "startColumn": 65,
+                                    "snippet": {
+                                        "text": "\tconst FALSMantleAsset MantleAsset = GetMantleAsset(MantleType, OwnerCharacter->GetOverlayState());"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“GetMantleAsset”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 95,
+                                    "startColumn": 38,
+                                    "snippet": {
+                                        "text": "\tconst FALSMantleAsset MantleAsset = GetMantleAsset(MantleType, OwnerCharacter->GetOverlayState());"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleParams”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 98,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tMantleParams.AnimMontage = MantleAsset.AnimMontage;"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleParams”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 99,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tMantleParams.PositionCorrectionCurve = MantleAsset.PositionCorrectionCurve;"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleParams”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 100,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tMantleParams.StartingOffset = MantleAsset.StartingOffset;"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleParams”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 101,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tMantleParams.StartingPosition = FMath::GetMappedRangeValueClamped<float, float>({MantleAsset.LowHeight, MantleAsset.HighHeight},"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleParams”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 107,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tMantleParams.PlayRate = FMath::GetMappedRangeValueClamped<float, float>({MantleAsset.LowHeight, MantleAsset.HighHeight},"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleLedgeLS”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 112,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tMantleLedgeLS.Component = MantleLedgeWS.Component;"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleLedgeLS”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 113,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tMantleLedgeLS.Transform = MantleLedgeWS.Transform * MantleLedgeWS.Component->GetComponentToWorld().Inverse();"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTarget”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 117,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tMantleTarget = MantleLedgeWS.Transform;"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleActualStartOffset”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 118,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tMantleActualStartOffset = UALSMathLibrary::TransformSub(OwnerCharacter->GetActorTransform(), MantleTarget);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALSMathLibrary”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 118,
+                                    "startColumn": 45,
+                                    "snippet": {
+                                        "text": "\tMantleActualStartOffset = UALSMathLibrary::TransformSub(OwnerCharacter->GetActorTransform(), MantleTarget);"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSMathLibrary.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 71,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALSMathLibrary;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALSMathLibrary”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“OwnerCharacter”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 118,
+                                    "startColumn": 58,
+                                    "snippet": {
+                                        "text": "\tMantleActualStartOffset = UALSMathLibrary::TransformSub(OwnerCharacter->GetActorTransform(), MantleTarget);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTarget”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 118,
+                                    "startColumn": 95,
+                                    "snippet": {
+                                        "text": "\tMantleActualStartOffset = UALSMathLibrary::TransformSub(OwnerCharacter->GetActorTransform(), MantleTarget);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“TransformSub”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 118,
+                                    "startColumn": 45,
+                                    "snippet": {
+                                        "text": "\tMantleActualStartOffset = UALSMathLibrary::TransformSub(OwnerCharacter->GetActorTransform(), MantleTarget);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTarget”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 122,
+                                    "startColumn": 26,
+                                    "snippet": {
+                                        "text": "\tFVector RotatedVector = MantleTarget.GetRotation().Vector() * MantleParams.StartingOffset.Y;"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleParams”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 122,
+                                    "startColumn": 64,
+                                    "snippet": {
+                                        "text": "\tFVector RotatedVector = MantleTarget.GetRotation().Vector() * MantleParams.StartingOffset.Y;"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleParams”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 123,
+                                    "startColumn": 20,
+                                    "snippet": {
+                                        "text": "\tRotatedVector.Z = MantleParams.StartingOffset.Z;"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTarget”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 124,
+                                    "startColumn": 31,
+                                    "snippet": {
+                                        "text": "\tconst FTransform StartOffset(MantleTarget.Rotator(), MantleTarget.GetLocation() - RotatedVector,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTarget”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 124,
+                                    "startColumn": 55,
+                                    "snippet": {
+                                        "text": "\tconst FTransform StartOffset(MantleTarget.Rotator(), MantleTarget.GetLocation() - RotatedVector,"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleAnimatedStartOffset”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 126,
+                                    "startColumn": 2,
+                                    "snippet": {
+                                        "text": "\tMantleAnimatedStartOffset = UALSMathLibrary::TransformSub(StartOffset, MantleTarget);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2027",
+                    "level": "error",
+                    "message": {
+                        "text": "使用了未定义类型“UALSMathLibrary”"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 126,
+                                    "startColumn": 47,
+                                    "snippet": {
+                                        "text": "\tMantleAnimatedStartOffset = UALSMathLibrary::TransformSub(StartOffset, MantleTarget);"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "relatedLocations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Intermediate/Build/Win64/UnrealEditor/Inc/ALS_System/UHT/ALSMathLibrary.generated.h"
+                                },
+                                "region": {
+                                    "startLine": 71,
+                                    "startColumn": 7,
+                                    "snippet": {
+                                        "text": "class UALSMathLibrary;"
+                                    }
+                                }
+                            },
+                            "message": {
+                                "text": "参见“UALSMathLibrary”的声明"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C2065",
+                    "level": "error",
+                    "message": {
+                        "text": "“MantleTarget”: 未声明的标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 126,
+                                    "startColumn": 73,
+                                    "snippet": {
+                                        "text": "\tMantleAnimatedStartOffset = UALSMathLibrary::TransformSub(StartOffset, MantleTarget);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C3861",
+                    "level": "error",
+                    "message": {
+                        "text": "“TransformSub”: 找不到标识符"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 126,
+                                    "startColumn": 47,
+                                    "snippet": {
+                                        "text": "\tMantleAnimatedStartOffset = UALSMathLibrary::TransformSub(StartOffset, MantleTarget);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "ruleId": "C1003",
+                    "level": "error",
+                    "message": {
+                        "text": "错误计数超过 100；正在停止编译"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///D:/SoftWare/Project/GameplayProject/Plugins/ALS_System/Source/ALS_System/Private/Components/ALSMantleComponent.cpp"
+                                },
+                                "region": {
+                                    "startLine": 126,
+                                    "startColumn": 47,
+                                    "snippet": {
+                                        "text": "\tMantleAnimatedStartOffset = UALSMathLibrary::TransformSub(StartOffset, MantleTarget);"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
+            "tool": {
+                "driver": {
+                    "name": "MSVC",
+                    "shortDescription": {
+                        "text": "Microsoft Visual C++ Compiler Warnings/Errors"
+                    },
+                    "informationUri": "https://docs.microsoft.com/cpp/error-messages/compiler-errors-1/c-cpp-build-errors"
+                }
+            }
+        }
+    ]
+}
