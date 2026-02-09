@@ -23,7 +23,7 @@ const FName NAME_Weight_FirstPerson(TEXT("Weight_FirstPerson"));
 
 AALSPlayerCameraManager::AALSPlayerCameraManager()
 {
-	CameraBehavior = CreateDefaultSubobject<USkeletalMeshComponent>("");
+	CameraBehavior = CreateDefaultSubobject<USkeletalMeshComponent>(NAME_CameraBehavior);
 	CameraBehavior->SetupAttachment(GetRootComponent());
 	CameraBehavior->bHiddenInGame = true;
 }
