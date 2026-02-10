@@ -16,8 +16,8 @@ class ALS_SYSTEM_API UALSMathLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 public:
-	UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
-	static FTransform MantleComponentLocation(const FALSComponentAndTransform& CompAndTransform);
+	//UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
+	//static FTransform MantleComponentLocation(const FALSComponentAndTransform& CompAndTransform);
 
 	UFUNCTION(BlueprintPure, Category = "ALS|Math Utils")
 	static FTransform TransformSub(const FTransform& T1, const FTransform& T2)
@@ -33,11 +33,11 @@ public:
 						  T1.GetLocation() + T2.GetLocation(), T1.GetScale3D() + T2.GetScale3D());
 	}
 
-	UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
+	/*UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
 	static FVector GetCapsuleBaseLocation(float ZOffset, UCapsuleComponent* Capsule);
 
 	UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
 	static FVector GetCapsuleLocationFromBase(FVector BaseLocation, float ZOffset, UCapsuleComponent* Capsule);
 
-	//UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable)*/
 };
