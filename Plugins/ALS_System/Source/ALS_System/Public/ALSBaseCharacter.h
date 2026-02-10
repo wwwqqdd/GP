@@ -107,6 +107,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "ALS|Character States")
 	void SetOverlayState(EALSOverlayState NewState, bool bForce = false);
 
+	UFUNCTION(BlueprintGetter, Category = "ALS|Character States")
+	EALSOverlayState GetOverlayState() const { return OverlayState; }
+
 	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "ALS|Character States")
 	void Server_SetOverlayState(EALSOverlayState NewState, bool bForce);
 

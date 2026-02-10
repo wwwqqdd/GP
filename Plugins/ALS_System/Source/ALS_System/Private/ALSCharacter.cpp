@@ -80,9 +80,7 @@ FVector AALSCharacter::GetFirstPersonCameraTarget()
 
 FTransform AALSCharacter::GetThirdPersonPivotTarget()
 {
-	return FTransform(GetActorRotation(),
-					  (GetMesh()->GetSocketLocation(TEXT("Head")) + GetMesh()->GetSocketLocation(TEXT("root"))) / 2.0f,
-					  FVector::OneVector);
+	return FTransform(GetActorRotation(),(GetMesh()->GetSocketLocation(TEXT("Head")) + GetMesh()->GetSocketLocation(TEXT("root"))) / 2.0f,FVector::OneVector);
 }
 
 void AALSCharacter::Tick(float DeltaTime)
@@ -94,6 +92,8 @@ void AALSCharacter::Tick(float DeltaTime)
 void AALSCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	UpdateHeldObjectAnimations();
 }
 
 void AALSCharacter::OnOverlayStateChanged(EALSOverlayState PreviousState)

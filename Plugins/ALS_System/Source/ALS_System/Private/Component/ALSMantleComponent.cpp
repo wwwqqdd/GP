@@ -4,6 +4,8 @@
 #include "Component/ALSMantleComponent.h"
 
 #include "ALSBaseCharacter.h"
+#include "ALSCharacter.h"
+#include "Library/ALSMathLibrary.h"
 
 
 const FName NAME_MantleEnd(TEXT("MantleEnd"));
@@ -31,10 +33,38 @@ void UALSMantleComponent::MantleStart(float MantleHeight, const FALSComponentAnd
 {
 	if (OwnerCharacter == nullptr || !IsValid(MantleLedgeWS.Component) || !IsValid(MantleTimeline)) return;
 
-	/*if (MantleType != EALSMantleType::LowMantle && OwnerCharacter->IsA(AALSCharacter::StaticClass()))
+	if (MantleType != EALSMantleType::LowMantle && OwnerCharacter->IsA(AALSCharacter::StaticClass()))
 	{
-		
-	}*/
+		Cast<AALSCharacter>(OwnerCharacter)->ClearHeldObject();
+	}
+
+	SetComponentTickEnabledAsync(false);
+
+	const FALSMantleAsset MantleAsset = GetMantleAsset(MantleType, OwnerCharacter->GetOverlayState());
+	check(MantleAsset.PositionCorrectionCurve)
+
+	MantleParams.AnimMontage = MantleAsset.AnimMontage;
+	MantleParams.PositionCorrectionCurve = MantleAsset.PositionCorrectionCurve;
+	MantleParams.StartingOffset = MantleAsset.StartingOffset;
+	MantleParams.StartingPosition = FMath::GetMappedRangeValueClamped<float, float>({MantleAsset.LowHeight, MantleAsset.HighHeight},
+														{
+																		MantleAsset.LowStartPosition,
+																		MantleAsset.HighStartPosition
+														              },MantleHeight);
+	MantleParams.PlayRate = FMath::GetMappedRangeValueClamped<float, float>({MantleAsset.LowHeight, MantleAsset.HighHeight},
+		                                       {MantleAsset.LowPlayRate, MantleAsset.HighPlayRate},
+		                                                     MantleHeight);
+
+	MantleLedgeLS.Component = MantleLedgeWS.Component;
+	MantleLedgeLS.Transform = MantleLedgeWS.Transform * MantleLedgeWS.Component->GetComponentToWorld().Inverse();
+
+	MantleTarget = MantleLedgeWS.Transform;
+	MantleActualStartOffset = UALSMathLibrary::TransformSub(OwnerCharacter->GetActorTransform(), MantleTarget);
+
+	FVector RotatedVector = MantleTarget.GetRotation().Vector() * MantleParams.StartingOffset.Y;
+	RotatedVector.Z = MantleParams.StartingOffset.Z;
+	const FTransform Startoffset(MantleTarget.Rotator(), MantleTarget.GetLocation() - RotatedVector, FVector::OneVector);
+	MantleAnimatedStartOffset = UALSMathLibrary::TransformSub(Startoffset, MantleTarget);
 }
 
 void UALSMantleComponent::BeginPlay()

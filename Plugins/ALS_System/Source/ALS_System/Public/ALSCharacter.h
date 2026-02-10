@@ -40,6 +40,9 @@ protected:
 	virtual void BeginPlay() override;
 
 	virtual void OnOverlayStateChanged(EALSOverlayState PreviousState) override;
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "ALS|HeldObject")
+	void UpdateHeldObjectAnimations();
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ALS|Component")
 	TObjectPtr<USceneComponent> HeldObjectRoot = nullptr;
