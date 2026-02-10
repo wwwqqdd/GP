@@ -39,5 +39,5 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
 	static FVector GetCapsuleLocationFromBase(FVector BaseLocation, float ZOffset, UCapsuleComponent* Capsule);
 
-	UFUNCTION(BlueprintCallable)
+	//UFUNCTION(BlueprintCallable)
 };
