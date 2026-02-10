@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "ALSCharacterStructLibrary.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "ALSMathLibrary.generated.h"
 
 class UCapsuleComponent;
@@ -16,8 +17,8 @@ class ALS_SYSTEM_API UALSMathLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 public:
-	//UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
-	//static FTransform MantleComponentLocation(const FALSComponentAndTransform& CompAndTransform);
+	UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
+	static FTransform MantleComponentLocalToWorld(const FALSComponentAndTransform& CompAndTransform);
 
 	UFUNCTION(BlueprintPure, Category = "ALS|Math Utils")
 	static FTransform TransformSub(const FTransform& T1, const FTransform& T2)
@@ -33,11 +34,18 @@ public:
 						  T1.GetLocation() + T2.GetLocation(), T1.GetScale3D() + T2.GetScale3D());
 	}
 
-	/*UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
+	UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
 	static FVector GetCapsuleBaseLocation(float ZOffset, UCapsuleComponent* Capsule);
 
 	UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
 	static FVector GetCapsuleLocationFromBase(FVector BaseLocation, float ZOffset, UCapsuleComponent* Capsule);
 
-	UFUNCTION(BlueprintCallable)*/
+	UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
+	static bool CapsuleHasRoomCheck(UCapsuleComponent* Capsule, FVector TargetLocation, float HeightOffset, float RadiusOffset, EDrawDebugTrace::Type DebugType = EDrawDebugTrace::Type::None, bool DrawDebugTrace = false);
+
+	UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
+	static bool AngleInRange(float Angle, float MinAngle, float MaxAngle, float Buffer, bool IncreaseBuffer);
+
+	UFUNCTION(BlueprintCallable, Category = "ALS|Math Utils")
+	static EALSMovementDirection CalculateQuadrant(EALSMovementDirection Current, float FRThreshold, float FLThreshold, float BRThreshold, float BLThreshold, float Buffer, float Angle);
 };

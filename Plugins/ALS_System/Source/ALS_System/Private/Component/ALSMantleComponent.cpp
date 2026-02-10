@@ -5,6 +5,8 @@
 
 #include "ALSBaseCharacter.h"
 #include "ALSCharacter.h"
+#include "Curves/CurveVector.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "Library/ALSMathLibrary.h"
 
 
@@ -21,11 +23,6 @@ UALSMantleComponent::UALSMantleComponent()
 
 	MantleTimeline = CreateDefaultSubobject<UTimelineComponent>(NAME_MantleTimeline);
 	
-}
-
-bool UALSMantleComponent::MantleCheck(const FALSMantleTraceSettings& TraceSettings, EDrawDebugTrace::Type DebugType)
-{
-	return true;
 }
 
 void UALSMantleComponent::MantleStart(float MantleHeight, const FALSComponentAndTransform& MantleLedgeWS,
@@ -63,8 +60,26 @@ void UALSMantleComponent::MantleStart(float MantleHeight, const FALSComponentAnd
 
 	FVector RotatedVector = MantleTarget.GetRotation().Vector() * MantleParams.StartingOffset.Y;
 	RotatedVector.Z = MantleParams.StartingOffset.Z;
-	const FTransform Startoffset(MantleTarget.Rotator(), MantleTarget.GetLocation() - RotatedVector, FVector::OneVector);
-	MantleAnimatedStartOffset = UALSMathLibrary::TransformSub(Startoffset, MantleTarget);
+	const FTransform StartOffset(MantleTarget.Rotator(), MantleTarget.GetLocation() - RotatedVector, FVector::OneVector);
+	MantleAnimatedStartOffset = UALSMathLibrary::TransformSub(StartOffset, MantleTarget);
+
+	OwnerCharacter->GetCharacterMovement()->SetMovementMode(MOVE_None);
+	OwnerCharacter->SetMovementState(EALSMovementState::Mantling);
+
+	float MinTime = 0.0f;
+	float MaxTime = 0.0f;
+	MantleParams.PositionCorrectionCurve->GetTimeRange(MinTime, MaxTime);
+	MantleTimeline->SetTimelineLength(MaxTime - MantleParams.StartingPosition);
+	MantleTimeline->SetPlayRate(MantleParams.PlayRate);
+	MantleTimeline->PlayFromStart();
+
+	OwnerCharacter->GetMesh()->GetAnimInstance()->Montage_Play(MantleParams.AnimMontage, MantleParams.PlayRate, EMontagePlayReturnType::MontageLength,MantleParams.StartingPosition,false);
+}
+
+bool UALSMantleComponent::MantleCheck(const FALSMantleTraceSettings& TraceSettings, EDrawDebugTrace::Type DebugType)
+{
+	
+	return true;
 }
 
 void UALSMantleComponent::BeginPlay()
@@ -89,7 +104,7 @@ void UALSMantleComponent::BeginPlay()
 			MantleTimeline->SetTimelineLengthMode(TL_TimelineLength);
 			MantleTimeline->AddInterpFloat(MantleTimelineCurve, TimelineUpdated);
 
-			//OwnerCharacter->JumpPressedDelegate.AddUniqueDynamic(this, &UALSMantleComponent::OnOner)
+			//OwnerCharacter->JumpPressedDelegate.AddUniqueDynamic(this, &UALSMantleComponent::)
 		}
 	}
 }
