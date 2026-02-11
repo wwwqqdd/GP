@@ -78,7 +78,96 @@ void UALSMantleComponent::MantleStart(float MantleHeight, const FALSComponentAnd
 
 bool UALSMantleComponent::MantleCheck(const FALSMantleTraceSettings& TraceSettings, EDrawDebugTrace::Type DebugType)
 {
+	if (!OwnerCharacter) return false;
+
+	const FVector& TraceDirection = OwnerCharacter->GetActorForwardVector();
+	const FVector& CapsuleBaseLocation = UALSMathLibrary::GetCapsuleBaseLocation(2.0f, OwnerCharacter->GetCapsuleComponent());
+	FVector TraceStart = CapsuleBaseLocation + TraceDirection * -30.0f;
+	TraceStart.Z += (TraceSettings.MaxLedgeHeight + TraceSettings.MinLedgeHeight) / 2.0f;
+	const FVector TraceEnd = TraceStart + TraceDirection * TraceSettings.ReachDistance;
+	const float HalfHeight = 1.0f + (TraceSettings.MaxLedgeHeight - TraceSettings.MinLedgeHeight) / 2.0f;
+
+	UWorld* World = GetWorld();
+	check(World);
+
+	FCollisionQueryParams Params;
+	Params.AddIgnoredActor(OwnerCharacter);
+
+	FHitResult HitResult;
+	{
+		const FCollisionShape CapsuleCollisionShape = FCollisionShape::MakeCapsule(TraceSettings.ForwardTraceRadius, HalfHeight);
+		const bool bHit = World->SweepSingleByProfile(HitResult, TraceStart, TraceEnd, FQuat::Identity, MantleObjectDetectionProfile, CapsuleCollisionShape, Params);
+		
+		if (ALSDebugComponent && ALSDebugComponent->GetShowTraces())
+		{
+			UALSDebugComponent::DrawDebugCapsuleTraceSingle(World, TraceStart, TraceEnd, CapsuleCollisionShape, DebugType, bHit, HitResult, FLinearColor::Black, FLinearColor::Black, 1.0f);
+		}
+	}
+
+	if (!HitResult.IsValidBlockingHit() ||OwnerCharacter->GetCharacterMovement()->IsWalkable(HitResult))
+	{
+		return false;
+	}
+
+	if (HitResult.GetComponent() != nullptr)
+	{
+		UPrimitiveComponent* PrimitiveComponent = HitResult.GetComponent();
+		if (PrimitiveComponent && PrimitiveComponent->GetComponentVelocity().Size() > AcceptableVelocityWhileMantling)
+		{
+			return false;
+		}
+	}
+
+	const FVector InitialTraceImpactPoint = HitResult.ImpactPoint;
+	const FVector InitialTraceNormal = HitResult.ImpactNormal;
+
+	FVector DownwardTraceEnd = InitialTraceImpactPoint;
+	DownwardTraceEnd.Z = CapsuleBaseLocation.Z;
+	DownwardTraceEnd += InitialTraceNormal * -15.0f;
+	FVector DownwardTraceStart = DownwardTraceEnd;
+	DownwardTraceStart.Z += TraceSettings.MaxLedgeHeight + TraceSettings.DownwardTraceRadius + 1.0f;
 	
+	{
+		const FCollisionShape SphereCollisionShape = FCollisionShape::MakeSphere(TraceSettings.DownwardTraceRadius);
+		const bool bHit = World->SweepSingleByChannel(HitResult, DownwardTraceStart, DownwardTraceEnd, FQuat::Identity, WalkableSurfaceDetectionChannel, SphereCollisionShape, Params);
+
+		if (ALSDebugComponent && ALSDebugComponent->GetShowTraces())
+		{
+			UALSDebugComponent::DrawDebugCapsuleTraceSingle(World, TraceStart, TraceEnd, SphereCollisionShape, DebugType, bHit, HitResult, FLinearColor::Black, FLinearColor::Black, 1.0f);
+		}
+	}
+
+	if (!OwnerCharacter->GetCharacterMovement()->IsWalkable(HitResult))
+	{
+		return false;
+	}
+
+	const FVector DownTraceLocation(HitResult.Location.X, HitResult.Location.Y, HitResult.ImpactPoint.Z);
+	UPrimitiveComponent* HitComponent = HitResult.GetComponent();
+
+	const FVector& CapsuleLocationFBase = UALSMathLibrary::GetCapsuleLocationFromBase(DownTraceLocation, 2.0f, OwnerCharacter->GetCapsuleComponent());
+	const bool bCapsuleHasRoom = UALSMathLibrary::CapsuleHasRoomCheck(OwnerCharacter->GetCapsuleComponent(), CapsuleLocationFBase, 0.0f, 0.0f, DebugType, ALSDebugComponent && ALSDebugComponent->GetShowTraces());
+
+	if (!bCapsuleHasRoom) return false;
+
+	const FTransform TargetTransform((InitialTraceNormal * FVector(-0.1f, -1.0f, 0.0f)).ToOrientationRotator(), CapsuleLocationFBase, FVector::OneVector);
+	const float MantleHeight = (CapsuleLocationFBase - OwnerCharacter->GetActorLocation()).Z;
+		
+	EALSMantleType MantleType;
+	if (OwnerCharacter->GetMovementState() == EALSMovementState::InAir)
+	{
+		MantleType = EALSMantleType::FallingCatch;
+	}
+	else
+	{
+		MantleType = MantleHeight > 125.0f ? EALSMantleType::HighMantle : EALSMantleType::LowMantle;
+	}
+
+	FALSComponentAndTransform MantleWS;
+	MantleWS.Component = HitComponent;
+	MantleWS.Transform = TargetTransform;
+	MantleStart(MantleHeight, MantleWS, MantleType);
+	Server_MantleStart(MantleHeight, MantleWS, MantleType);
 	return true;
 }
 
@@ -107,6 +196,18 @@ void UALSMantleComponent::BeginPlay()
 			//OwnerCharacter->JumpPressedDelegate.AddUniqueDynamic(this, &UALSMantleComponent::)
 		}
 	}
+}
+
+void UALSMantleComponent::Multicast_MantleStart_Implementation(float MantleHeight,
+	const FALSComponentAndTransform& MantleLedgeWS, EALSMantleType MantleType)
+{
+	
+}
+
+void UALSMantleComponent::Server_MantleStart_Implementation(float MantleHeight,
+                                                            const FALSComponentAndTransform& MantleLedgeWS, EALSMantleType MantleType)
+{
+	
 }
 
 void UALSMantleComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
