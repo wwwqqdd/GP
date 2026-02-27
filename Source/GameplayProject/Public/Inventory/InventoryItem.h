@@ -88,13 +88,6 @@ public:
     UFUNCTION(BlueprintPure, Category = "Inventory|Item")
     EItemState GetItemState() const { return ItemState; }
     
-    // 自定义属性
-    UFUNCTION(BlueprintCallable, Category = "Inventory|Item")
-    void SetCustomProperty(FName PropertyName, float Value);
-    
-    UFUNCTION(BlueprintPure, Category = "Inventory|Item")
-    float GetCustomProperty(FName PropertyName, float DefaultValue = 0.0f) const;
-    
     // 使用相关
     UFUNCTION(BlueprintCallable, Category = "Inventory|Item")
     bool CanUse() const;
@@ -118,16 +111,12 @@ public:
     
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory|Item")
     FName ItemID;
-    
-    // 耐久度等自定义属性
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory|Item")
-    TMap<FName, float> CustomProperties;
-    
 private:
     // 物品数据
     UPROPERTY()
     FItemData ItemData;
-    
+
+	UPROPERTY()
     float LastUsedTime;
 	
     const UItemDefinition* GetItemDefinition() const;

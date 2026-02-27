@@ -42,8 +42,7 @@ struct FInventorySlot
     
 	// 是否为空
 	bool IsEmpty() const;
-    
-	// 清空槽位
+	
 	void Clear()
 	{
 		Item = nullptr;
