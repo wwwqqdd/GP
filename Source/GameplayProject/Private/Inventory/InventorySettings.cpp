@@ -2,30 +2,44 @@
 
 
 #include "Inventory/InventorySettings.h"
+
+#include "IDetailTreeNode.h"
 #include "Inventory/ItemDefinition.h"
 
 
 const UItemDefinition* UInventorySettings::GetItemDefinition() const
 {
-	return ItemDataAsset.LoadSynchronous();
+	if (!ItemDataAsset.IsNull())
+	{
+		return ItemDataAsset.LoadSynchronous();
+	}
+	return nullptr;
 }
 
 const UConsumableItem* UInventorySettings::GetConsumableItem() const
 {
-	return ConsumableDataAsset.LoadSynchronous();
+	if (!ConsumableDataAsset.IsNull())
+	{
+		return ConsumableDataAsset.LoadSynchronous();
+	}
+	return nullptr;
 }
 
 bool UInventorySettings::GetItemData(FName ItemID, FItemData& OutItemData) const
 {
-	const UItemDefinition* ItemDefinition = GetItemDefinition();
-    
-	if (!ItemDefinition || !ItemDefinition->ItemDataMap.Contains(ItemID))
+	const UItemDefinition* ItemDef = GetItemDefinition();
+	if (!ItemDef)
 	{
 		return false;
 	}
-    
-	OutItemData = ItemDefinition->ItemDataMap[ItemID];
-	return true;
+
+	const FItemData* Found = ItemDef->ItemDataMap.Find(ItemID);
+	if (Found)
+	{
+		OutItemData = *Found;
+		return true;
+	}
+	return false;
 }
 
 

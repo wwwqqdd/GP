@@ -5,12 +5,12 @@
 #include "Inventory/InventorySettings.h"
 
 AInventoryItem::AInventoryItem()
-    : Quantity(1)
-    , ItemState(EItemState::Normal)
-    , LastUsedTime(0.0f)
 {
     PrimaryActorTick.bCanEverTick = false;
+    Quantity = 1;
+    ItemState = EItemState::Normal;
     UniqueID = FGuid::NewGuid();
+    LastUsedTime = 0.0f;
 }
 
 void AInventoryItem::Initialize(FName InItemID, int32 InQuantity)
