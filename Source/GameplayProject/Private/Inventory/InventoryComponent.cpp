@@ -179,15 +179,11 @@ int32 UInventoryComponent::AddItemWithData(const FItemData& ItemData, int32 Quan
 
 int32 UInventoryComponent::RemoveItem(const FName& ItemID, int32 Quantity)
 {
-	if (Quantity <= 0 || ItemID == NAME_None)
-	{
-		return 0;
-	}
-
+	if (Quantity <= 0 || ItemID == NAME_None) return 0;
+	
 	int32 RemovedQuantity = 0;
 	int32 RemainingToRemove = Quantity;
-
-	// 遍历所有库存槽位，查找对应物品
+	
 	for (int32 i = 0; i < InventorySlots.Num() && RemainingToRemove > 0; ++i)
 	{
 		FInventorySlot& Slot = InventorySlots[i];
@@ -195,15 +191,12 @@ int32 UInventoryComponent::RemoveItem(const FName& ItemID, int32 Quantity)
 		{
 			continue;
 		}
-
 		int32 RemovedFromSlot = RemoveItemFromSlot(i, RemainingToRemove);
 		RemovedQuantity += RemovedFromSlot;
 		RemainingToRemove -= RemovedFromSlot;
 	}
-
 	return RemovedQuantity;
 }
-
 
 int32 UInventoryComponent::RemoveItemFromSlot(int32 SlotIndex, int32 Quantity)
 {
@@ -479,7 +472,7 @@ int32 UInventoryComponent::FindEmptySlot(ESlotType SlotType) const
 {
 	for (int32 i = 0; i < InventorySlots.Num(); ++i)
 	{
-		const FInventorySlot& Slot = InventorySlots[i];
+		const FInventorySlot& Slot = GetInventorySlot(i);
 		if (Slot.SlotType == SlotType && Slot.IsEmpty() && !Slot.bIsLocked)
 		{
 			return i;
@@ -546,7 +539,7 @@ bool UInventoryComponent::HasEnoughSpace(FName ItemID, int32 Quantity) const
 			continue;
 		}
 
-		if (!Slot.IsEmpty() && Slot.Item->GetItemID() == ItemID && Slot.Item->CanStack())
+		if (Slot.Item->GetItemID() == ItemID && Slot.Item->CanStack())
 		{
 			RemainingStackSpace += Slot.Item->GetRemainingStackSpace();
 		}
