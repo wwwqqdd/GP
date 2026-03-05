@@ -9,9 +9,6 @@
 
 class UGameplayEffect;
 
-/**
- * 
- */
 USTRUCT(BlueprintType)
 struct FConsumableItemData
 {

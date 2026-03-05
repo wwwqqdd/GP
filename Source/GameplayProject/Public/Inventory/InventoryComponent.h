@@ -36,9 +36,6 @@ public:
     int32 AddItem(FName ItemID, int32 Quantity, bool bForceToSpecificSlot = false, int32 TargetSlotIndex = -1);
     
     UFUNCTION(BlueprintCallable, Category = "Inventory")
-    int32 AddItemWithData(const FItemData& ItemData, int32 Quantity, bool bForceToSpecificSlot = false, int32 TargetSlotIndex = -1);
-    
-    UFUNCTION(BlueprintCallable, Category = "Inventory")
     int32 RemoveItem(const FName& ItemID, int32 Quantity);
     
     UFUNCTION(BlueprintCallable, Category = "Inventory")

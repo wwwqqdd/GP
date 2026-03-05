@@ -84,97 +84,94 @@ int32 UInventoryComponent::AddItem(FName ItemID, int32 Quantity, bool bForceToSp
 	FItemData ItemData;
 	if (!GetItemData(ItemID, ItemData)) return 0;
 	
-	return AddItemWithData(ItemData, Quantity, bForceToSpecificSlot, TargetSlotIndex);
-}
-
-int32 UInventoryComponent::AddItemWithData(const FItemData& ItemData, int32 Quantity, bool bForceToSpecificSlot, int32 TargetSlotIndex)
-{
-	if (Quantity <= 0 || ItemData.ItemID == NAME_None) return 0;
+	int32 AddedQuantity = 0;
+	int32 RemainingToAdd = Quantity;
 	
-	int32 RemainingQuantity = Quantity;
-	UWorld* World = GetWorld();
-	if (!World) return 0;
-	
-	if (bForceToSpecificSlot && IsValidSlotIndex(TargetSlotIndex))
+	if (bForceToSpecificSlot)
 	{
-		FInventorySlot& TargetSlot = InventorySlots[TargetSlotIndex];
-		if (TargetSlot.bIsLocked)
+		if (IsValidSlotIndex(TargetSlotIndex) && !InventorySlots[TargetSlotIndex].bIsLocked)
 		{
-			return 0;
-		}
-		AInventoryItem* NewItem = World->SpawnActor<AInventoryItem>(AInventoryItem::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
-		
-		if (TargetSlot.IsEmpty())
-		{
-			if (NewItem)
+			FInventorySlot& TargetSlot = InventorySlots[TargetSlotIndex];
+			
+			if (TargetSlot.IsEmpty())
 			{
-				NewItem->InitializeWithData(ItemData, FMath::Min(RemainingQuantity, ItemData.MaxStackSize));
-				TargetSlot.Item = NewItem;
-				RemainingQuantity -= NewItem->Quantity;
-
-				OnItemAdded.Broadcast(ItemData.ItemID, NewItem->Quantity);
-				NotifyInventoryChanged(TargetSlotIndex);
+				// 创建物品实例
+				AInventoryItem* NewItem = GetWorld()->SpawnActor<AInventoryItem>(AInventoryItem::StaticClass());
+				if (NewItem)
+				{
+					NewItem->Initialize(ItemID, FMath::Min(RemainingToAdd, ItemData.MaxStackSize));
+					TargetSlot.Item = NewItem;
+					
+					AddedQuantity = NewItem->Quantity;
+					RemainingToAdd -= AddedQuantity;
+					
+					OnItemAdded.Broadcast(ItemID, AddedQuantity);
+					NotifyInventoryChanged(TargetSlotIndex);
+				}
+			}
+			else if (TargetSlot.Item->GetItemID() == ItemID && TargetSlot.Item->CanStack())
+			{ 
+				int32 StackableAmount = FMath::Min(RemainingToAdd, TargetSlot.Item->GetRemainingStackSpace());
+				if (StackableAmount > 0)
+				{
+					TargetSlot.Item->AddQuantity(StackableAmount);
+					AddedQuantity += StackableAmount;
+					RemainingToAdd -= StackableAmount;
+					
+					OnItemAdded.Broadcast(ItemID, StackableAmount);
+					NotifyInventoryChanged(TargetSlotIndex);
+				}
 			}
 		}
-		else if (TargetSlot.Item->CanMergeWith(NewItem)) 
-		{
-			AInventoryItem* ExistingItem = TargetSlot.Item;
-			int32 AddedAmount = ExistingItem->AddQuantity(RemainingQuantity);
-			RemainingQuantity -= AddedAmount;
-
-			OnItemAdded.Broadcast(ItemData.ItemID, AddedAmount);
-			NotifyInventoryChanged(TargetSlotIndex);
-		}
-
-		return Quantity - RemainingQuantity;
+		return AddedQuantity;
 	}
-
+	
 	if (ItemData.bCanStack)
 	{
-		int32 StackableSlotIndex = FindStackableSlot(ItemData.ItemID);
-		while (RemainingQuantity > 0 && StackableSlotIndex != -1)
+		int32 StackableSlotIndex = FindStackableSlot(ItemID);
+		while (RemainingToAdd > 0 && StackableSlotIndex != -1)
 		{
 			FInventorySlot& StackSlot = InventorySlots[StackableSlotIndex];
-			AInventoryItem* ExistingItem = StackSlot.Item;
-
-			int32 AddedAmount = ExistingItem->AddQuantity(RemainingQuantity);
-			RemainingQuantity -= AddedAmount;
-
-			OnItemAdded.Broadcast(ItemData.ItemID, AddedAmount);
-			NotifyInventoryChanged(StackableSlotIndex);
+			AInventoryItem* StackItem = StackSlot.Item;
 			
-			StackableSlotIndex = FindStackableSlot(ItemData.ItemID);
+			// 计算可堆叠的数量
+			int32 StackableAmount = FMath::Min(RemainingToAdd, StackItem->GetRemainingStackSpace());
+			if (StackableAmount > 0)
+			{
+				StackItem->AddQuantity(StackableAmount);
+				AddedQuantity += StackableAmount;
+				RemainingToAdd -= StackableAmount;
+				
+				OnItemAdded.Broadcast(ItemID, StackableAmount);
+				NotifyInventoryChanged(StackableSlotIndex);
+			}
+			
+			StackableSlotIndex = FindStackableSlot(ItemID);
 		}
 	}
 	
-	while (RemainingQuantity > 0)
+	while (RemainingToAdd > 0)
 	{
 		int32 EmptySlotIndex = FindEmptySlot(ESlotType::Inventory);
-		if (EmptySlotIndex == -1)
-		{
-			break;
-		}
+		if (EmptySlotIndex == -1) break; // 无空槽位，停止添加
 
 		FInventorySlot& EmptySlot = InventorySlots[EmptySlotIndex];
-		int32 AddAmount = FMath::Min(RemainingQuantity, ItemData.MaxStackSize);
 		
-		AInventoryItem* NewItem = World->SpawnActor<AInventoryItem>(AInventoryItem::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
-		if (NewItem)
-		{
-			NewItem->InitializeWithData(ItemData, AddAmount);
-			EmptySlot.Item = NewItem;
-			RemainingQuantity -= AddAmount;
+		AInventoryItem* NewItem = GetWorld()->SpawnActor<AInventoryItem>(AInventoryItem::StaticClass());
+		if (!NewItem) break;
+		
+		int32 AddAmount = FMath::Min(RemainingToAdd, ItemData.MaxStackSize);
+		NewItem->Initialize(ItemID, AddAmount);
+		EmptySlot.Item = NewItem;
 
-			OnItemAdded.Broadcast(ItemData.ItemID, AddAmount);
-			NotifyInventoryChanged(EmptySlotIndex);
-		}
-		else
-		{
-			break;
-		}
+		AddedQuantity += AddAmount;
+		RemainingToAdd -= AddAmount;
+
+		OnItemAdded.Broadcast(ItemID, AddAmount);
+		NotifyInventoryChanged(EmptySlotIndex);
 	}
 
-	return Quantity - RemainingQuantity;
+	return AddedQuantity;
 }
 
 int32 UInventoryComponent::RemoveItem(const FName& ItemID, int32 Quantity)
@@ -202,23 +199,16 @@ int32 UInventoryComponent::RemoveItemFromSlot(int32 SlotIndex, int32 Quantity)
 {
 	if (!IsValidSlotIndex(SlotIndex) || Quantity <= 0) return 0;
 	
-
 	FInventorySlot& Slot = InventorySlots[SlotIndex];
 	if (Slot.IsEmpty() || Slot.bIsLocked) return 0;
 
 	AInventoryItem* Item = Slot.Item;
 	int32 ActualRemoved = Item->RemoveQuantity(Quantity);
-
-	// 物品数量为0时，清空槽位并销毁物品
+	
 	if (Item->Quantity <= 0)
 	{
-		Item->Destroy();
-		Slot.Clear();
+		ClearSlot(SlotIndex);
 	}
-
-	OnItemRemoved.Broadcast(Item->GetItemID(), ActualRemoved);
-	NotifyInventoryChanged(SlotIndex);
-
 	return ActualRemoved;
 }
 
@@ -258,7 +248,6 @@ bool UInventoryComponent::SplitItemInSlot(int32 SourceSlotIndex, int32 SplitAmou
 	}
 
 	if (FinalTargetSlotIndex == -1 || InventorySlots[FinalTargetSlotIndex].bIsLocked) return false;
-	
 
 	FInventorySlot& TargetSlot = InventorySlots[FinalTargetSlotIndex];
 	if (!TargetSlot.IsEmpty()) return false;
@@ -422,17 +411,10 @@ FInventorySlot UInventoryComponent::GetEquippedItemInSlot(EEquipmentSlot Equipme
 bool UInventoryComponent::UseItem(int32 SlotIndex)
 {
 	if (!IsValidSlotIndex(SlotIndex))  return false;
-	
 	FInventorySlot& Slot = InventorySlots[SlotIndex];
 	if (Slot.IsEmpty()) return false;
-
 	AInventoryItem* Item = Slot.Item;
-	
-	// 额外检查Item指针的有效性
-	if (!IsValid(Item)) return false;
-	
-	if (!Item->CanUse())  return false;
-
+	if (!IsValid(Item) && !Item->CanUse()) return false;
 	
 	bool bUseSuccess = false;
 	switch (Item->GetItemData().ItemType)
@@ -624,7 +606,6 @@ int32 UInventoryComponent::GetEquipmentSlotIndex(EEquipmentSlot EquipmentSlot) c
 			}
 		}
 	}
-
 	return -1;
 }
 
@@ -640,10 +621,8 @@ bool UInventoryComponent::ApplyConsumableEffect(AInventoryItem* ConsumableItem)
 {
 	if (!ConsumableItem || ConsumableItem->GetItemData().ItemType != EItemType::Consumable) return false;
 	
-
 	ACharacter* OwnerCharacter = Cast<ACharacter>(GetOwner());
 	if (!OwnerCharacter) return false;
-	
 	
 	const UInventorySettings* InventorySettings = GetDefault<UInventorySettings>();
 	if (!InventorySettings) return false;
@@ -651,12 +630,10 @@ bool UInventoryComponent::ApplyConsumableEffect(AInventoryItem* ConsumableItem)
 	const UConsumableItem* ConsumableData = InventorySettings->GetConsumableItem();
 	if (!ConsumableData) return false;
 	
-	
 	const FName TargetItemID = ConsumableItem->GetItemID();
 	UAbilitySystemComponent* ASC = OwnerCharacter->GetComponentByClass<UAbilitySystemComponent>();
 	if (!ASC) return false;
 	
-
 	for (const FConsumableItemData& Data : ConsumableData->ConsumableItems)
 	{
 		if (Data.ConsumableItemData.ItemID != TargetItemID || !Data.Effect)
