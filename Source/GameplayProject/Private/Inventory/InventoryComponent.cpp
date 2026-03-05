@@ -1,6 +1,6 @@
 #include "Inventory/InventoryComponent.h"
 #include "AbilitySystemComponent.h"
-#include "GameFramework/Character.h"
+#include "GameplayProjectCharacter.h"
 #include "Engine/World.h"
 #include "Inventory/ConsumableItem.h"
 #include "Inventory/InventoryItem.h"
@@ -621,7 +621,7 @@ bool UInventoryComponent::ApplyConsumableEffect(AInventoryItem* ConsumableItem)
 {
 	if (!ConsumableItem || ConsumableItem->GetItemData().ItemType != EItemType::Consumable) return false;
 	
-	ACharacter* OwnerCharacter = Cast<ACharacter>(GetOwner());
+	AGameplayProjectCharacter* OwnerCharacter = Cast<AGameplayProjectCharacter>(GetOwner());
 	if (!OwnerCharacter) return false;
 	
 	const UInventorySettings* InventorySettings = GetDefault<UInventorySettings>();
@@ -631,8 +631,8 @@ bool UInventoryComponent::ApplyConsumableEffect(AInventoryItem* ConsumableItem)
 	if (!ConsumableData) return false;
 	
 	const FName TargetItemID = ConsumableItem->GetItemID();
-	UAbilitySystemComponent* ASC = OwnerCharacter->GetComponentByClass<UAbilitySystemComponent>();
-	if (!ASC) return false;
+	UAbilitySystemComponent* ASC = OwnerCharacter->GetAbilitySystemComponent();
+	if (ASC) return true;
 	
 	for (const FConsumableItemData& Data : ConsumableData->ConsumableItems)
 	{
@@ -644,7 +644,8 @@ bool UInventoryComponent::ApplyConsumableEffect(AInventoryItem* ConsumableItem)
 		UGameplayEffect* DefaultGameplayEffect = Data.Effect->GetDefaultObject<UGameplayEffect>();
 		if (!DefaultGameplayEffect)
 		{
-			continue;
+			UE_LOG(LogTemp, Error, TEXT("DefaultGameplayEffect is null!"));
+			return false;
 		}
 		
 		FGameplayEffectContextHandle EffectContext = ASC->MakeEffectContext();
