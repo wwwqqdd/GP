@@ -5,7 +5,6 @@
 
 UConversationComponent::UConversationComponent()
 {
-	
 	PrimaryComponentTick.bCanEverTick = false;
 }
 

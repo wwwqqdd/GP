@@ -20,8 +20,7 @@ struct GAMEPLAYPROJECT_API FConversationBranchOption
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
 	FString Option;
-
-	/** 对应跳转的节点ID */
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
 	FString TargetNodeID;
 	
@@ -29,9 +28,8 @@ struct GAMEPLAYPROJECT_API FConversationBranchOption
 	FGameplayTagContainer EnableConditionTags;
 
 	/** 分支被选中时触发的蓝图委托 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
-	FConversationBlueprintDelegate OnOptionSelected;
-	
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
+	//FConversationBlueprintDelegate OnOptionSelected;
 };
 /**
  * 
@@ -53,29 +51,6 @@ struct GAMEPLAYPROJECT_API FConversationNodeData : public FTableRowBase
 	/** 对话文本 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
 	FText DialogueText;
-
-	/** 文本显示速度（字符/秒，0=瞬间显示） */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
-	float TextDisplaySpeed = 30.0f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
-	float DisplayDuration = 0.0f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
-	TArray<FString> NextNodeIDs;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Audio")
-	USoundBase* VoiceSoundAsset;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Audio")
-	float VoiceVolume = 0.8f;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Audio")
-	float VoicePlayDelay = 0.0f;
-
-	/** 是否同步文本显示和语音播放 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Audio")
-	bool bSyncTextWithVoice = true;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
 	bool IsSkipable = true;
@@ -83,7 +58,7 @@ struct GAMEPLAYPROJECT_API FConversationNodeData : public FTableRowBase
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
 	bool bIsEndNode = false;
 
-	/** 对话分支选项列表（为空则线性跳转NextNodeID） */
+	/** 对话分支选项列表（为空则线性跳转DefaultNextNodeID） */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
 	TArray<FConversationBranchOption> BranchOptions;
 
@@ -92,21 +67,33 @@ struct GAMEPLAYPROJECT_API FConversationNodeData : public FTableRowBase
 	FString DefaultNextNodeID;
 };
 
-/*USTRUCT(BlueprintType)
-struct GAMEPLAYPROJECT_API FConversation
+USTRUCT(BlueprintType)
+struct GAMEPLAYPROJECT_API FConversationTreeDefinition : public FTableRowBase
 {
-    GENERATED_BODY()
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
-    FString DialogueTreeID;
+	GENERATED_BODY()
 	
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Condition")
-    FGameplayTagContainer ExecuteConditionTags;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
+	FName DialogueTreeID;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Condition")
-    FGameplayTagContainer TagsToAddAfterExecute;
+	// 触发该对话树所需满足的标签条件（与已有系统兼容）
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Condition")
+	FGameplayTagContainer ExecuteConditionTags;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Condition")
-    FGameplayTagContainer TagsToRemoveAfterExecute;
+	// 对话树开始前/结束后自动修改的标签
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Condition")
+	FGameplayTagContainer TagsToAddOnStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Condition")
+	FGameplayTagContainer TagsToRemoveOnStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Condition")
+	FGameplayTagContainer TagsToAddOnEnd;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Condition")
+	FGameplayTagContainer TagsToRemoveOnEnd;
+
+	// 节点列表（可由外部DataTable引用，也可以直接内嵌）
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Nodes")
+	TArray<FDataTableRowHandle> NodeReferences;
 };
-*/
 
