@@ -98,7 +98,11 @@ public:
     // 装备相关
     UFUNCTION(BlueprintPure, Category = "Inventory|Item")
     EEquipmentSlot GetEquipmentSlot() const { return ItemData.EquipmentSlot; }
-    
+
+    // 对象池相关
+    UFUNCTION(BlueprintCallable, Category = "Inventory|Item")
+    void Reset();
+
     // 运行时数据
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory|Item")
     int32 Quantity;

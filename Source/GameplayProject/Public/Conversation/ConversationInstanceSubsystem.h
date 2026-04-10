@@ -35,8 +35,8 @@ public:
 	/**
 	 * 获取当前对话可用的分支选项（过滤条件后的）
 	 */
-	UFUNCTION(BlueprintCallable, Category = "Conversation|Query")
-	TArray<FConversationBranchOption> GetAvailableBranchOptions(const FString& DialogueTreeID, AActor* TargetActor) const;
+	//UFUNCTION(BlueprintCallable, Category = "Conversation|Query")
+	//TArray<FConversationBranchOption> GetAvailableBranchOptions(const FString& DialogueTreeID, AActor* TargetActor) const;
 
 	UFUNCTION(BlueprintCallable, Category = "Conversation|Query")
 	bool IsDialogueActive(const FString& DialogueTreeID, AActor* TargetActor) const;
@@ -57,9 +57,9 @@ public:
 private:
 	void LoadDialogueTrees();
 	
-	const FConversationTreeDefinition* FindDialogueTree(const FString& DialogueTreeID) const;
+	//const FConversationTreeDefinition* FindDialogueTree(const FString& DialogueTreeID) const;
 	
-	const FConversationNodeData* FindNodeData(const FConversationTreeDefinition* TreeDef, const FString& NodeID) const;
+	//const FConversationNodeData* FindNodeData(const FConversationTreeDefinition* TreeDef, const FString& NodeID) const;
 
 	UPROPERTY()
 	TMap<FString, FConversationNodeData> ActiveConversations;

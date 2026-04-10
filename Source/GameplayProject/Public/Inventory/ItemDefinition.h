@@ -107,6 +107,32 @@ struct FItemData
     {}
 };
 
+/** 批量添加物品数据结构 */
+USTRUCT(BlueprintType)
+struct FItemAddData
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
+    FName ItemID;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
+    int32 Quantity;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
+    bool bForceToSpecificSlot;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
+    int32 TargetSlotIndex;
+
+    FItemAddData()
+        : ItemID(NAME_None)
+        , Quantity(1)
+        , bForceToSpecificSlot(false)
+        , TargetSlotIndex(-1)
+    {}
+};
+
 UCLASS(Blueprintable, BlueprintType)
 class GAMEPLAYPROJECT_API UItemDefinition : public UPrimaryDataAsset
 {

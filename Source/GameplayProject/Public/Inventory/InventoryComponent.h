@@ -25,6 +25,7 @@ public:
 
 protected:
     virtual void BeginPlay() override;
+    virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 public:
     // ========== 库存初始化 ==========
@@ -130,15 +131,65 @@ private:
 
     // 获取物品定义
     const UItemDefinition* GetItemDefinition() const;
-    
+
     // 根据ItemID获取物品数据
     bool GetItemData(FName ItemID, FItemData& OutItemData) const;
-    
+
     /** 获取装备槽位对应的索引 */
     int32 GetEquipmentSlotIndex(EEquipmentSlot EquipmentSlot) const;
-    
+
     /** 触发库存变更事件 */
     void NotifyInventoryChanged(int32 SlotIndex);
-    
-    /** 应用消耗品效果 */
+
+    /** 槽位查询优化相关方法 */
+    void UpdateSlotIndices(int32 SlotIndex);
+    void RemoveFromIndices(int32 SlotIndex);
+    void RebuildAllIndices();
+
+    /** 对象池相关方法 */
+    AInventoryItem* CreateItemFromPool(TSubclassOf<AInventoryItem> ItemClass);
+    void ReturnItemToPool(AInventoryItem* Item);
+
+    /** 批量操作优化 */
+    UFUNCTION(BlueprintCallable, Category = "Inventory")
+    void BeginBatchEvents();
+
+    UFUNCTION(BlueprintCallable, Category = "Inventory")
+    void EndBatchEvents();
+
+    UFUNCTION(BlueprintCallable, Category = "Inventory")
+    void AddItemsBulk(const TArray<FItemAddData>& ItemsToAdd);
+
+private:
+    /** 槽位查询优化索引 */
+    TMap<ESlotType, TArray<int32>*> EmptySlotsByIndex;
+
+    TMap<FName, TArray<int32>*> ItemSlotsById;
+
+    UPROPERTY()
+    TMap<EEquipmentSlot, int32> EquipmentSlotIndices;
+
+    /** 对象池 */
+    UPROPERTY()
+    TArray<AInventoryItem*> ItemPool;
+
+    TMap<TSubclassOf<AInventoryItem>, TArray<AInventoryItem*>*> ItemsPoolByClass;
+
+    /** 事件批处理 */
+    UPROPERTY()
+    bool bEventsBatched;
+
+    UPROPERTY()
+    TSet<int32> BatchedChangedSlots;
+
+    /** 延迟清理队列 */
+    UPROPERTY()
+    TArray<AInventoryItem*> PendingDestroyItems;
+
+    /** 清理对象池 */
+    UFUNCTION()
+    void CleanupItemPool();
+
+    /** 对象池清理定时器 */
+    FTimerHandle CleanupTimerHandle;
 };

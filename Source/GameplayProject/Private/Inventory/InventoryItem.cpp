@@ -163,6 +163,21 @@ void AInventoryItem::MarkUsed()
     }
 }
 
+void AInventoryItem::Reset()
+{
+    // 重置物品状态到初始值
+    Quantity = 1;
+    ItemState = EItemState::Normal;
+    ItemID = NAME_None;
+    LastUsedTime = 0.0f;
+
+    // 清除物品数据
+    ItemData = FItemData();
+
+    // 生成新的唯一ID
+    UniqueID = FGuid::NewGuid();
+}
+
 const UItemDefinition* AInventoryItem::GetItemDefinition() const
 {
     const UInventorySettings* Settings = GetDefault<UInventorySettings>();
