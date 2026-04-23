@@ -146,10 +146,6 @@ private:
     void RemoveFromIndices(int32 SlotIndex);
     void RebuildAllIndices();
 
-    /** 对象池相关方法 */
-    AInventoryItem* CreateItemFromPool(TSubclassOf<AInventoryItem> ItemClass);
-    void ReturnItemToPool(AInventoryItem* Item);
-
     /** 批量操作优化 */
     UFUNCTION(BlueprintCallable, Category = "Inventory")
     void BeginBatchEvents();
@@ -169,27 +165,10 @@ private:
     UPROPERTY()
     TMap<EEquipmentSlot, int32> EquipmentSlotIndices;
 
-    /** 对象池 */
-    UPROPERTY()
-    TArray<AInventoryItem*> ItemPool;
-
-    TMap<TSubclassOf<AInventoryItem>, TArray<AInventoryItem*>*> ItemsPoolByClass;
-
     /** 事件批处理 */
     UPROPERTY()
     bool bEventsBatched;
 
     UPROPERTY()
     TSet<int32> BatchedChangedSlots;
-
-    /** 延迟清理队列 */
-    UPROPERTY()
-    TArray<AInventoryItem*> PendingDestroyItems;
-
-    /** 清理对象池 */
-    UFUNCTION()
-    void CleanupItemPool();
-
-    /** 对象池清理定时器 */
-    FTimerHandle CleanupTimerHandle;
 };

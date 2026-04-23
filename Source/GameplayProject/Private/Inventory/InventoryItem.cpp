@@ -163,7 +163,7 @@ void AInventoryItem::MarkUsed()
     }
 }
 
-void AInventoryItem::Reset()
+void AInventoryItem::Reset_Implementation()
 {
     // 重置物品状态到初始值
     Quantity = 1;
@@ -176,6 +176,24 @@ void AInventoryItem::Reset()
 
     // 生成新的唯一ID
     UniqueID = FGuid::NewGuid();
+}
+
+void AInventoryItem::OnCreated_Implementation()
+{
+    // 对象被创建时的处理
+    UE_LOG(LogTemp, Log, TEXT("AInventoryItem: Item created"));
+}
+
+void AInventoryItem::OnPooled_Implementation()
+{
+    // 对象被回收到池时的处理
+    UE_LOG(LogTemp, Log, TEXT("AInventoryItem: Item returned to pool"));
+}
+
+void AInventoryItem::OnUnpooled_Implementation()
+{
+    // 对象从池中取出时的处理
+    UE_LOG(LogTemp, Log, TEXT("AInventoryItem: Item taken from pool"));
 }
 
 const UItemDefinition* AInventoryItem::GetItemDefinition() const

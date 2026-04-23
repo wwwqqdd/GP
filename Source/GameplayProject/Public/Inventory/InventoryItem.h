@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "ItemDefinition.h"
+#include "ObjectPool/PoolableInterface.h"
 #include "InventoryItem.generated.h"
 
 // 物品状态
@@ -20,7 +21,7 @@ enum class EItemState : uint8
  * 
  */
 UCLASS(Blueprintable)
-class GAMEPLAYPROJECT_API AInventoryItem : public AActor
+class GAMEPLAYPROJECT_API AInventoryItem : public AActor, public IPoolableInterface
 {
 	GENERATED_BODY()
     
@@ -99,9 +100,11 @@ public:
     UFUNCTION(BlueprintPure, Category = "Inventory|Item")
     EEquipmentSlot GetEquipmentSlot() const { return ItemData.EquipmentSlot; }
 
-    // 对象池相关
-    UFUNCTION(BlueprintCallable, Category = "Inventory|Item")
-    void Reset();
+    // 对象池相关 - 实现IPoolableInterface
+    virtual void Reset_Implementation() override;
+    virtual void OnCreated_Implementation() override;
+    virtual void OnPooled_Implementation() override;
+    virtual void OnUnpooled_Implementation() override;
 
     // 运行时数据
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory|Item")

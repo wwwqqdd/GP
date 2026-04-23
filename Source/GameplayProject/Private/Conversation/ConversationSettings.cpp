@@ -5,7 +5,7 @@
 
 UDataTable* UConversationSettings::GetConversationDataTable()
 {
-	if (!ConversationDataTable.IsValid())
+	if (ConversationDataTable.IsNull())
 	{
 		return nullptr;
 	}
@@ -14,7 +14,7 @@ UDataTable* UConversationSettings::GetConversationDataTable()
 
 UDataTable* UConversationSettings::GetConversationTreeDataTable()
 {
-	if (!ConversationTreeDataTable.IsValid())
+	if (ConversationTreeDataTable.IsNull())
 	{
 		return nullptr;
 	}

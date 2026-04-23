@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Engine/DataTable.h"
 #include "GameplayTagContainer.h"
 #include "ConversationDefinition.generated.h"
 
