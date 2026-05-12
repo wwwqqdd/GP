@@ -56,8 +56,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Conversation|Query")
 	bool GetCurrentNodeData(const FString& DialogueTreeID, AActor* TargetActor, FConversationNodeData& OutNodeData) const;
 
-	// UFUNCTION(BlueprintCallable, Category = "Conversation|Query")
-	// TArray<FConversationBranchOption> GetAvailableBranchOptions(const FString& DialogueTreeID, AActor* TargetActor) const;
+	UFUNCTION(BlueprintCallable, Category = "Conversation|Query")
+	TArray<FConversationBranchOption> GetAvailableBranchOptions(const FString& DialogueTreeID, AActor* TargetActor) const;
 
 	UFUNCTION(BlueprintCallable, Category = "Conversation|Query")
 	bool IsDialogueActive(const FString& DialogueTreeID, AActor* TargetActor) const;

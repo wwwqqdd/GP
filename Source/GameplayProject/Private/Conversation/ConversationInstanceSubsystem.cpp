@@ -305,6 +305,43 @@ bool UConversationInstanceSubsystem::IsDialogueActive(const FString& DialogueTre
 	return ActiveConversations.Contains(BuildConversationSessionKey(DialogueTreeID, TargetActor));
 }
 
+TArray<FConversationBranchOption> UConversationInstanceSubsystem::GetAvailableBranchOptions(const FString& DialogueTreeID, AActor* TargetActor) const
+{
+	TArray<FConversationBranchOption> AvailableOptions;
+	
+	if (DialogueTreeID.IsEmpty() || TargetActor == nullptr)
+	{
+		return AvailableOptions;
+	}
+
+	const FString SessionKey = BuildConversationSessionKey(DialogueTreeID, TargetActor);
+	const FConversationRuntimeState* RuntimeState = ActiveConversations.Find(SessionKey);
+	if (RuntimeState == nullptr)
+	{
+		UE_LOG(LogGameplayProject, Warning, TEXT("GetAvailableBranchOptions failed: dialogue '%s' is not active for target '%s'."),
+			*DialogueTreeID, *GetPathNameSafe(TargetActor));
+		return AvailableOptions;
+	}
+
+	// 如果当前节点没有分支选项，返回空数组
+	if (RuntimeState->CurrentNodeData.BranchOptions.IsEmpty())
+	{
+		return AvailableOptions;
+	}
+
+	// 过滤出满足条件的分支选项
+	for (const FConversationBranchOption& BranchOption : RuntimeState->CurrentNodeData.BranchOptions)
+	{
+		// 检查是否满足标签条件
+		if (ConversationSubsystemPrivate::HasRequiredTags(TargetActor, BranchOption.EnableConditionTags))
+		{
+			AvailableOptions.Add(BranchOption);
+		}
+	}
+
+	return AvailableOptions;
+}
+
 void UConversationInstanceSubsystem::LoadDialogueTrees()
 {
 	CachedDialogueTrees.Empty();
