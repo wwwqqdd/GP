@@ -21,44 +21,10 @@ void UInventoryComponent::BeginPlay()
 	{
 		InitializeInventory(InventorySize, EquipmentSlotCount, QuickAccessSize);
 	}
-
-	// 设置对象池清理定时器（每30秒清理一次）
-	if (GetWorld())
-	{
-		GetWorld()->GetTimerManager().SetTimer(CleanupTimerHandle, this, &UInventoryComponent::CleanupItemPool, 30.0f, true);
-	}
 }
 
 void UInventoryComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
-	// 清理定时器
-	if (CleanupTimerHandle.IsValid() && GetWorld())
-	{
-		GetWorld()->GetTimerManager().ClearTimer(CleanupTimerHandle);
-	}
-
-	// 清理对象池
-	CleanupItemPool();
-
-	// 清理所有对象池中的项目
-	for (auto& Pair : ItemsPoolByClass)
-	{
-		TArray<AInventoryItem*>* Pool = Pair.Value;
-		if (Pool)
-		{
-			for (AInventoryItem* Item : *Pool)
-			{
-				if (IsValid(Item))
-				{
-					Item->Destroy();
-				}
-			}
-			delete Pool;
-			Pool = nullptr;
-		}
-	}
-	ItemsPoolByClass.Empty();
-
 	// 清理索引中的动态分配数组
 	for (auto& Pair : EmptySlotsByIndex)
 	{
@@ -180,19 +146,7 @@ int32 UInventoryComponent::AddItem(FName ItemID, int32 Quantity, bool bForceToSp
 			
 			if (TargetSlot.IsEmpty())
 			{
-				// 创建物品实例（使用对象池）
-				AInventoryItem* NewItem = CreateItemFromPool(AInventoryItem::StaticClass());
-				if (NewItem)
-				{
-					NewItem->Initialize(ItemID, FMath::Min(RemainingToAdd, ItemData.MaxStackSize));
-					TargetSlot.Item = NewItem;
-					
-					AddedQuantity = NewItem->Quantity;
-					RemainingToAdd -= AddedQuantity;
-					
-					OnItemAdded.Broadcast(ItemID, AddedQuantity);
-					NotifyInventoryChanged(TargetSlotIndex);
-				}
+				
 			}
 			else if (TargetSlot.Item->GetItemID() == ItemID && TargetSlot.Item->CanStack())
 			{ 
@@ -241,18 +195,6 @@ int32 UInventoryComponent::AddItem(FName ItemID, int32 Quantity, bool bForceToSp
 		if (EmptySlotIndex == -1) break; // 无空槽位，停止添加
 
 		FInventorySlot& EmptySlot = InventorySlots[EmptySlotIndex];
-		
-		AInventoryItem* NewItem = CreateItemFromPool(AInventoryItem::StaticClass());
-		if (!NewItem) break;
-		
-		int32 AddAmount = FMath::Min(RemainingToAdd, ItemData.MaxStackSize);
-		NewItem->Initialize(ItemID, AddAmount);
-		EmptySlot.Item = NewItem;
-
-		AddedQuantity += AddAmount;
-		RemainingToAdd -= AddAmount;
-
-		OnItemAdded.Broadcast(ItemID, AddAmount);
 		NotifyInventoryChanged(EmptySlotIndex);
 	}
 
@@ -308,7 +250,6 @@ void UInventoryComponent::ClearSlot(int32 SlotIndex)
 	if (Slot.Item)
 	{
 		OnItemRemoved.Broadcast(Slot.Item->GetItemID(), Slot.Item->Quantity);
-		ReturnItemToPool(Slot.Item);
 		Slot.Item = nullptr;
 	}
 
@@ -500,7 +441,7 @@ bool UInventoryComponent::UseItem(int32 SlotIndex)
 	FInventorySlot& Slot = InventorySlots[SlotIndex];
 	if (Slot.IsEmpty()) return false;
 	AInventoryItem* Item = Slot.Item;
-	if (!IsValid(Item) && !Item->CanUse()) return false;
+	if (!IsValid(Item) || !Item->CanUse()) return false;
 	
 	bool bUseSuccess = false;
 	switch (Item->GetItemData().ItemType)
@@ -735,7 +676,7 @@ bool UInventoryComponent::ApplyConsumableEffect(AInventoryItem* ConsumableItem)
 	
 	const FName TargetItemID = ConsumableItem->GetItemID();
 	UAbilitySystemComponent* ASC = OwnerCharacter->GetAbilitySystemComponent();
-	if (ASC) return true;
+	if (!ASC) return false;
 	
 	for (const FConsumableItemData& Data : ConsumableData->ConsumableItems)
 	{
@@ -880,71 +821,6 @@ void UInventoryComponent::RebuildAllIndices()
 		UpdateSlotIndices(i);
 	}
 }
-
-// ============ 对象池优化实现 ============
-
-AInventoryItem* UInventoryComponent::CreateItemFromPool(TSubclassOf<AInventoryItem> ItemClass)
-{
-	if (!ItemClass) return nullptr;
-
-	AInventoryItem* NewItem = nullptr;
-	UWorld* World = GetWorld();
-
-	// 首先尝试从对象池获取
-	TArray<AInventoryItem*>** PooledItemsPtr = ItemsPoolByClass.Find(ItemClass);
-	TArray<AInventoryItem*>* PooledItems = PooledItemsPtr ? *PooledItemsPtr : nullptr;
-	if (!PooledItems)
-	{
-		PooledItems = new TArray<AInventoryItem*>();
-		ItemsPoolByClass.Add(ItemClass, PooledItems);
-	}
-
-	if (PooledItems->Num() > 0)
-	{
-		NewItem = PooledItems->Pop();
-		if (NewItem)
-		{
-			NewItem->Reset(); // 重置物品状态
-		}
-	}
-	else if (World)
-	{
-		// 对象池为空，创建新对象
-		NewItem = World->SpawnActor<AInventoryItem>(ItemClass);
-	}
-
-	if (NewItem)
-	{
-		ItemPool.Add(NewItem);
-	}
-
-	return NewItem;
-}
-
-void UInventoryComponent::ReturnItemToPool(AInventoryItem* Item)
-{
-	if (!Item) return;
-
-	// 重置物品状态
-	Item->Reset();
-
-	// 添加到对应类的对象池
-	TSubclassOf<AInventoryItem> ItemClass = Item->GetClass();
-	TArray<AInventoryItem*>** PooledItemsPtr = ItemsPoolByClass.Find(ItemClass);
-		TArray<AInventoryItem*>* PooledItems = PooledItemsPtr ? *PooledItemsPtr : nullptr;
-	if (!PooledItems)
-	{
-		PooledItems = new TArray<AInventoryItem*>();
-		ItemsPoolByClass.Add(ItemClass, PooledItems);
-	}
-	PooledItems->Add(Item);
-
-	// 从当前池中移除
-	ItemPool.Remove(Item);
-
-	// 注意：不添加到PendingDestroyItems，因为这是回收到对象池而不是销毁
-}
-
 // ============ 批量操作优化实现 ============
 
 void UInventoryComponent::BeginBatchEvents()
@@ -1033,36 +909,3 @@ int32 UInventoryComponent::FindStackableSlot(FName ItemID) const
 	return -1;
 }
 
-// ============ 对象池清理 ============
-
-void UInventoryComponent::CleanupItemPool()
-{
-	// 清理延迟销毁队列
-	for (AInventoryItem* Item : PendingDestroyItems)
-	{
-		if (IsValid(Item))
-		{
-			Item->Destroy();
-		}
-	}
-	PendingDestroyItems.Empty();
-
-	// 清理过期的对象池项目（保留最近使用的）
-	for (auto& Pair : ItemsPoolByClass)
-	{
-		TArray<AInventoryItem*>* Pool = Pair.Value;
-		if (Pool)
-		{
-			const int32 MaxPoolSize = 10; // 每个类最多保留10个对象
-
-			while (Pool->Num() > MaxPoolSize)
-			{
-				AInventoryItem* ItemToDestroy = Pool->Pop();
-				if (IsValid(ItemToDestroy))
-				{
-					ItemToDestroy->Destroy();
-				}
-			}
-		}
-	}
-}

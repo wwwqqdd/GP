@@ -315,8 +315,8 @@ void UConversationInstanceSubsystem::LoadDialogueTrees()
 		return;
 	}
 
-	ConversationDataTableAsset = Settings->GetConversationDataTable();
-	ConversationTreeDataTableAsset = Settings->GetConversationTreeDataTable();
+	ConversationDataTableAsset = const_cast<UConversationSettings*>(Settings)->GetConversationDataTable();
+	ConversationTreeDataTableAsset = const_cast<UConversationSettings*>(Settings)->GetConversationTreeDataTable();
 	if (ConversationTreeDataTableAsset == nullptr)
 	{
 		return;
@@ -352,7 +352,16 @@ const FConversationNodeData* UConversationInstanceSubsystem::FindNodeData(const 
 
 	for (const FDataTableRowHandle& NodeReference : TreeDef->NodeReferences)
 	{
-		UDataTable* SourceTable = NodeReference.DataTable != nullptr ? NodeReference.DataTable : ConversationDataTableAsset;
+		UDataTable* SourceTable = nullptr;
+		if (NodeReference.DataTable != nullptr)
+		{
+			SourceTable = const_cast<UDataTable*>(NodeReference.DataTable.Get());
+		}
+		else
+		{
+			SourceTable = ConversationDataTableAsset;
+		}
+		
 		if (SourceTable == nullptr || NodeReference.RowName.IsNone())
 		{
 			continue;
