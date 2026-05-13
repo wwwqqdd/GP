@@ -10,9 +10,9 @@
 class AActor;
 class UDataTable;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnDialogueStarted, const FString&, DialogueTreeID, AActor*, TargetActor, const FString&, StartNodeID);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnDialogueEnded, const FString&, DialogueTreeID, AActor*, TargetActor, const FString&, EndNodeID);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnNodeChanged, const FString&, DialogueTreeID, AActor*, TargetActor, const FString&, OldNodeID, const FString&, NewNodeID);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnDialogueStarted, const FString&, DialogueTreeID, AActor*, TargetActor, const FGuid&, StartNodeID);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnDialogueEnded, const FString&, DialogueTreeID, AActor*, TargetActor, const FGuid&, EndNodeID);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnNodeChanged, const FString&, DialogueTreeID, AActor*, TargetActor, const FGuid&, OldNodeID, const FGuid&, NewNodeID);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnBranchSelected, const FString&, DialogueTreeID, AActor*, TargetActor, const FString&, SelectedOption);
 
 USTRUCT(BlueprintType)
@@ -27,7 +27,7 @@ struct GAMEPLAYPROJECT_API FConversationRuntimeState
 	TObjectPtr<AActor> TargetActor = nullptr;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Conversation|Runtime")
-	FString CurrentNodeID;
+	FGuid CurrentNodeID;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Conversation|Runtime")
 	FConversationNodeData CurrentNodeData;
@@ -42,10 +42,10 @@ public:
 	virtual void Deinitialize() override;
 
 	UFUNCTION(BlueprintCallable, Category = "Conversation|LifeCycle")
-	bool StartDialogue(UObject* WorldContextObject, const FString& DialogueTreeID, AActor* TargetActor, const FString& StartNodeID);
+	bool StartDialogue(UObject* WorldContextObject, const FString& DialogueTreeID, AActor* TargetActor, const FGuid& StartNodeID);
 
 	UFUNCTION(BlueprintCallable, Category = "Conversation|LifeCycle")
-	bool EndDialogue(UObject* WorldContextObject, const FString& DialogueTreeID, AActor* TargetActor, const FString& EndNodeID);
+	bool EndDialogue(UObject* WorldContextObject, const FString& DialogueTreeID, AActor* TargetActor, const FGuid& EndNodeID);
 
 	UFUNCTION(BlueprintCallable, Category = "Conversation|LifeCycle")
 	bool SelectBranchOption(const FString& DialogueTreeID, AActor* TargetActor, const FString& SelectedOption);
@@ -78,9 +78,9 @@ private:
 	void LoadDialogueTrees();
 
 	const FConversationTreeDefinition* FindDialogueTree(const FString& DialogueTreeID) const;
-	const FConversationNodeData* FindNodeData(const FConversationTreeDefinition* TreeDef, const FString& NodeID) const;
+	const FConversationNodeData* FindNodeData(const FConversationTreeDefinition* TreeDef, const FGuid& NodeID) const;
 	FString BuildConversationSessionKey(const FString& DialogueTreeID, const AActor* TargetActor) const;
-	bool AdvanceConversationToNode(UObject* WorldContextObject, const FString& DialogueTreeID, AActor* TargetActor, const FString& NextNodeID);
+	bool AdvanceConversationToNode(UObject* WorldContextObject, const FString& DialogueTreeID, AActor* TargetActor, const FGuid& NextNodeID);
 
 	UPROPERTY()
 	TMap<FString, FConversationRuntimeState> ActiveConversations;

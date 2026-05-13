@@ -1205,6 +1205,13 @@ void AALSBaseCharacter::LimitRotation(float AimYawMin, float AimYawMax, float In
 
 void AALSBaseCharacter::SetMovementModel()
 {
+	// 添加空指针检查，防止DataTable未初始化导致崩溃
+	if (!MovementModel.DataTable)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("AALSBaseCharacter::SetMovementModel - MovementModel DataTable is null!"));
+		return;
+	}
+	
 	const FString ContextString = GetFullName();
 	FALSMovementStateSettings* OutRow = MovementModel.DataTable->FindRow<FALSMovementStateSettings>(MovementModel.RowName, ContextString);
 	check(OutRow);

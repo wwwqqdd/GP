@@ -53,6 +53,8 @@ AGameplayProjectCharacter::AGameplayProjectCharacter()
 	FollowCamera->bUsePawnControlRotation = false;
 
 	InventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("Inventory"));
+
+	ConversationComponent = CreateDefaultSubobject<UConversationComponent>(TEXT("Conversation"));
 	
 }
 

@@ -44,6 +44,14 @@ public:
 	bool StartConversation(const FString& DialogueTreeID, const FString& StartNodeID = TEXT(""));
 
 	/**
+	 * 使用默认对话树ID开始对话
+	 * @param StartNodeID 起始节点ID（可选，为空则使用默认起始节点）
+	 * @return 是否成功开始对话
+	 */
+	UFUNCTION(BlueprintCallable, Category = "Conversation|Control")
+	bool StartDefaultConversation(const FString& StartNodeID = TEXT(""));
+
+	/**
 	 * 结束当前对话
 	 * @param EndNodeID 结束节点ID（可选，为空则使用当前节点）
 	 * @return 是否成功结束对话
@@ -129,8 +137,13 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Conversation|Events")
 	FOnConversationBranchSelected OnConversationBranchSelected;
 
+public:
+	/** 默认对话树ID - 可以在编辑器中预设，用于自动开始对话 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Settings")
+	FString DefaultDialogueTreeID;
+
 protected:
-	/** 当前对话树ID */
+	/** 当前运行的对话树ID - 运行时状态，由系统自动管理 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Conversation|State")
 	FString CurrentDialogueTreeID;
 

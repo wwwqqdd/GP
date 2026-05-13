@@ -70,6 +70,17 @@ bool UConversationComponent::StartConversation(const FString& DialogueTreeID, co
 	return bSuccess;
 }
 
+bool UConversationComponent::StartDefaultConversation(const FString& StartNodeID)
+{
+	if (DefaultDialogueTreeID.IsEmpty())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("StartDefaultConversation failed: DefaultDialogueTreeID is not set."));
+		return false;
+	}
+
+	return StartConversation(DefaultDialogueTreeID, StartNodeID);
+}
+
 bool UConversationComponent::EndConversation(const FString& EndNodeID)
 {
 	if (ConversationSubsystem == nullptr)

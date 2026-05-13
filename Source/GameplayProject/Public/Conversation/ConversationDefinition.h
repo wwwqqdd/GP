@@ -23,7 +23,7 @@ struct GAMEPLAYPROJECT_API FConversationBranchOption
 	FString Option;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
-	FString TargetNodeID;
+	FGuid TargetNodeID;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
 	FGameplayTagContainer EnableConditionTags;
@@ -41,7 +41,7 @@ struct GAMEPLAYPROJECT_API FConversationNodeData : public FTableRowBase
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
-	FString NodeID;
+	FGuid NodeID;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
 	FString SpeakerID;
@@ -65,7 +65,7 @@ struct GAMEPLAYPROJECT_API FConversationNodeData : public FTableRowBase
 
 	/** 默认下一个节点ID（无分支时生效） */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
-	FString DefaultNextNodeID;
+	FGuid DefaultNextNodeID;
 };
 
 USTRUCT(BlueprintType)
