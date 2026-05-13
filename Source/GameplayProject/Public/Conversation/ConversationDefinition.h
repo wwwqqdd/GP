@@ -22,8 +22,9 @@ struct GAMEPLAYPROJECT_API FConversationBranchOption
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
 	FString Option;
 	
+	/** 目标节点行名（在DataTable中选择） */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
-	FGuid TargetNodeID;
+	FName TargetNodeRowName;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
 	FGameplayTagContainer EnableConditionTags;
@@ -40,8 +41,9 @@ struct GAMEPLAYPROJECT_API FConversationNodeData : public FTableRowBase
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
-	FGuid NodeID;
+	/** 节点唯一标识符（自动使用行名） */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Conversation|Basic")
+	FName NodeID;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
 	FString SpeakerID;
@@ -59,13 +61,13 @@ struct GAMEPLAYPROJECT_API FConversationNodeData : public FTableRowBase
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
 	bool bIsEndNode = false;
 
-	/** 对话分支选项列表（为空则线性跳转DefaultNextNodeID） */
+	/** 对话分支选项列表（为空则线性跳转DefaultNextNodeRowName） */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
 	TArray<FConversationBranchOption> BranchOptions;
 
-	/** 默认下一个节点ID（无分支时生效） */
+	/** 默认下一个节点行名（无分支时生效，在DataTable中选择） */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
-	FGuid DefaultNextNodeID;
+	FName DefaultNextNodeRowName;
 };
 
 USTRUCT(BlueprintType)

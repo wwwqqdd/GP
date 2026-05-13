@@ -10,9 +10,9 @@
 class UConversationInstanceSubsystem;
 
 // 对话组件事件委托
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnConversationStarted, const FString&, DialogueTreeID, const FString&, StartNodeID);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnConversationEnded, const FString&, DialogueTreeID, const FString&, EndNodeID);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnConversationNodeChanged, const FString&, DialogueTreeID, const FString&, OldNodeID, const FString&, NewNodeID);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnConversationStarted, const FString&, DialogueTreeID, const FGuid&, StartNodeID);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnConversationEnded, const FString&, DialogueTreeID, const FGuid&, EndNodeID);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnConversationNodeChanged, const FString&, DialogueTreeID, const FGuid&, OldNodeID, const FGuid&, NewNodeID);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnConversationBranchSelected, const FString&, SelectedOption);
 
 /**
@@ -41,7 +41,7 @@ public:
 	 * @return 是否成功开始对话
 	 */
 	UFUNCTION(BlueprintCallable, Category = "Conversation|Control")
-	bool StartConversation(const FString& DialogueTreeID, const FString& StartNodeID = TEXT(""));
+	bool StartConversation(const FString& DialogueTreeID, const FGuid& StartNodeID = FGuid());
 
 	/**
 	 * 使用默认对话树ID开始对话
@@ -49,7 +49,7 @@ public:
 	 * @return 是否成功开始对话
 	 */
 	UFUNCTION(BlueprintCallable, Category = "Conversation|Control")
-	bool StartDefaultConversation(const FString& StartNodeID = TEXT(""));
+	bool StartDefaultConversation(const FGuid& StartNodeID = FGuid());
 
 	/**
 	 * 结束当前对话
@@ -57,7 +57,7 @@ public:
 	 * @return 是否成功结束对话
 	 */
 	UFUNCTION(BlueprintCallable, Category = "Conversation|Control")
-	bool EndConversation(const FString& EndNodeID = TEXT(""));
+	bool EndConversation(const FGuid& EndNodeID = FGuid());
 
 	/**
 	 * 推进对话到下一个节点
@@ -160,13 +160,13 @@ private:
 
 	/** 子系统事件处理函数 */
 	UFUNCTION()
-	void HandleDialogueStarted(const FString& DialogueTreeID, AActor* TargetActor, const FString& StartNodeID);
+	void HandleDialogueStarted(const FString& DialogueTreeID, AActor* TargetActor, const FGuid& StartNodeID);
 
 	UFUNCTION()
-	void HandleDialogueEnded(const FString& DialogueTreeID, AActor* TargetActor, const FString& EndNodeID);
+	void HandleDialogueEnded(const FString& DialogueTreeID, AActor* TargetActor, const FGuid& EndNodeID);
 
 	UFUNCTION()
-	void HandleNodeChanged(const FString& DialogueTreeID, AActor* TargetActor, const FString& OldNodeID, const FString& NewNodeID);
+	void HandleNodeChanged(const FString& DialogueTreeID, AActor* TargetActor, const FGuid& OldNodeID, const FGuid& NewNodeID);
 
 	UFUNCTION()
 	void HandleBranchSelected(const FString& DialogueTreeID, AActor* TargetActor, const FString& SelectedOption);
