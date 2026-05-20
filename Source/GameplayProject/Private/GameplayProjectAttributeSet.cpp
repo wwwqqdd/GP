@@ -2,6 +2,7 @@
 
 
 #include "GameplayProjectAttributeSet.h"
+#include "AbilitySystemComponent.h"
 #include "GameplayProjectCharacter.h"
 #include "Net/UnrealNetwork.h"
 
@@ -83,8 +84,11 @@ void UGameplayProjectAttributeSet::PostAttributeChange(const FGameplayAttribute&
 		if (GetCurrentHealth() <= 0.0f)
 		{
 			AGameplayProjectCharacter* Character = GetGameplayProjectCharacter();
-			const FVector PlayerLocation = Character->GetActorLocation();
-			Character->Die(PlayerLocation);
+			if (Character)
+			{
+				const FVector PlayerLocation = Character->GetActorLocation();
+				Character->Die(PlayerLocation);
+			}
 		}
 	}
 	if (Attribute == GetMaxStaminaAttribute())
@@ -103,4 +107,44 @@ void UGameplayProjectAttributeSet::PostAttributeChange(const FGameplayAttribute&
 			SetCurrentStamina(0.0f);
 		}
 	}
+}
+
+void UGameplayProjectAttributeSet::OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UGameplayProjectAttributeSet, MaxHealth, OldMaxHealth);
+}
+
+void UGameplayProjectAttributeSet::OnRep_CurrentHealth(const FGameplayAttributeData& OldCurrentHealth) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UGameplayProjectAttributeSet, CurrentHealth, OldCurrentHealth);
+}
+
+void UGameplayProjectAttributeSet::OnRep_MaxStamina(const FGameplayAttributeData& OldMaxStamina) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UGameplayProjectAttributeSet, MaxStamina, OldMaxStamina);
+}
+
+void UGameplayProjectAttributeSet::OnRep_CurrentStamina(const FGameplayAttributeData& OldCurrentStamina) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UGameplayProjectAttributeSet, CurrentStamina, OldCurrentStamina);
+}
+
+void UGameplayProjectAttributeSet::OnRep_AttackPower(const FGameplayAttributeData& OldAttackPower) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UGameplayProjectAttributeSet, AttackPower, OldAttackPower);
+}
+
+void UGameplayProjectAttributeSet::OnRep_MaxTotalBulletNum(const FGameplayAttributeData& OldMaxTotalBulletNum) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UGameplayProjectAttributeSet, MaxTotalBulletNum, OldMaxTotalBulletNum);
+}
+
+void UGameplayProjectAttributeSet::OnRep_TotalBulletNum(const FGameplayAttributeData& OldTotalBulletNum) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UGameplayProjectAttributeSet, TotalBulletNum, OldTotalBulletNum);
+}
+
+void UGameplayProjectAttributeSet::OnRep_BulletNum(const FGameplayAttributeData& OldBulletNum) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UGameplayProjectAttributeSet, BulletNum, OldBulletNum);
 }

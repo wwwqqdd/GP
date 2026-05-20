@@ -15,6 +15,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnItemRemoved, const FName&, ItemI
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnItemEquipped, const FInventorySlot&, EquippedSlot);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnItemUsed, const FName&, ItemID);
 
+class AInventoryItem;
+
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class GAMEPLAYPROJECT_API UInventoryComponent : public UActorComponent
 {
@@ -158,9 +160,9 @@ private:
 
 private:
     /** 槽位查询优化索引 */
-    TMap<ESlotType, TArray<int32>*> EmptySlotsByIndex;
+    TMap<ESlotType, TArray<int32>> EmptySlotsByIndex;
 
-    TMap<FName, TArray<int32>*> ItemSlotsById;
+    TMap<FName, TArray<int32>> ItemSlotsById;
 
     UPROPERTY()
     TMap<EEquipmentSlot, int32> EquipmentSlotIndices;
@@ -171,4 +173,20 @@ private:
 
     UPROPERTY()
     TSet<int32> BatchedChangedSlots;
+
+    /** 对象池相关 */
+    TMap<TSubclassOf<AInventoryItem>, TArray<AInventoryItem*>> ItemsPoolByClass;
+
+    UPROPERTY()
+    TArray<AInventoryItem*> ItemPool;
+
+    UPROPERTY()
+    TArray<AInventoryItem*> PendingDestroyItems;
+
+    FTimerHandle CleanupTimerHandle;
+
+    /** 对象池管理方法 */
+    AInventoryItem* CreateItemFromPool(TSubclassOf<AInventoryItem> ItemClass);
+    void ReturnItemToPool(AInventoryItem* Item);
+    void CleanupItemPool();
 };

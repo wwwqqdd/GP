@@ -80,6 +80,8 @@ void AGameplayProjectCharacter::Die(const FVector& DeathImpulse)
 
 void AGameplayProjectCharacter::AddCharacterAbilities()
 {
+	if (!HasAuthority()) return;
+
 	for (TSubclassOf<UGameplayAbility>& Ability : DefaultAbilities)
 	{
 		if (!Ability)
