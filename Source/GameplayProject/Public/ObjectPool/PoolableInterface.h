@@ -46,4 +46,16 @@ public:
      */
     UFUNCTION(BlueprintNativeEvent, Category = "Pooling")
     void OnUnpooled();
+
+    /**
+     * 归还到池之前调用 - 清理外部引用
+     */
+    UFUNCTION(BlueprintNativeEvent, Category = "Pooling")
+    void OnPrePooled();
+
+    /**
+     * 池销毁对象之前调用 - 释放一次性资源
+     */
+    UFUNCTION(BlueprintNativeEvent, Category = "Pooling")
+    void OnDestroyed();
 };

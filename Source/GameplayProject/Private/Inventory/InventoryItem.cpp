@@ -3,6 +3,7 @@
 
 #include "Inventory/InventoryItem.h"
 #include "Inventory/InventorySettings.h"
+#include "ObjectPool/ObjectPoolManager.h"
 
 AInventoryItem::AInventoryItem()
 {
@@ -101,19 +102,17 @@ bool AInventoryItem::SplitItem(int32 SplitAmount, AInventoryItem*& OutSplitItem)
 {
     if (!CanStack() || SplitAmount <= 0 || SplitAmount >= Quantity)
         return false;
-    
-    FActorSpawnParameters SpawnParams;
-    SpawnParams.Owner = GetOwner();
-    SpawnParams.Instigator = GetInstigator();
-    
-    AInventoryItem* SplitItem = GetWorld()->SpawnActor<AInventoryItem>(GetClass(), GetActorLocation(), GetActorRotation(), SpawnParams);
-    
-    if (SplitItem)
+
+    UObjectPoolManager* PoolMgr = UObjectPoolManager::Get(GetWorld());
+    if (!PoolMgr) return false;
+
+    AInventoryItem* NewItem = PoolMgr->Acquire<AInventoryItem>(GetClass());
+    if (NewItem)
     {
-        SplitItem->InitializeWithData(ItemData, SplitAmount);
-        SplitItem->ItemState = ItemState;
+        NewItem->InitializeWithData(ItemData, SplitAmount);
+        NewItem->ItemState = ItemState;
         Quantity -= SplitAmount;
-        OutSplitItem = SplitItem;
+        OutSplitItem = NewItem;
         return true;
     }
     return false;
@@ -180,20 +179,29 @@ void AInventoryItem::Reset_Implementation()
 
 void AInventoryItem::OnCreated_Implementation()
 {
-    // 对象被创建时的处理
-    UE_LOG(LogTemp, Log, TEXT("AInventoryItem: Item created"));
 }
 
 void AInventoryItem::OnPooled_Implementation()
 {
-    // 对象被回收到池时的处理
-    UE_LOG(LogTemp, Log, TEXT("AInventoryItem: Item returned to pool"));
+    SetActorHiddenInGame(true);
+    SetActorEnableCollision(false);
+    SetActorTickEnabled(false);
 }
 
 void AInventoryItem::OnUnpooled_Implementation()
 {
-    // 对象从池中取出时的处理
-    UE_LOG(LogTemp, Log, TEXT("AInventoryItem: Item taken from pool"));
+    SetActorHiddenInGame(false);
+    SetActorEnableCollision(true);
+    SetActorTickEnabled(true);
+}
+
+void AInventoryItem::OnPrePooled_Implementation()
+{
+    DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+}
+
+void AInventoryItem::OnDestroyed_Implementation()
+{
 }
 
 const UItemDefinition* AInventoryItem::GetItemDefinition() const

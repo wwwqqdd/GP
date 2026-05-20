@@ -6,6 +6,7 @@
 #include "Inventory/ConsumableItem.h"
 #include "Inventory/InventoryItem.h"
 #include "Inventory/InventorySettings.h"
+#include "ObjectPool/ObjectPoolManager.h"
 
 
 UInventoryComponent::UInventoryComponent()
@@ -21,50 +22,35 @@ void UInventoryComponent::BeginPlay()
 	{
 		InitializeInventory(InventorySize, EquipmentSlotCount, QuickAccessSize);
 	}
-
-	// 设置对象池清理定时器（每30秒清理一次）
-	if (GetWorld())
-	{
-		GetWorld()->GetTimerManager().SetTimer(CleanupTimerHandle, this, &UInventoryComponent::CleanupItemPool, 30.0f, true);
-	}
 }
 
 void UInventoryComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
-	// 清理定时器
-	if (CleanupTimerHandle.IsValid() && GetWorld())
-	{
-		GetWorld()->GetTimerManager().ClearTimer(CleanupTimerHandle);
-	}
+	UObjectPoolManager* PoolMgr = UObjectPoolManager::Get(GetWorld());
 
-	// 清理对象池
-	CleanupItemPool();
-
-	// 清理所有对象池中的项目
-	for (auto& Pair : ItemsPoolByClass)
-	{
-		for (AInventoryItem* Item : Pair.Value)
-		{
-			if (IsValid(Item))
-			{
-				Item->Destroy();
-			}
-		}
-	}
-	ItemsPoolByClass.Empty();
-
-	EmptySlotsByIndex.Empty();
-	ItemSlotsById.Empty();
-
-	// 清理当前库存中的所有物品
 	for (FInventorySlot& Slot : InventorySlots)
 	{
 		if (Slot.Item && IsValid(Slot.Item))
 		{
-			Slot.Item->Destroy();
+			if (PoolMgr)
+			{
+				PoolMgr->Release(Slot.Item);
+			}
 			Slot.Item = nullptr;
 		}
 	}
+
+	for (AInventoryItem* Item : ItemPool)
+	{
+		if (IsValid(Item) && PoolMgr)
+		{
+			PoolMgr->Release(Item);
+		}
+	}
+	ItemPool.Empty();
+
+	EmptySlotsByIndex.Empty();
+	ItemSlotsById.Empty();
 
 	Super::EndPlay(EndPlayReason);
 }
@@ -817,35 +803,14 @@ void UInventoryComponent::RebuildAllIndices()
 
 AInventoryItem* UInventoryComponent::CreateItemFromPool(TSubclassOf<AInventoryItem> ItemClass)
 {
-	if (!ItemClass) return nullptr;
+	UObjectPoolManager* PoolMgr = UObjectPoolManager::Get(GetWorld());
+	if (!PoolMgr) return nullptr;
 
-	AInventoryItem* NewItem = nullptr;
-	UWorld* World = GetWorld();
-
-	// 首先尝试从对象池获取
-	TArray<AInventoryItem*>& PooledItems = ItemsPoolByClass.FindOrAdd(ItemClass);
-
-	if (PooledItems.Num() > 0)
-	{
-		NewItem = PooledItems.Pop();
-		if (NewItem)
-		{
-			NewItem->IPoolableInterface::Reset();
-		}
-	}
-	else if (World)
-	{
-		// 对象池为空，创建新对象
-		FActorSpawnParameters SpawnParams;
-		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-		NewItem = World->SpawnActor<AInventoryItem>(ItemClass, SpawnParams);
-	}
-
+	AInventoryItem* NewItem = PoolMgr->Acquire<AInventoryItem>(ItemClass);
 	if (NewItem)
 	{
 		ItemPool.Add(NewItem);
 	}
-
 	return NewItem;
 }
 
@@ -853,18 +818,13 @@ void UInventoryComponent::ReturnItemToPool(AInventoryItem* Item)
 {
 	if (!Item) return;
 
-	// 重置物品状态
-	Item->IPoolableInterface::Reset();
-
-	// 添加到对应类的对象池
-	TSubclassOf<AInventoryItem> ItemClass = Item->GetClass();
-	TArray<AInventoryItem*>& PooledItems = ItemsPoolByClass.FindOrAdd(ItemClass);
-	PooledItems.Add(Item);
-
-	// 从当前池中移除
 	ItemPool.Remove(Item);
 
-	// 注意：不添加到PendingDestroyItems，因为这是回收到对象池而不是销毁
+	UObjectPoolManager* PoolMgr = UObjectPoolManager::Get(GetWorld());
+	if (PoolMgr)
+	{
+		PoolMgr->Release(Item);
+	}
 }
 
 // ============ 批量操作优化实现 ============
@@ -946,33 +906,3 @@ int32 UInventoryComponent::FindStackableSlot(FName ItemID) const
 	return -1;
 }
 
-// ============ 对象池清理 ============
-
-void UInventoryComponent::CleanupItemPool()
-{
-	// 清理延迟销毁队列
-	for (AInventoryItem* Item : PendingDestroyItems)
-	{
-		if (IsValid(Item))
-		{
-			Item->Destroy();
-		}
-	}
-	PendingDestroyItems.Empty();
-
-	// 清理过期的对象池项目（保留最近使用的）
-	for (auto& Pair : ItemsPoolByClass)
-	{
-		TArray<AInventoryItem*>& Pool = Pair.Value;
-		const int32 MaxPoolSize = 10;
-
-		while (Pool.Num() > MaxPoolSize)
-		{
-			AInventoryItem* ItemToDestroy = Pool.Pop();
-			if (IsValid(ItemToDestroy))
-			{
-				ItemToDestroy->Destroy();
-			}
-		}
-	}
-}

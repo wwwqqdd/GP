@@ -105,6 +105,8 @@ public:
     virtual void OnCreated_Implementation() override;
     virtual void OnPooled_Implementation() override;
     virtual void OnUnpooled_Implementation() override;
+    virtual void OnPrePooled_Implementation() override;
+    virtual void OnDestroyed_Implementation() override;
 
     // 运行时数据
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory|Item")

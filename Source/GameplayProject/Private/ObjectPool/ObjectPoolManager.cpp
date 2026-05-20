@@ -1,235 +1,454 @@
 #include "ObjectPool/ObjectPoolManager.h"
 #include "ObjectPool/PoolableInterface.h"
-#include "Inventory/InventoryItem.h"
 #include "Engine/World.h"
 #include "TimerManager.h"
-#include "UObject/ConstructorHelpers.h"
 
 UObjectPoolManager* UObjectPoolManager::Instance = nullptr;
 
 UObjectPoolManager::UObjectPoolManager()
 {
-    MaxPoolSizePerClass = 20;
-    CleanupInterval = 30.0f;
+    DefaultConfig.MaxPoolSize = DefaultMaxPoolSize;
+    DefaultConfig.CleanupInterval = DefaultCleanupInterval;
 }
 
 UObjectPoolManager* UObjectPoolManager::Get(UWorld* World)
 {
+    if (Instance && (!Instance->CachedWorld.IsValid() || Instance->CachedWorld.Get() != World))
+    {
+        Instance->DrainAll();
+        Instance->RemoveFromRoot();
+        Instance = nullptr;
+    }
+
     if (!Instance && World)
     {
         Instance = NewObject<UObjectPoolManager>();
-        Instance->AddToRoot(); // 防止被垃圾回收
+        Instance->AddToRoot();
+        Instance->CachedWorld = World;
 
-        // 设置清理定时器
-        World->GetTimerManager().SetTimer(
-            Instance->CleanupTimerHandle,
-            Instance,
-            &UObjectPoolManager::CleanupPool,
-            Instance->CleanupInterval,
-            true
-        );
+        Instance->DefaultConfig.MaxPoolSize = Instance->DefaultMaxPoolSize;
+        Instance->DefaultConfig.CleanupInterval = Instance->DefaultCleanupInterval;
+
+        for (const FPerClassConfigEntry& Entry : Instance->PerClassConfigs)
+        {
+            UClass* FoundClass = FindObject<UClass>(nullptr, *Entry.ClassName);
+            if (FoundClass)
+            {
+                FPoolTypeConfig TypeConfig;
+                TypeConfig.MaxPoolSize = Entry.MaxPoolSize;
+                TypeConfig.CleanupInterval = Entry.CleanupInterval;
+                Instance->SetPoolConfig(FoundClass, TypeConfig);
+            }
+        }
+
+        Instance->StartCleanupTimer();
     }
     return Instance;
 }
 
-template<typename T>
-T* UObjectPoolManager::GetObjectFromPool(TSubclassOf<T> ObjectClass)
+void UObjectPoolManager::StartCleanupTimer()
+{
+    UWorld* World = CachedWorld.Get();
+    if (!World) return;
+
+    float MinInterval = DefaultConfig.CleanupInterval;
+    {
+        FScopeLock MapLock(&BucketsMapLock);
+        for (auto& Pair : Buckets)
+        {
+            MinInterval = FMath::Min(MinInterval, Pair.Value->Config.CleanupInterval);
+        }
+    }
+
+    if (CleanupTimerHandle.IsValid())
+    {
+        World->GetTimerManager().ClearTimer(CleanupTimerHandle);
+    }
+
+    World->GetTimerManager().SetTimer(
+        CleanupTimerHandle,
+        this,
+        &UObjectPoolManager::CleanupAll,
+        MinInterval,
+        true
+    );
+}
+
+FObjectPoolBucket& UObjectPoolManager::FindOrCreateBucket(TSubclassOf<UObject> ObjectClass)
+{
+    {
+        TUniquePtr<FObjectPoolBucket>* Existing = Buckets.Find(ObjectClass);
+        if (Existing)
+        {
+            return **Existing;
+        }
+    }
+
+    FScopeLock MapLock(&BucketsMapLock);
+
+    TUniquePtr<FObjectPoolBucket>* Existing = Buckets.Find(ObjectClass);
+    if (Existing)
+    {
+        return **Existing;
+    }
+
+    TUniquePtr<FObjectPoolBucket>& NewBucket = Buckets.Add(ObjectClass, MakeUnique<FObjectPoolBucket>());
+    NewBucket->Config = DefaultConfig;
+    NewBucket->LastCleanupTime = FPlatformTime::Seconds();
+    return *NewBucket;
+}
+
+UObject* UObjectPoolManager::AcquireImpl(TSubclassOf<UObject> ObjectClass)
 {
     if (!ObjectClass) return nullptr;
 
-    T* Object = nullptr;
-    UWorld* World = GEngine ? GEngine->GetWorld() : nullptr;
+    FObjectPoolBucket& Bucket = FindOrCreateBucket(ObjectClass);
+    UObject* Object = nullptr;
 
-    // 首先尝试从对象池获取
-    TArray<UObject*>* PooledObjects = ObjectPools.Find(ObjectClass);
-    if (PooledObjects && PooledObjects->Num() > 0)
     {
-        Object = Cast<T>(PooledObjects->Pop());
-        if (Object)
-        {
-            ActiveObjects.Add(Object);
+        FScopeLock BucketLock(&Bucket.Lock);
 
-            // 重置对象状态（如果对象实现了重置接口）
-            if (Object->template Implements<UPoolableInterface>())
+        if (Bucket.PooledObjects.Num() > 0)
+        {
+            Object = Bucket.PooledObjects.Pop();
+            if (!IsValid(Object))
             {
-                IPoolableInterface::Execute_Reset(Object);
-                IPoolableInterface::Execute_OnUnpooled(Object);
+                Object = nullptr;
+            }
+            else
+            {
+                Bucket.ActiveObjects.Add(Object);
+                Bucket.TotalReuses++;
             }
         }
-    }
-    else if (World)
-    {
-        // 对象池为空，创建新对象
-        Object = World->SpawnActor<T>(ObjectClass);
-        if (Object)
+
+        if (!Object)
         {
-            ActiveObjects.Add(Object);
+            Bucket.TotalAllocations++;
+        }
+    }
+
+    if (Object)
+    {
+        if (Object->Implements<UPoolableInterface>())
+        {
+            IPoolableInterface::Execute_Reset(Object);
+            IPoolableInterface::Execute_OnUnpooled(Object);
+        }
+        return Object;
+    }
+
+    UWorld* World = CachedWorld.Get();
+    if (!World) return nullptr;
+
+    if (ObjectClass->IsChildOf(AActor::StaticClass()))
+    {
+        FActorSpawnParameters SpawnParams;
+        SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+        Object = World->SpawnActor<AActor>(ObjectClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams);
+    }
+    else
+    {
+        Object = NewObject<UObject>(World, ObjectClass);
+    }
+
+    if (Object)
+    {
+        {
+            FScopeLock BucketLock(&Bucket.Lock);
+            Bucket.ActiveObjects.Add(Object);
+        }
+
+        if (Object->Implements<UPoolableInterface>())
+        {
+            IPoolableInterface::Execute_OnCreated(Object);
+            IPoolableInterface::Execute_Reset(Object);
+            IPoolableInterface::Execute_OnUnpooled(Object);
         }
     }
 
     return Object;
 }
 
-template<typename T>
-void UObjectPoolManager::ReturnObjectToPool(T* Object)
+void UObjectPoolManager::ReleaseImpl(UObject* Object)
 {
-    if (!Object) return;
+    if (!Object || !IsValid(Object)) return;
 
-    // 重置对象状态
-    if (Object->template Implements<UPoolableInterface>())
-    {
-        IPoolableInterface::Execute_OnPooled(Object);
-        IPoolableInterface::Execute_Reset(Object);
-    }
-
-    // 添加到对应类的对象池
     TSubclassOf<UObject> ObjectClass = Object->GetClass();
-    TArray<UObject*>* PooledObjects = ObjectPools.Find(ObjectClass);
-    if (!PooledObjects)
+    FObjectPoolBucket& Bucket = FindOrCreateBucket(ObjectClass);
+
+    if (Object->Implements<UPoolableInterface>())
     {
-        PooledObjects = &ObjectPools.Add(ObjectClass, TArray<UObject*>());
+        IPoolableInterface::Execute_OnPrePooled(Object);
+        IPoolableInterface::Execute_Reset(Object);
+        IPoolableInterface::Execute_OnPooled(Object);
     }
 
-    if (PooledObjects->Num() < MaxPoolSizePerClass)
+    bool bAddedToPool = false;
     {
-        PooledObjects->Add(Object);
-    }
-    else
-    {
-        // 超过池大小限制，直接销毁
-        if (Object->template IsA<AActor>())
+        FScopeLock BucketLock(&Bucket.Lock);
+        Bucket.ActiveObjects.Remove(Object);
+
+        if (Bucket.PooledObjects.Num() < Bucket.Config.MaxPoolSize)
         {
-            Cast<AActor>(Object)->Destroy();
-        }
-        else
-        {
-            Object->ConditionalBeginDestroy();
+            Bucket.PooledObjects.Add(Object);
+            bAddedToPool = true;
         }
     }
 
-    // 从活跃对象列表中移除
-    ActiveObjects.Remove(Object);
+    if (!bAddedToPool)
+    {
+        if (Object->Implements<UPoolableInterface>())
+        {
+            IPoolableInterface::Execute_OnDestroyed(Object);
+        }
+        DestroyObject(Object);
+    }
 }
 
-void UObjectPoolManager::ReturnObjectToPoolImpl(UObject* Object)
-{
-    ReturnObjectToPool(Object);
-}
-
-template<typename T>
-void UObjectPoolManager::PreallocateObjects(TSubclassOf<T> ObjectClass, int32 Count)
+void UObjectPoolManager::PreallocateImpl(TSubclassOf<UObject> ObjectClass, int32 Count)
 {
     if (!ObjectClass || Count <= 0) return;
 
-    UWorld* World = GEngine ? GEngine->GetWorld() : nullptr;
+    UWorld* World = CachedWorld.Get();
     if (!World) return;
 
-    TArray<UObject*>* PooledObjects = ObjectPools.Find(ObjectClass);
-    if (!PooledObjects)
-    {
-        PooledObjects = &ObjectPools.Add(ObjectClass, TArray<UObject*>());
-    }
+    FObjectPoolBucket& Bucket = FindOrCreateBucket(ObjectClass);
 
     for (int32 i = 0; i < Count; ++i)
     {
-        T* Object = World->SpawnActor<T>(ObjectClass);
+        UObject* Object = nullptr;
+
+        if (ObjectClass->IsChildOf(AActor::StaticClass()))
+        {
+            FActorSpawnParameters SpawnParams;
+            SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+            Object = World->SpawnActor<AActor>(ObjectClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams);
+        }
+        else
+        {
+            Object = NewObject<UObject>(World, ObjectClass);
+        }
+
         if (Object)
         {
-            PooledObjects->Add(Object);
-        }
-    }
-}
-
-void UObjectPoolManager::CleanupPool()
-{
-    // 清理每个对象池
-    for (auto& Pair : ObjectPools)
-    {
-        TArray<UObject*>& Pool = Pair.Value;
-
-        // 移除无效对象
-        Pool.RemoveAll([](UObject* Object) {
-            return !IsValid(Object);
-        });
-
-        // 限制池大小
-        while (Pool.Num() > MaxPoolSizePerClass)
-        {
-            UObject* ObjectToDestroy = Pool.Pop();
-            if (IsValid(ObjectToDestroy))
+            if (Object->Implements<UPoolableInterface>())
             {
-                if (ObjectToDestroy->IsA<AActor>())
+                IPoolableInterface::Execute_OnCreated(Object);
+                IPoolableInterface::Execute_Reset(Object);
+                IPoolableInterface::Execute_OnPooled(Object);
+            }
+
+            bool bAdded = false;
+            {
+                FScopeLock BucketLock(&Bucket.Lock);
+                if (Bucket.PooledObjects.Num() < Bucket.Config.MaxPoolSize)
                 {
-                    Cast<AActor>(ObjectToDestroy)->Destroy();
+                    Bucket.PooledObjects.Add(Object);
+                    bAdded = true;
                 }
-                else
+            }
+
+            if (!bAdded)
+            {
+                if (Object->Implements<UPoolableInterface>())
                 {
-                    ObjectToDestroy->ConditionalBeginDestroy();
+                    IPoolableInterface::Execute_OnDestroyed(Object);
                 }
+                DestroyObject(Object);
             }
         }
     }
+}
 
-    // 清理活跃对象中的无效对象
-    TArray<UObject*> InvalidObjects;
-    for (UObject* Object : ActiveObjects)
+void UObjectPoolManager::CleanupAll()
+{
+    double CurrentTime = FPlatformTime::Seconds();
+
+    TArray<UObject*> ObjectsToDestroy;
+
     {
-        if (!IsValid(Object))
+        FScopeLock MapLock(&BucketsMapLock);
+
+        for (auto& Pair : Buckets)
         {
-            InvalidObjects.Add(Object);
+            FObjectPoolBucket& Bucket = *Pair.Value;
+
+            if ((CurrentTime - Bucket.LastCleanupTime) < Bucket.Config.CleanupInterval)
+            {
+                continue;
+            }
+
+            FScopeLock BucketLock(&Bucket.Lock);
+
+            Bucket.PooledObjects.RemoveAll([](UObject* Obj) {
+                return !IsValid(Obj);
+            });
+
+            while (Bucket.PooledObjects.Num() > Bucket.Config.MaxPoolSize)
+            {
+                UObject* ObjectToDestroy = Bucket.PooledObjects.Pop();
+                if (IsValid(ObjectToDestroy))
+                {
+                    ObjectsToDestroy.Add(ObjectToDestroy);
+                }
+            }
+
+            TArray<UObject*> InvalidActive;
+            for (UObject* Obj : Bucket.ActiveObjects)
+            {
+                if (!IsValid(Obj))
+                {
+                    InvalidActive.Add(Obj);
+                }
+            }
+            for (UObject* Obj : InvalidActive)
+            {
+                Bucket.ActiveObjects.Remove(Obj);
+            }
+
+            Bucket.LastCleanupTime = CurrentTime;
         }
     }
-    for (UObject* InvalidObject : InvalidObjects)
+
+    for (UObject* Obj : ObjectsToDestroy)
     {
-        ActiveObjects.Remove(InvalidObject);
+        if (IsValid(Obj))
+        {
+            if (Obj->Implements<UPoolableInterface>())
+            {
+                IPoolableInterface::Execute_OnDestroyed(Obj);
+            }
+            DestroyObject(Obj);
+        }
     }
 }
 
-void UObjectPoolManager::CleanupPoolForClass(TSubclassOf<UObject> ObjectClass)
+void UObjectPoolManager::CleanupForClass(TSubclassOf<UObject> ObjectClass)
 {
     if (!ObjectClass) return;
 
-    TArray<UObject*>* Pool = ObjectPools.Find(ObjectClass);
-    if (Pool)
+    TUniquePtr<FObjectPoolBucket>* BucketPtr = Buckets.Find(ObjectClass);
+    if (!BucketPtr) return;
+    FObjectPoolBucket& Bucket = **BucketPtr;
+
+    TArray<UObject*> ObjectsToDestroy;
     {
-        // 销毁该类的所有池化对象
-        for (UObject* Object : *Pool)
+        FScopeLock BucketLock(&Bucket.Lock);
+        for (UObject* Obj : Bucket.PooledObjects)
         {
-            if (IsValid(Object))
+            if (IsValid(Obj))
             {
-                if (Object->IsA<AActor>())
-                {
-                    Cast<AActor>(Object)->Destroy();
-                }
-                else
-                {
-                    Object->ConditionalBeginDestroy();
-                }
+                ObjectsToDestroy.Add(Obj);
             }
         }
-        Pool->Empty();
+        Bucket.PooledObjects.Empty();
     }
-}
 
-void UObjectPoolManager::GetPoolStatistics(TMap<FString, int32>& OutStatistics) const
-{
-    OutStatistics.Empty();
-
-    for (const auto& Pair : ObjectPools)
+    for (UObject* Obj : ObjectsToDestroy)
     {
-        FString ClassName = Pair.Key->GetName();
-        OutStatistics.Add(ClassName, Pair.Value.Num());
+        if (Obj->Implements<UPoolableInterface>())
+        {
+            IPoolableInterface::Execute_OnDestroyed(Obj);
+        }
+        DestroyObject(Obj);
+    }
+}
+
+void UObjectPoolManager::DrainAll()
+{
+    UWorld* World = CachedWorld.Get();
+    if (World && CleanupTimerHandle.IsValid())
+    {
+        World->GetTimerManager().ClearTimer(CleanupTimerHandle);
     }
 
-    OutStatistics.Add(TEXT("ActiveObjects"), ActiveObjects.Num());
+    TArray<UObject*> ObjectsToDestroy;
+
+    {
+        FScopeLock MapLock(&BucketsMapLock);
+
+        for (auto& Pair : Buckets)
+        {
+            FObjectPoolBucket& Bucket = *Pair.Value;
+            FScopeLock BucketLock(&Bucket.Lock);
+
+            for (UObject* Obj : Bucket.PooledObjects)
+            {
+                if (IsValid(Obj))
+                {
+                    ObjectsToDestroy.Add(Obj);
+                }
+            }
+            Bucket.PooledObjects.Empty();
+            Bucket.ActiveObjects.Empty();
+        }
+
+        Buckets.Empty();
+    }
+
+    for (UObject* Obj : ObjectsToDestroy)
+    {
+        if (IsValid(Obj))
+        {
+            if (Obj->Implements<UPoolableInterface>())
+            {
+                IPoolableInterface::Execute_OnDestroyed(Obj);
+            }
+            DestroyObject(Obj);
+        }
+    }
 }
 
-UObject* UObjectPoolManager::GetObjectFromPoolImpl(TSubclassOf<UObject> ObjectClass)
+void UObjectPoolManager::SetPoolConfig(TSubclassOf<UObject> ObjectClass, const FPoolTypeConfig& Config)
 {
-    return GetObjectFromPool(ObjectClass);
+    if (!ObjectClass) return;
+
+    FObjectPoolBucket& Bucket = FindOrCreateBucket(ObjectClass);
+    FScopeLock BucketLock(&Bucket.Lock);
+    Bucket.Config = Config;
 }
 
-// 显式实例化常用类型
-template AInventoryItem* UObjectPoolManager::GetObjectFromPool<AInventoryItem>(TSubclassOf<AInventoryItem>);
-template void UObjectPoolManager::ReturnObjectToPool<AInventoryItem>(AInventoryItem*);
-template void UObjectPoolManager::PreallocateObjects<AInventoryItem>(TSubclassOf<AInventoryItem>, int32);
+FPoolTypeConfig UObjectPoolManager::GetPoolConfig(TSubclassOf<UObject> ObjectClass) const
+{
+    const TUniquePtr<FObjectPoolBucket>* BucketPtr = Buckets.Find(ObjectClass);
+    if (BucketPtr)
+    {
+        return (*BucketPtr)->Config;
+    }
+    return DefaultConfig;
+}
+
+void UObjectPoolManager::GetPoolStatistics(TMap<FString, FPoolStatistics>& OutStats) const
+{
+    OutStats.Empty();
+
+    for (const auto& Pair : Buckets)
+    {
+        FObjectPoolBucket& Bucket = *Pair.Value;
+        FString ClassName = Pair.Key->GetName();
+
+        FScopeLock BucketLock(&Bucket.Lock);
+
+        FPoolStatistics Stats;
+        Stats.PooledCount = Bucket.PooledObjects.Num();
+        Stats.ActiveCount = Bucket.ActiveObjects.Num();
+        Stats.TotalAllocations = Bucket.TotalAllocations;
+        Stats.TotalReuses = Bucket.TotalReuses;
+        OutStats.Add(ClassName, Stats);
+    }
+}
+
+void UObjectPoolManager::DestroyObject(UObject* Object)
+{
+    if (!IsValid(Object)) return;
+
+    if (Object->IsA<AActor>())
+    {
+        Cast<AActor>(Object)->Destroy();
+    }
+    else
+    {
+        Object->ConditionalBeginDestroy();
+    }
+}

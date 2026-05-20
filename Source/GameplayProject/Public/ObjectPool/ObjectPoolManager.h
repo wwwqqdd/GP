@@ -6,10 +6,64 @@
 #include "Engine/World.h"
 #include "ObjectPoolManager.generated.h"
 
-/**
- * 对象池管理器 - 负责统一管理所有对象池
- */
-UCLASS()
+USTRUCT()
+struct FPoolTypeConfig
+{
+    GENERATED_BODY()
+
+    UPROPERTY(Config)
+    int32 MaxPoolSize = 20;
+
+    UPROPERTY(Config)
+    float CleanupInterval = 30.0f;
+};
+
+struct FObjectPoolBucket
+{
+    TArray<UObject*> PooledObjects;
+    TSet<UObject*> ActiveObjects;
+    FCriticalSection Lock;
+    FPoolTypeConfig Config;
+    double LastCleanupTime = 0.0;
+
+    int32 TotalAllocations = 0;
+    int32 TotalReuses = 0;
+};
+
+USTRUCT(BlueprintType)
+struct FPoolStatistics
+{
+    GENERATED_BODY()
+
+    UPROPERTY(BlueprintReadOnly)
+    int32 PooledCount = 0;
+
+    UPROPERTY(BlueprintReadOnly)
+    int32 ActiveCount = 0;
+
+    UPROPERTY(BlueprintReadOnly)
+    int32 TotalAllocations = 0;
+
+    UPROPERTY(BlueprintReadOnly)
+    int32 TotalReuses = 0;
+};
+
+USTRUCT()
+struct FPerClassConfigEntry
+{
+    GENERATED_BODY()
+
+    UPROPERTY(Config)
+    FString ClassName;
+
+    UPROPERTY(Config)
+    int32 MaxPoolSize = 20;
+
+    UPROPERTY(Config)
+    float CleanupInterval = 30.0f;
+};
+
+UCLASS(Config=Game)
 class GAMEPLAYPROJECT_API UObjectPoolManager : public UObject
 {
     GENERATED_BODY()
@@ -17,54 +71,72 @@ class GAMEPLAYPROJECT_API UObjectPoolManager : public UObject
 public:
     UObjectPoolManager();
 
-    /** 获取单例实例 */
     static UObjectPoolManager* Get(UWorld* World);
 
-    /** 从对象池获取对象 */
     template<typename T>
-    T* GetObjectFromPool(TSubclassOf<T> ObjectClass);
+    T* Acquire(TSubclassOf<T> ObjectClass);
 
-    /** 将对象返回到对象池 */
     template<typename T>
-    void ReturnObjectToPool(T* Object);
+    void Release(T* Object);
 
-    /** 预分配对象到对象池 */
     template<typename T>
-    void PreallocateObjects(TSubclassOf<T> ObjectClass, int32 Count);
+    void Preallocate(TSubclassOf<T> ObjectClass, int32 Count);
 
-    /** 清理对象池 */
-    void CleanupPool();
+    void CleanupAll();
+    void CleanupForClass(TSubclassOf<UObject> ObjectClass);
+    void DrainAll();
 
-    /** 获取对象池统计信息 */
-    void GetPoolStatistics(TMap<FString, int32>& OutStatistics) const;
+    void SetPoolConfig(TSubclassOf<UObject> ObjectClass, const FPoolTypeConfig& Config);
+    FPoolTypeConfig GetPoolConfig(TSubclassOf<UObject> ObjectClass) const;
+
+    void GetPoolStatistics(TMap<FString, FPoolStatistics>& OutStats) const;
 
 private:
-    /** 从对象池获取对象（通用实现） */
-    UObject* GetObjectFromPoolImpl(TSubclassOf<UObject> ObjectClass);
+    UObject* AcquireImpl(TSubclassOf<UObject> ObjectClass);
+    void ReleaseImpl(UObject* Object);
+    void PreallocateImpl(TSubclassOf<UObject> ObjectClass, int32 Count);
 
-    /** 将对象返回到对象池（通用实现） */
-    void ReturnObjectToPoolImpl(UObject* Object);
+    FObjectPoolBucket& FindOrCreateBucket(TSubclassOf<UObject> ObjectClass);
+    void DestroyObject(UObject* Object);
+    void StartCleanupTimer();
 
-    /** 清理特定类的对象池 */
-    void CleanupPoolForClass(TSubclassOf<UObject> ObjectClass);
+    TMap<TSubclassOf<UObject>, TUniquePtr<FObjectPoolBucket>> Buckets;
+    FCriticalSection BucketsMapLock;
 
-private:
-    /** 对象池 - 按类存储 */
-    TMap<TSubclassOf<UObject>, TArray<UObject*>> ObjectPools;
+    UPROPERTY(Config)
+    int32 DefaultMaxPoolSize = 20;
 
-    /** 活跃对象列表 - 跟踪正在使用的对象 */
-    TSet<UObject*> ActiveObjects;
+    UPROPERTY(Config)
+    float DefaultCleanupInterval = 30.0f;
 
-    /** 对象池配置 */
-    UPROPERTY()
-    int32 MaxPoolSizePerClass;
+    UPROPERTY(Config)
+    TArray<FPerClassConfigEntry> PerClassConfigs;
 
-    /** 清理定时器 */
+    FPoolTypeConfig DefaultConfig;
+
     FTimerHandle CleanupTimerHandle;
 
-    /** 清理间隔（秒） */
-    float CleanupInterval;
+    UPROPERTY()
+    TWeakObjectPtr<UWorld> CachedWorld;
 
-    /** 单例实例 */
     static UObjectPoolManager* Instance;
 };
+
+// Template implementations
+template<typename T>
+T* UObjectPoolManager::Acquire(TSubclassOf<T> ObjectClass)
+{
+    return Cast<T>(AcquireImpl(ObjectClass));
+}
+
+template<typename T>
+void UObjectPoolManager::Release(T* Object)
+{
+    ReleaseImpl(Object);
+}
+
+template<typename T>
+void UObjectPoolManager::Preallocate(TSubclassOf<T> ObjectClass, int32 Count)
+{
+    PreallocateImpl(ObjectClass, Count);
+}

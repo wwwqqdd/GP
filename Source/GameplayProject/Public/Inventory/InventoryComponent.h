@@ -174,19 +174,9 @@ private:
     UPROPERTY()
     TSet<int32> BatchedChangedSlots;
 
-    /** 对象池相关 */
-    TMap<TSubclassOf<AInventoryItem>, TArray<AInventoryItem*>> ItemsPoolByClass;
-
     UPROPERTY()
     TArray<AInventoryItem*> ItemPool;
 
-    UPROPERTY()
-    TArray<AInventoryItem*> PendingDestroyItems;
-
-    FTimerHandle CleanupTimerHandle;
-
-    /** 对象池管理方法 */
     AInventoryItem* CreateItemFromPool(TSubclassOf<AInventoryItem> ItemClass);
     void ReturnItemToPool(AInventoryItem* Item);
-    void CleanupItemPool();
 };
