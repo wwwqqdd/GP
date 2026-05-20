@@ -43,35 +43,17 @@ void UInventoryComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	// 清理所有对象池中的项目
 	for (auto& Pair : ItemsPoolByClass)
 	{
-		TArray<AInventoryItem*>* Pool = Pair.Value;
-		if (Pool)
+		for (AInventoryItem* Item : Pair.Value)
 		{
-			for (AInventoryItem* Item : *Pool)
+			if (IsValid(Item))
 			{
-				if (IsValid(Item))
-				{
-					Item->Destroy();
-				}
+				Item->Destroy();
 			}
-			delete Pool;
-			Pool = nullptr;
 		}
 	}
 	ItemsPoolByClass.Empty();
 
-	// 清理索引中的动态分配数组
-	for (auto& Pair : EmptySlotsByIndex)
-	{
-		delete Pair.Value;
-		Pair.Value = nullptr;
-	}
 	EmptySlotsByIndex.Empty();
-
-	for (auto& Pair : ItemSlotsById)
-	{
-		delete Pair.Value;
-		Pair.Value = nullptr;
-	}
 	ItemSlotsById.Empty();
 
 	// 清理当前库存中的所有物品
@@ -92,18 +74,7 @@ void UInventoryComponent::InitializeInventory(int32 InInventorySize, int32 InEqu
 	InventorySlots.Empty();
 
 	// 清理现有索引
-	for (auto& Pair : EmptySlotsByIndex)
-	{
-		delete Pair.Value;
-		Pair.Value = nullptr;
-	}
 	EmptySlotsByIndex.Empty();
-
-	for (auto& Pair : ItemSlotsById)
-	{
-		delete Pair.Value;
-		Pair.Value = nullptr;
-	}
 	ItemSlotsById.Empty();
 
 	EquipmentSlotIndices.Empty();
@@ -374,12 +345,13 @@ int32 UInventoryComponent::MergeItemSlots(int32 SourceSlotIndex, int32 TargetSlo
 		return 0;
 	}
 	
+	const FName SourceItemID = SourceItem->GetItemID();
 	int32 MergeAmount = TargetItem->AddQuantity(SourceItem->Quantity);
 	int32 RemainingInSource = SourceItem->Quantity - MergeAmount;
-	
+
 	if (RemainingInSource <= 0)
 	{
-		SourceItem->Destroy();
+		ReturnItemToPool(SourceItem);
 		SourceSlot.Clear();
 	}
 	else
@@ -387,7 +359,7 @@ int32 UInventoryComponent::MergeItemSlots(int32 SourceSlotIndex, int32 TargetSlo
 		SourceItem->Quantity = RemainingInSource;
 	}
 
-	OnItemRemoved.Broadcast(SourceItem->GetItemID(), MergeAmount);
+	OnItemRemoved.Broadcast(SourceItemID, MergeAmount);
 	NotifyInventoryChanged(SourceSlotIndex);
 	NotifyInventoryChanged(TargetSlotIndex);
 
@@ -533,6 +505,10 @@ bool UInventoryComponent::UseItem(int32 SlotIndex)
 
 FInventorySlot UInventoryComponent::GetInventorySlot(int32 SlotIndex) const
 {
+	if (!IsValidSlotIndex(SlotIndex))
+	{
+		return FInventorySlot();
+	}
 	return InventorySlots[SlotIndex];
 }
 
@@ -546,21 +522,17 @@ int32 UInventoryComponent::GetItemCount(const FName& ItemID) const
 	int32 TotalCount = 0;
 
 	// 使用索引优化查询
-	TArray<int32>* const* ItemSlotsPtr = ItemSlotsById.Find(ItemID);
-	if (ItemSlotsPtr)
+	const TArray<int32>* ItemSlots = ItemSlotsById.Find(ItemID);
+	if (ItemSlots)
 	{
-		TArray<int32>* ItemSlots = *ItemSlotsPtr;
-		if (ItemSlots && ItemSlots->Num() > 0)
+		for (int32 SlotIndex : *ItemSlots)
 		{
-			for (int32 SlotIndex : *ItemSlots)
+			if (InventorySlots.IsValidIndex(SlotIndex))
 			{
-				if (InventorySlots.IsValidIndex(SlotIndex))
+				const FInventorySlot& Slot = InventorySlots[SlotIndex];
+				if (Slot.Item && Slot.Item->GetItemID() == ItemID)
 				{
-					const FInventorySlot& Slot = InventorySlots[SlotIndex];
-					if (Slot.Item && Slot.Item->GetItemID() == ItemID)
-					{
-						TotalCount += Slot.Item->Quantity;
-					}
+					TotalCount += Slot.Item->Quantity;
 				}
 			}
 		}
@@ -582,22 +554,18 @@ bool UInventoryComponent::HasEnoughSpace(FName ItemID, int32 Quantity) const
 	int32 RemainingStackSpace = 0;
 
 	// 使用索引优化查询可堆叠空间
-	TArray<int32>* const* ItemSlotsPtr = ItemSlotsById.Find(ItemID);
-	if (ItemSlotsPtr)
+	const TArray<int32>* ItemSlots = ItemSlotsById.Find(ItemID);
+	if (ItemSlots)
 	{
-		TArray<int32>* ItemSlots = *ItemSlotsPtr;
-		if (ItemSlots && ItemSlots->Num() > 0)
+		for (int32 SlotIndex : *ItemSlots)
 		{
-			for (int32 SlotIndex : *ItemSlots)
+			if (InventorySlots.IsValidIndex(SlotIndex))
 			{
-				if (InventorySlots.IsValidIndex(SlotIndex))
+				const FInventorySlot& Slot = InventorySlots[SlotIndex];
+				if (!Slot.IsEmpty() && !Slot.bIsLocked && Slot.SlotType == ESlotType::Inventory &&
+					Slot.Item->GetItemID() == ItemID && Slot.Item->CanStack())
 				{
-					const FInventorySlot& Slot = InventorySlots[SlotIndex];
-					if (!Slot.IsEmpty() && !Slot.bIsLocked && Slot.SlotType == ESlotType::Inventory &&
-						Slot.Item->GetItemID() == ItemID && Slot.Item->CanStack())
-					{
-						RemainingStackSpace += Slot.Item->GetRemainingStackSpace();
-					}
+					RemainingStackSpace += Slot.Item->GetRemainingStackSpace();
 				}
 			}
 		}
@@ -605,21 +573,17 @@ bool UInventoryComponent::HasEnoughSpace(FName ItemID, int32 Quantity) const
 
 	// 使用索引优化查询空槽位
 	int32 EmptySlotCount = 0;
-	TArray<int32>* const* EmptySlotsPtr = EmptySlotsByIndex.Find(ESlotType::Inventory);
-	if (EmptySlotsPtr)
+	const TArray<int32>* EmptySlots = EmptySlotsByIndex.Find(ESlotType::Inventory);
+	if (EmptySlots)
 	{
-		TArray<int32>* EmptySlots = *EmptySlotsPtr;
-		if (EmptySlots && EmptySlots->Num() > 0)
+		for (int32 SlotIndex : *EmptySlots)
 		{
-			for (int32 SlotIndex : *EmptySlots)
+			if (InventorySlots.IsValidIndex(SlotIndex))
 			{
-				if (InventorySlots.IsValidIndex(SlotIndex))
+				const FInventorySlot& Slot = InventorySlots[SlotIndex];
+				if (!Slot.bIsLocked)
 				{
-					const FInventorySlot& Slot = InventorySlots[SlotIndex];
-					if (!Slot.bIsLocked)
-					{
-						EmptySlotCount++;
-					}
+					EmptySlotCount++;
 				}
 			}
 		}
@@ -735,7 +699,7 @@ bool UInventoryComponent::ApplyConsumableEffect(AInventoryItem* ConsumableItem)
 	
 	const FName TargetItemID = ConsumableItem->GetItemID();
 	UAbilitySystemComponent* ASC = OwnerCharacter->GetAbilitySystemComponent();
-	if (ASC) return true;
+	if (!ASC) return false;
 	
 	for (const FConsumableItemData& Data : ConsumableData->ConsumableItems)
 	{
@@ -785,31 +749,13 @@ void UInventoryComponent::UpdateSlotIndices(int32 SlotIndex)
 	// 然后根据当前状态重新添加
 	if (Slot.IsEmpty())
 	{
-		TArray<int32>** EmptySlotsPtr = EmptySlotsByIndex.Find(Slot.SlotType);
-			TArray<int32>* EmptySlots = EmptySlotsPtr ? *EmptySlotsPtr : nullptr;
-		if (!EmptySlots)
-		{
-			EmptySlots = new TArray<int32>();
-			EmptySlotsByIndex.Add(Slot.SlotType, EmptySlots);
-		}
-		if (!EmptySlots->Contains(SlotIndex))
-		{
-			EmptySlots->Add(SlotIndex);
-		}
+		TArray<int32>& EmptySlots = EmptySlotsByIndex.FindOrAdd(Slot.SlotType);
+		EmptySlots.AddUnique(SlotIndex);
 	}
 	else if (Slot.Item && Slot.Item->GetItemID() != NAME_None)
 	{
-		TArray<int32>** ItemSlotsPtr = ItemSlotsById.Find(Slot.Item->GetItemID());
-		TArray<int32>* ItemSlots = ItemSlotsPtr ? *ItemSlotsPtr : nullptr;
-		if (!ItemSlots)
-		{
-			ItemSlots = new TArray<int32>();
-			ItemSlotsById.Add(Slot.Item->GetItemID(), ItemSlots);
-		}
-		if (!ItemSlots->Contains(SlotIndex))
-		{
-			ItemSlots->Add(SlotIndex);
-		}
+		TArray<int32>& ItemSlots = ItemSlotsById.FindOrAdd(Slot.Item->GetItemID());
+		ItemSlots.AddUnique(SlotIndex);
 	}
 
 	// 更新装备槽位索引
@@ -826,8 +772,7 @@ void UInventoryComponent::RemoveFromIndices(int32 SlotIndex)
 	const FInventorySlot& Slot = InventorySlots[SlotIndex];
 
 	// 从空槽位索引移除
-	TArray<int32>** EmptySlotsPtr = EmptySlotsByIndex.Find(Slot.SlotType);
-		TArray<int32>* EmptySlots = EmptySlotsPtr ? *EmptySlotsPtr : nullptr;
+	TArray<int32>* EmptySlots = EmptySlotsByIndex.Find(Slot.SlotType);
 	if (EmptySlots)
 	{
 		EmptySlots->Remove(SlotIndex);
@@ -837,14 +782,12 @@ void UInventoryComponent::RemoveFromIndices(int32 SlotIndex)
 	if (Slot.Item && Slot.Item->GetItemID() != NAME_None)
 	{
 		FName ItemID = Slot.Item->GetItemID();
-		TArray<int32>* const* ItemSlotsPtr = ItemSlotsById.Find(ItemID);
-		TArray<int32>* ItemSlots = ItemSlotsPtr ? *ItemSlotsPtr : nullptr;
+		TArray<int32>* ItemSlots = ItemSlotsById.Find(ItemID);
 		if (ItemSlots)
 		{
 			ItemSlots->Remove(SlotIndex);
 			if (ItemSlots->Num() == 0)
 			{
-				delete ItemSlots;
 				ItemSlotsById.Remove(ItemID);
 			}
 		}
@@ -859,17 +802,6 @@ void UInventoryComponent::RemoveFromIndices(int32 SlotIndex)
 
 void UInventoryComponent::RebuildAllIndices()
 {
-	// 清空所有索引（需要删除动态分配的数组）
-	for (auto& Pair : EmptySlotsByIndex)
-	{
-		delete Pair.Value;
-		Pair.Value = nullptr;
-	}
-	for (auto& Pair : ItemSlotsById)
-	{
-		delete Pair.Value;
-		Pair.Value = nullptr;
-	}
 	EmptySlotsByIndex.Empty();
 	ItemSlotsById.Empty();
 	EquipmentSlotIndices.Empty();
@@ -891,26 +823,22 @@ AInventoryItem* UInventoryComponent::CreateItemFromPool(TSubclassOf<AInventoryIt
 	UWorld* World = GetWorld();
 
 	// 首先尝试从对象池获取
-	TArray<AInventoryItem*>** PooledItemsPtr = ItemsPoolByClass.Find(ItemClass);
-	TArray<AInventoryItem*>* PooledItems = PooledItemsPtr ? *PooledItemsPtr : nullptr;
-	if (!PooledItems)
-	{
-		PooledItems = new TArray<AInventoryItem*>();
-		ItemsPoolByClass.Add(ItemClass, PooledItems);
-	}
+	TArray<AInventoryItem*>& PooledItems = ItemsPoolByClass.FindOrAdd(ItemClass);
 
-	if (PooledItems->Num() > 0)
+	if (PooledItems.Num() > 0)
 	{
-		NewItem = PooledItems->Pop();
+		NewItem = PooledItems.Pop();
 		if (NewItem)
 		{
-			NewItem->Reset(); // 重置物品状态
+			NewItem->IPoolableInterface::Reset();
 		}
 	}
 	else if (World)
 	{
 		// 对象池为空，创建新对象
-		NewItem = World->SpawnActor<AInventoryItem>(ItemClass);
+		FActorSpawnParameters SpawnParams;
+		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+		NewItem = World->SpawnActor<AInventoryItem>(ItemClass, SpawnParams);
 	}
 
 	if (NewItem)
@@ -926,18 +854,12 @@ void UInventoryComponent::ReturnItemToPool(AInventoryItem* Item)
 	if (!Item) return;
 
 	// 重置物品状态
-	Item->Reset();
+	Item->IPoolableInterface::Reset();
 
 	// 添加到对应类的对象池
 	TSubclassOf<AInventoryItem> ItemClass = Item->GetClass();
-	TArray<AInventoryItem*>** PooledItemsPtr = ItemsPoolByClass.Find(ItemClass);
-		TArray<AInventoryItem*>* PooledItems = PooledItemsPtr ? *PooledItemsPtr : nullptr;
-	if (!PooledItems)
-	{
-		PooledItems = new TArray<AInventoryItem*>();
-		ItemsPoolByClass.Add(ItemClass, PooledItems);
-	}
-	PooledItems->Add(Item);
+	TArray<AInventoryItem*>& PooledItems = ItemsPoolByClass.FindOrAdd(ItemClass);
+	PooledItems.Add(Item);
 
 	// 从当前池中移除
 	ItemPool.Remove(Item);
@@ -985,21 +907,17 @@ void UInventoryComponent::AddItemsBulk(const TArray<FItemAddData>& ItemsToAdd)
 
 int32 UInventoryComponent::FindEmptySlot(ESlotType SlotType) const
 {
-	TArray<int32>* const* EmptySlotsPtr = EmptySlotsByIndex.Find(SlotType);
-	if (EmptySlotsPtr)
+	const TArray<int32>* EmptySlots = EmptySlotsByIndex.Find(SlotType);
+	if (EmptySlots)
 	{
-		TArray<int32>* EmptySlots = *EmptySlotsPtr;
-		if (EmptySlots && EmptySlots->Num() > 0)
+		for (int32 SlotIndex : *EmptySlots)
 		{
-			for (int32 SlotIndex : *EmptySlots)
+			if (InventorySlots.IsValidIndex(SlotIndex))
 			{
-				if (InventorySlots.IsValidIndex(SlotIndex))
+				const FInventorySlot& Slot = InventorySlots[SlotIndex];
+				if (!Slot.bIsLocked)
 				{
-					const FInventorySlot& Slot = InventorySlots[SlotIndex];
-					if (!Slot.bIsLocked)
-					{
-						return SlotIndex;
-					}
+					return SlotIndex;
 				}
 			}
 		}
@@ -1009,23 +927,18 @@ int32 UInventoryComponent::FindEmptySlot(ESlotType SlotType) const
 
 int32 UInventoryComponent::FindStackableSlot(FName ItemID) const
 {
-	TArray<int32>* const* ItemSlotsPtr = ItemSlotsById.Find(ItemID);
-	if (ItemSlotsPtr)
+	const TArray<int32>* ItemSlots = ItemSlotsById.Find(ItemID);
+	if (ItemSlots)
 	{
-		TArray<int32>* ItemSlots = *ItemSlotsPtr;
-		if (ItemSlots && ItemSlots->Num() > 0)
+		for (int32 SlotIndex : *ItemSlots)
 		{
-			for (int32 SlotIndex : *ItemSlots)
+			if (InventorySlots.IsValidIndex(SlotIndex))
 			{
-				if (InventorySlots.IsValidIndex(SlotIndex))
+				const FInventorySlot& Slot = InventorySlots[SlotIndex];
+				if (!Slot.bIsLocked && Slot.SlotType == ESlotType::Inventory &&
+					Slot.Item && Slot.Item->CanStack() && Slot.Item->GetRemainingStackSpace() > 0)
 				{
-					const FInventorySlot& Slot = InventorySlots[SlotIndex];
-					// 添加原有逻辑的检查：非锁定状态且为库存槽位
-					if (!Slot.bIsLocked && Slot.SlotType == ESlotType::Inventory &&
-						Slot.Item && Slot.Item->CanStack() && Slot.Item->GetRemainingStackSpace() > 0)
-					{
-						return SlotIndex;
-					}
+					return SlotIndex;
 				}
 			}
 		}
@@ -1050,18 +963,15 @@ void UInventoryComponent::CleanupItemPool()
 	// 清理过期的对象池项目（保留最近使用的）
 	for (auto& Pair : ItemsPoolByClass)
 	{
-		TArray<AInventoryItem*>* Pool = Pair.Value;
-		if (Pool)
-		{
-			const int32 MaxPoolSize = 10; // 每个类最多保留10个对象
+		TArray<AInventoryItem*>& Pool = Pair.Value;
+		const int32 MaxPoolSize = 10;
 
-			while (Pool->Num() > MaxPoolSize)
+		while (Pool.Num() > MaxPoolSize)
+		{
+			AInventoryItem* ItemToDestroy = Pool.Pop();
+			if (IsValid(ItemToDestroy))
 			{
-				AInventoryItem* ItemToDestroy = Pool->Pop();
-				if (IsValid(ItemToDestroy))
-				{
-					ItemToDestroy->Destroy();
-				}
+				ItemToDestroy->Destroy();
 			}
 		}
 	}

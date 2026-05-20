@@ -60,9 +60,9 @@ UStaticMesh* AInventoryItem::GetWorldMesh() const
 
 bool AInventoryItem::CanMergeWith(const AInventoryItem* OtherItem) const
 {
-    if (!OtherItem && ItemID != OtherItem->ItemID) return false;
-    
-    if (!CanStack() || !OtherItem->CanStack() && ItemState != OtherItem->ItemState) return false;
+    if (!OtherItem || ItemID != OtherItem->ItemID) return false;
+
+    if (!CanStack() || !OtherItem->CanStack() || ItemState != OtherItem->ItemState) return false;
     
     return Quantity < GetMaxStackSize();
 }

@@ -40,36 +40,53 @@ protected:
 
 	virtual void PostAttributeChange(const FGameplayAttribute& Attribute, float OldValue, float NewValue) override;
 public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Attributes")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing = OnRep_MaxHealth, Category = "Attributes")
 	FGameplayAttributeData MaxHealth;
 	ATTRIBUTE_ACCESSORS(UGameplayProjectAttributeSet, MaxHealth)
-	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Attributes")
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing = OnRep_CurrentHealth, Category = "Attributes")
 	FGameplayAttributeData CurrentHealth;
 	ATTRIBUTE_ACCESSORS(UGameplayProjectAttributeSet, CurrentHealth)
- 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Attributes")
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing = OnRep_MaxStamina, Category = "Attributes")
 	FGameplayAttributeData MaxStamina;
 	ATTRIBUTE_ACCESSORS(UGameplayProjectAttributeSet, MaxStamina)
- 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Attributes")
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing = OnRep_CurrentStamina, Category = "Attributes")
 	FGameplayAttributeData CurrentStamina;
 	ATTRIBUTE_ACCESSORS(UGameplayProjectAttributeSet, CurrentStamina)
- 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Attributes")
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing = OnRep_AttackPower, Category = "Attributes")
 	FGameplayAttributeData AttackPower;
 	ATTRIBUTE_ACCESSORS(UGameplayProjectAttributeSet, AttackPower)
 
 	/* Gun */
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Attributes")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing = OnRep_MaxTotalBulletNum, Category = "Attributes")
 	FGameplayAttributeData MaxTotalBulletNum;
 	ATTRIBUTE_ACCESSORS(UGameplayProjectAttributeSet, MaxTotalBulletNum)
-	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Attributes")
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing = OnRep_TotalBulletNum, Category = "Attributes")
 	FGameplayAttributeData TotalBulletNum;
 	ATTRIBUTE_ACCESSORS(UGameplayProjectAttributeSet, TotalBulletNum)
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Attributes")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing = OnRep_BulletNum, Category = "Attributes")
 	FGameplayAttributeData BulletNum;
-	ATTRIBUTE_ACCESSORS(UGameplayProjectAttributeSet, BulletNum) 
+	ATTRIBUTE_ACCESSORS(UGameplayProjectAttributeSet, BulletNum)
+
+	UFUNCTION()
+	void OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth) const;
+	UFUNCTION()
+	void OnRep_CurrentHealth(const FGameplayAttributeData& OldCurrentHealth) const;
+	UFUNCTION()
+	void OnRep_MaxStamina(const FGameplayAttributeData& OldMaxStamina) const;
+	UFUNCTION()
+	void OnRep_CurrentStamina(const FGameplayAttributeData& OldCurrentStamina) const;
+	UFUNCTION()
+	void OnRep_AttackPower(const FGameplayAttributeData& OldAttackPower) const;
+	UFUNCTION()
+	void OnRep_MaxTotalBulletNum(const FGameplayAttributeData& OldMaxTotalBulletNum) const;
+	UFUNCTION()
+	void OnRep_TotalBulletNum(const FGameplayAttributeData& OldTotalBulletNum) const;
+	UFUNCTION()
+	void OnRep_BulletNum(const FGameplayAttributeData& OldBulletNum) const;
 };
