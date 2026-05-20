@@ -4,8 +4,6 @@
 #include "Abilities/SpawnElectricArrow.h"
 
 #include "GameplayProjectCharacter.h"
-#include "K2Node_SpawnActor.h"
-#include "K2Node_SpawnActorFromClass.h"
 
 void USpawnElectricArrow::ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData)
 {

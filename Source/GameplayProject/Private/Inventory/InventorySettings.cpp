@@ -3,7 +3,6 @@
 
 #include "Inventory/InventorySettings.h"
 
-#include "IDetailTreeNode.h"
 #include "Inventory/ItemDefinition.h"
 
 

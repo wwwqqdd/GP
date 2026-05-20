@@ -68,7 +68,7 @@ void UConversationInstanceSubsystem::Deinitialize()
 }
 
 bool UConversationInstanceSubsystem::StartDialogue(UObject* WorldContextObject, const FString& DialogueTreeID,
-	AActor* TargetActor, const FGuid& StartNodeID)
+	AActor* TargetActor, const FName& StartNodeID)
 {
 	if (DialogueTreeID.IsEmpty())
 	{
@@ -99,8 +99,8 @@ bool UConversationInstanceSubsystem::StartDialogue(UObject* WorldContextObject, 
 		return false;
 	}
 
-	FGuid ResolvedStartNodeID = StartNodeID;
-	if (!ResolvedStartNodeID.IsValid() && !TreeDefinition->NodeReferences.IsEmpty())
+	FName ResolvedStartNodeID = StartNodeID;
+	if (ResolvedStartNodeID.IsNone() && !TreeDefinition->NodeReferences.IsEmpty())
 	{
 		// 从第一个节点引用获取NodeID
 		if (TreeDefinition->NodeReferences[0].DataTable != nullptr)
@@ -143,7 +143,7 @@ bool UConversationInstanceSubsystem::StartDialogue(UObject* WorldContextObject, 
 }
 
 bool UConversationInstanceSubsystem::EndDialogue(UObject* WorldContextObject, const FString& DialogueTreeID,
-	AActor* TargetActor, const FGuid& EndNodeID)
+	AActor* TargetActor, const FName& EndNodeID)
 {
 	if (DialogueTreeID.IsEmpty())
 	{
@@ -173,7 +173,7 @@ bool UConversationInstanceSubsystem::EndDialogue(UObject* WorldContextObject, co
 		return false;
 	}
 
-	const FGuid ResolvedEndNodeID = EndNodeID.IsValid() ? EndNodeID : RuntimeState->CurrentNodeID;
+	const FName ResolvedEndNodeID = !EndNodeID.IsNone() ? EndNodeID : RuntimeState->CurrentNodeID;
 	ConversationSubsystemPrivate::ApplyTagChanges(TargetActor, TreeDefinition->TagsToAddOnEnd, TreeDefinition->TagsToRemoveOnEnd);
 	ActiveConversations.Remove(SessionKey);
 	OnDialogueEnded.Broadcast(DialogueTreeID, TargetActor, ResolvedEndNodeID);
@@ -238,7 +238,7 @@ bool UConversationInstanceSubsystem::SelectBranchOption(const FString& DialogueT
 		return false;
 	}
 
-	if (!SelectedBranch->TargetNodeID.IsValid())
+	if (SelectedBranch->TargetNodeRowName.IsNone())
 	{
 		UE_LOG(LogGameplayProject, Warning,
 			TEXT("SelectBranchOption failed: option '%s' on node '%s' has no target node."),
@@ -251,7 +251,7 @@ bool UConversationInstanceSubsystem::SelectBranchOption(const FString& DialogueT
 		TEXT("Dialogue '%s' selected branch '%s' on node '%s'."),
 		*DialogueTreeID, *SelectedOption, *RuntimeState->CurrentNodeID.ToString());
 
-	return AdvanceConversationToNode(WorldContext.Get(), DialogueTreeID, TargetActor, SelectedBranch->TargetNodeID);
+	return AdvanceConversationToNode(WorldContext.Get(), DialogueTreeID, TargetActor, SelectedBranch->TargetNodeRowName);
 }
 
 bool UConversationInstanceSubsystem::AdvanceDialogue(UObject* WorldContextObject, const FString& DialogueTreeID, AActor* TargetActor)
@@ -285,7 +285,7 @@ bool UConversationInstanceSubsystem::AdvanceDialogue(UObject* WorldContextObject
 		return false;
 	}
 
-	if (!RuntimeState->CurrentNodeData.DefaultNextNodeID.IsValid())
+	if (RuntimeState->CurrentNodeData.DefaultNextNodeRowName.IsNone())
 	{
 		UE_LOG(LogGameplayProject, Warning,
 			TEXT("AdvanceDialogue failed: current node '%s' in dialogue '%s' has no default next node."),
@@ -293,7 +293,7 @@ bool UConversationInstanceSubsystem::AdvanceDialogue(UObject* WorldContextObject
 		return false;
 	}
 
-	return AdvanceConversationToNode(WorldContextObject, DialogueTreeID, TargetActor, RuntimeState->CurrentNodeData.DefaultNextNodeID);
+	return AdvanceConversationToNode(WorldContextObject, DialogueTreeID, TargetActor, RuntimeState->CurrentNodeData.DefaultNextNodeRowName);
 }
 
 bool UConversationInstanceSubsystem::GetCurrentNodeData(const FString& DialogueTreeID, AActor* TargetActor,
@@ -387,9 +387,9 @@ const FConversationTreeDefinition* UConversationInstanceSubsystem::FindDialogueT
 }
 
 const FConversationNodeData* UConversationInstanceSubsystem::FindNodeData(const FConversationTreeDefinition* TreeDef,
-	const FGuid& NodeID) const
+	const FName& NodeID) const
 {
-	if (TreeDef == nullptr || !NodeID.IsValid())
+	if (TreeDef == nullptr || NodeID.IsNone())
 	{
 		return nullptr;
 	}
@@ -420,15 +420,10 @@ const FConversationNodeData* UConversationInstanceSubsystem::FindNodeData(const 
 
 	if (ConversationDataTableAsset != nullptr)
 	{
-		for (const FName& RowName : ConversationDataTableAsset->GetRowNames())
+		// 直接通过行名查找
+		if (const FConversationNodeData* DirectNode = ConversationDataTableAsset->FindRow<FConversationNodeData>(NodeID, TEXT("ConversationNodeLookup")))
 		{
-			if (const FConversationNodeData* CandidateNode = ConversationDataTableAsset->FindRow<FConversationNodeData>(RowName, TEXT("ConversationNodeLookup")))
-			{
-				if (CandidateNode->NodeID == NodeID)
-				{
-					return CandidateNode;
-				}
-			}
+			return DirectNode;
 		}
 	}
 
@@ -441,9 +436,9 @@ FString UConversationInstanceSubsystem::BuildConversationSessionKey(const FStrin
 }
 
 bool UConversationInstanceSubsystem::AdvanceConversationToNode(UObject* WorldContextObject, const FString& DialogueTreeID,
-	AActor* TargetActor, const FGuid& NextNodeID)
+	AActor* TargetActor, const FName& NextNodeID)
 {
-	if (!NextNodeID.IsValid())
+	if (NextNodeID.IsNone())
 	{
 		UE_LOG(LogGameplayProject, Warning,
 			TEXT("AdvanceConversationToNode failed: next node ID is invalid for dialogue '%s'."),
@@ -479,7 +474,7 @@ bool UConversationInstanceSubsystem::AdvanceConversationToNode(UObject* WorldCon
 		return false;
 	}
 
-	const FGuid PreviousNodeID = RuntimeState->CurrentNodeID;
+	const FName PreviousNodeID = RuntimeState->CurrentNodeID;
 	RuntimeState->CurrentNodeID = NextNode->NodeID;
 	RuntimeState->CurrentNodeData = *NextNode;
 

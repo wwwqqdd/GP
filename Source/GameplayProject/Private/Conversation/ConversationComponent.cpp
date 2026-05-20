@@ -38,7 +38,7 @@ void UConversationComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 
 // ========== 对话生命周期控制 ==========
 
-bool UConversationComponent::StartConversation(const FString& DialogueTreeID, const FGuid& StartNodeID)
+bool UConversationComponent::StartConversation(const FString& DialogueTreeID, const FName& StartNodeID)
 {
 	if (ConversationSubsystem == nullptr)
 	{
@@ -70,7 +70,7 @@ bool UConversationComponent::StartConversation(const FString& DialogueTreeID, co
 	return bSuccess;
 }
 
-bool UConversationComponent::StartDefaultConversation(const FGuid& StartNodeID)
+bool UConversationComponent::StartDefaultConversation(const FName& StartNodeID)
 {
 	if (DefaultDialogueTreeID.IsEmpty())
 	{
@@ -81,7 +81,7 @@ bool UConversationComponent::StartDefaultConversation(const FGuid& StartNodeID)
 	return StartConversation(DefaultDialogueTreeID, StartNodeID);
 }
 
-bool UConversationComponent::EndConversation(const FGuid& EndNodeID)
+bool UConversationComponent::EndConversation(const FName& EndNodeID)
 {
 	if (ConversationSubsystem == nullptr)
 	{
@@ -276,7 +276,7 @@ void UConversationComponent::UnbindSubsystemEvents()
 
 // ========== 子系统事件处理 ==========
 
-void UConversationComponent::HandleDialogueStarted(const FString& DialogueTreeID, AActor* TargetActor, const FGuid& StartNodeID)
+void UConversationComponent::HandleDialogueStarted(const FString& DialogueTreeID, AActor* TargetActor, const FName& StartNodeID)
 {
 	// 只处理属于当前Actor的对话事件
 	if (TargetActor == GetOwner())
@@ -286,7 +286,7 @@ void UConversationComponent::HandleDialogueStarted(const FString& DialogueTreeID
 	}
 }
 
-void UConversationComponent::HandleDialogueEnded(const FString& DialogueTreeID, AActor* TargetActor, const FGuid& EndNodeID)
+void UConversationComponent::HandleDialogueEnded(const FString& DialogueTreeID, AActor* TargetActor, const FName& EndNodeID)
 {
 	// 只处理属于当前Actor的对话事件
 	if (TargetActor == GetOwner())
@@ -296,7 +296,7 @@ void UConversationComponent::HandleDialogueEnded(const FString& DialogueTreeID, 
 	}
 }
 
-void UConversationComponent::HandleNodeChanged(const FString& DialogueTreeID, AActor* TargetActor, const FGuid& OldNodeID, const FGuid& NewNodeID)
+void UConversationComponent::HandleNodeChanged(const FString& DialogueTreeID, AActor* TargetActor, const FName& OldNodeID, const FName& NewNodeID)
 {
 	// 只处理属于当前Actor的对话事件
 	if (TargetActor == GetOwner())
