@@ -7,7 +7,6 @@
 #include "GameplayTagContainer.h"
 #include "ConversationDefinition.generated.h"
 
-class USoundBase;
 class UUserWidget;
 
 DECLARE_DYNAMIC_DELEGATE(FConversationBlueprintDelegate);
@@ -42,7 +41,7 @@ struct GAMEPLAYPROJECT_API FConversationNodeData : public FTableRowBase
 	GENERATED_BODY()
 
 	/** 节点唯一标识符（自动使用行名） */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Conversation|Basic")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
 	FName NodeID;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")

@@ -19,7 +19,11 @@ public class GameplayProjectEditor : ModuleRules
                 "CoreUObject",
                 "Engine",
                 "Slate",
-                "SlateCore"
+                "SlateCore",
+                "InputCore",
+                "PropertyEditor",
+                "UnrealEd",
+                "GameplayProject"
             }
         );
     }
