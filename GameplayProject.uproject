@@ -16,7 +16,12 @@
 				"CoreUObject",
 				"DeveloperSettings"
 			]
-		}
+		},
+        {
+          "Name": "GameplayProjectEditor",
+          "Type": "Runtime",
+          "LoadingPhase": "Default"
+        }
 	],
 	"Plugins": [
 		{

@@ -78,6 +78,7 @@ struct FPoolStatistics
 - 锁粒度为每 Bucket：不同类型之间零竞争
 - ActiveObjects 拆分到每个 Bucket 中（移除全局 TSet），消除全局热点
 - 每类型独立配置，允许不同类型拥有不同的池大小和清理间隔
+- Buckets map 使用 `TMap<TSubclassOf<UObject>, TUniquePtr<FObjectPoolBucket>>`：因为 `FCriticalSection` 不可拷贝/移动，`FObjectPoolBucket` 无法作为 `TMap` 的值类型直接存储，需通过堆分配绕过此限制
 
 ---
 
@@ -177,7 +178,7 @@ public:
 private:
     FObjectPoolBucket& FindOrCreateBucket(TSubclassOf<UObject> ObjectClass);
 
-    TMap<TSubclassOf<UObject>, FObjectPoolBucket> Buckets;
+    TMap<TSubclassOf<UObject>, TUniquePtr<FObjectPoolBucket>> Buckets; // TUniquePtr 因为 FCriticalSection 不可拷贝/移动
     FCriticalSection BucketsMapLock;    // 仅保护 Buckets map 的增删
     FPoolTypeConfig DefaultConfig;      // 未配置类型的默认值
     TMap<FString, FPoolTypeConfig> PerClassConfigs; // INI 覆盖配置

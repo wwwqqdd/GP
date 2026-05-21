@@ -15,7 +15,17 @@ UObjectPoolManager* UObjectPoolManager::Get(UWorld* World)
 {
     if (Instance && (!Instance->CachedWorld.IsValid() || Instance->CachedWorld.Get() != World))
     {
-        Instance->DrainAll();
+        // 旧 World 切换（PIE 重启等）：旧 World 中的 Actor 已由引擎回收，
+        // 池中持有的是悬空指针，不可解引用。仅清除簿记数据和定时器。
+        UWorld* OldWorld = Instance->CachedWorld.Get();
+        if (OldWorld && Instance->CleanupTimerHandle.IsValid())
+        {
+            OldWorld->GetTimerManager().ClearTimer(Instance->CleanupTimerHandle);
+        }
+        {
+            FScopeLock MapLock(&Instance->BucketsMapLock);
+            Instance->Buckets.Empty();
+        }
         Instance->RemoveFromRoot();
         Instance = nullptr;
     }

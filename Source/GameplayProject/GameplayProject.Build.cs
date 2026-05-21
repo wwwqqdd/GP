@@ -26,7 +26,7 @@ public class GameplayProject : ModuleRules
 			"NavigationSystem"
 		});
 
-		PrivateDependencyModuleNames.AddRange(new string[] { });
+		PrivateDependencyModuleNames.AddRange(new string[] { "GameplayProjectEditor" });
 
 		PublicIncludePaths.AddRange(new string[] {
 			"GameplayProject"
