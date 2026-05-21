@@ -10,8 +10,39 @@
 class UUserWidget;
 
 DECLARE_DYNAMIC_DELEGATE(FConversationBlueprintDelegate);
+
 /**
- * 
+ * 对话节点行名引用 - 包装 FName 以支持编辑器下拉选择
+ */
+USTRUCT(BlueprintType)
+struct GAMEPLAYPROJECT_API FConversationRowNameRef
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FName RowName;
+
+	FConversationRowNameRef() : RowName(NAME_None) {}
+	FConversationRowNameRef(FName InName) : RowName(InName) {}
+
+	bool IsNone() const { return RowName.IsNone(); }
+	operator FName() const { return RowName; }
+};
+
+/**
+ * 对话节点类型
+ * Direct: 线性跳转，使用 DefaultNextNodeRowName 指向下一节点
+ * Select: 分支选择，使用 BranchOptions 提供多个分支
+ */
+UENUM(BlueprintType)
+enum class EConversationNodeType : uint8
+{
+	Direct UMETA(DisplayName = "Direct"),
+	Select UMETA(DisplayName = "Select")
+};
+
+/**
+ *
  */
 USTRUCT(BlueprintType)
 struct GAMEPLAYPROJECT_API FConversationBranchOption
@@ -23,7 +54,7 @@ struct GAMEPLAYPROJECT_API FConversationBranchOption
 	
 	/** 目标节点行名（在DataTable中选择） */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
-	FName TargetNodeRowName;
+	FConversationRowNameRef TargetNodeRowName;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
 	FGameplayTagContainer EnableConditionTags;
@@ -40,9 +71,14 @@ struct GAMEPLAYPROJECT_API FConversationNodeData : public FTableRowBase
 {
 	GENERATED_BODY()
 
-	/** 节点唯一标识符（自动使用行名） */
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
+	/** 节点唯一标识符（自动从行名同步，只读） */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Conversation|Basic")
 	FName NodeID;
+
+	virtual void OnDataTableChanged(const UDataTable* InDataTable, const FName InRowName) override
+	{
+		NodeID = InRowName;
+	}
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
 	FString SpeakerID;
@@ -60,13 +96,19 @@ struct GAMEPLAYPROJECT_API FConversationNodeData : public FTableRowBase
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Basic")
 	bool bIsEndNode = false;
 
-	/** 对话分支选项列表（为空则线性跳转DefaultNextNodeRowName） */
+	/** 节点类型：Direct 线性跳转，Select 分支选择 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
+	EConversationNodeType Type = EConversationNodeType::Direct;
+
+	/** 对话分支选项列表（仅 Select 类型生效） */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch",
+		meta = (EditCondition = "Type == EConversationNodeType::Select", EditConditionHides))
 	TArray<FConversationBranchOption> BranchOptions;
 
-	/** 默认下一个节点行名（无分支时生效，在DataTable中选择） */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch")
-	FName DefaultNextNodeRowName;
+	/** 默认下一个节点行名（仅 Direct 类型生效，在DataTable中选择） */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch",
+		meta = (EditCondition = "Type == EConversationNodeType::Direct", EditConditionHides))
+	FConversationRowNameRef DefaultNextNodeRowName;
 };
 
 USTRUCT(BlueprintType)

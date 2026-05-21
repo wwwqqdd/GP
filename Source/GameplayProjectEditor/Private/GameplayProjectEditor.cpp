@@ -1,7 +1,6 @@
 #include "GameplayProjectEditor.h"
 #include "PropertyEditorModule.h"
-#include "ConversationNodeDataCustomization.h"
-#include "ConversationBranchOptionCustomization.h"
+#include "ConversationRowNameRefCustomization.h"
 
 #define LOCTEXT_NAMESPACE "FGameplayProjectEditorModule"
 
@@ -10,12 +9,8 @@ void FGameplayProjectEditorModule::StartupModule()
     FPropertyEditorModule& PropertyModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
 
     PropertyModule.RegisterCustomPropertyTypeLayout(
-        "ConversationNodeData",
-        FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FConversationNodeDataCustomization::MakeInstance));
-
-    PropertyModule.RegisterCustomPropertyTypeLayout(
-        "ConversationBranchOption",
-        FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FConversationBranchOptionCustomization::MakeInstance));
+        "ConversationRowNameRef",
+        FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FConversationRowNameRefCustomization::MakeInstance));
 
     PropertyModule.NotifyCustomizationModuleChanged();
 }
@@ -25,8 +20,7 @@ void FGameplayProjectEditorModule::ShutdownModule()
     if (FModuleManager::Get().IsModuleLoaded("PropertyEditor"))
     {
         FPropertyEditorModule& PropertyModule = FModuleManager::GetModuleChecked<FPropertyEditorModule>("PropertyEditor");
-        PropertyModule.UnregisterCustomPropertyTypeLayout("ConversationNodeData");
-        PropertyModule.UnregisterCustomPropertyTypeLayout("ConversationBranchOption");
+        PropertyModule.UnregisterCustomPropertyTypeLayout("ConversationRowNameRef");
     }
 }
 

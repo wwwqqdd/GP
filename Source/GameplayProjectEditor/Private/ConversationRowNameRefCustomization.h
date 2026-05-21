@@ -3,7 +3,7 @@
 #include "CoreMinimal.h"
 #include "IPropertyTypeCustomization.h"
 
-class FConversationNodeDataCustomization : public IPropertyTypeCustomization
+class FConversationRowNameRefCustomization : public IPropertyTypeCustomization
 {
 public:
     static TSharedRef<IPropertyTypeCustomization> MakeInstance();
@@ -18,9 +18,9 @@ public:
 
 private:
     void RebuildRowNameOptions();
-    void OnDefaultNextNodeChanged(TSharedPtr<FString> NewValue, ESelectInfo::Type SelectInfo);
-    FText GetCurrentDefaultNextNodeText() const;
+    void OnRowNameChanged(TSharedPtr<FString> NewValue, ESelectInfo::Type SelectInfo);
+    FText GetCurrentRowNameText() const;
 
-    TSharedPtr<IPropertyHandle> DefaultNextNodeHandle;
+    TSharedPtr<IPropertyHandle> RowNameHandle;
     TArray<TSharedPtr<FString>> RowNameOptions;
 };
