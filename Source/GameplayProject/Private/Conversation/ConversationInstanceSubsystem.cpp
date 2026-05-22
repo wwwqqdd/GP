@@ -120,7 +120,7 @@ bool UConversationInstanceSubsystem::StartDialogue(UObject* WorldContextObject, 
 		UE_LOG(LogGameplayProject, Warning,
 			TEXT("StartDialogue failed: could not find start node '%s' for dialogue '%s'."),
 			*ResolvedStartNodeID.ToString(), *DialogueTreeID);
-		return false;
+		return false; 
 	}
 
 	if (WorldContextObject != nullptr)

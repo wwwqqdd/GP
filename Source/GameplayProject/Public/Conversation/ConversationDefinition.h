@@ -107,7 +107,7 @@ struct GAMEPLAYPROJECT_API FConversationNodeData : public FTableRowBase
 
 	/** 默认下一个节点行名（仅 Direct 类型生效，在DataTable中选择） */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Conversation|Branch",
-		meta = (EditCondition = "Type == EConversationNodeType::Direct", EditConditionHides))
+		meta = (EditCondition = "Type == EConversationNodeType::Direct && bIsEndNode == false", EditConditionHides))
 	FConversationRowNameRef DefaultNextNodeRowName;
 };
 
