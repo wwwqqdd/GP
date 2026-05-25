@@ -6,6 +6,8 @@
         "--directory",
         "D:/SoftWare/Project/GP/Plugins/unreal-mcp/mcp-server",
         "run",
+        "--python",
+        "3.12",
         "src/unreal_mcp/main.py"
       ]
     }
