@@ -138,10 +138,10 @@ void AInventoryItem::SetItemState(EItemState NewState)
 
 bool AInventoryItem::CanUse() const
 {
-    if (GetWorld())
+    // Only enforce cooldown after the first use. LastUsedTime == 0 means "never used".
+    if (GetWorld() && LastUsedTime > 0.0f)
     {
         float CurrentTime = GetWorld()->GetTimeSeconds();
-        
         if (CurrentTime - LastUsedTime < ItemData.UseCooldown) return false;
     }
     if (ItemState == EItemState::Broken) return false;

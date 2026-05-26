@@ -454,24 +454,43 @@ FInventorySlot UInventoryComponent::GetEquippedItemInSlot(EEquipmentSlot Equipme
 
 bool UInventoryComponent::UseItem(int32 SlotIndex)
 {
-	if (!IsValidSlotIndex(SlotIndex))  return false;
+	if (!IsValidSlotIndex(SlotIndex))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("UseItem failed: invalid slot index %d (InventorySize=%d)"), SlotIndex, InventorySlots.Num());
+		return false;
+	}
 	FInventorySlot& Slot = InventorySlots[SlotIndex];
-	if (Slot.IsEmpty()) return false;
+	if (Slot.IsEmpty())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("UseItem failed: slot %d is empty"), SlotIndex);
+		return false;
+	}
 	AInventoryItem* Item = Slot.Item;
-	if (!IsValid(Item) && !Item->CanUse()) return false;
-	
+	if (!IsValid(Item))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("UseItem failed: slot %d has invalid item pointer"), SlotIndex);
+		return false;
+	}
+	if (!Item->CanUse())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("UseItem failed: item %s CanUse=false (cooldown or broken)"), *Item->GetItemID().ToString());
+		return false;
+	}
+
 	bool bUseSuccess = false;
-	switch (Item->GetItemData().ItemType)
+	const EItemType ItemType = Item->GetItemData().ItemType;
+	switch (ItemType)
 	{
 	case EItemType::Consumable:
 		bUseSuccess = ApplyConsumableEffect(Item);
 		break;
-            
+
 	case EItemType::Equipment:
 		bUseSuccess = EquipItem(SlotIndex, Item->GetItemData().EquipmentSlot);
 		break;
-            
+
 	default:
+		UE_LOG(LogTemp, Warning, TEXT("UseItem failed: item %s has unsupported ItemType=%d (not Consumable/Equipment)"), *Item->GetItemID().ToString(), (int32)ItemType);
 		bUseSuccess = false;
 		break;
 	}
@@ -704,15 +723,18 @@ bool UInventoryComponent::ApplyConsumableEffect(AInventoryItem* ConsumableItem)
 		FGameplayEffectContextHandle EffectContext = ASC->MakeEffectContext();
 		EffectContext.AddSourceObject(ConsumableItem);
 		const FActiveGameplayEffectHandle EffectHandle = ASC->ApplyGameplayEffectToSelf(DefaultGameplayEffect,1.0f, EffectContext);
-		
-		if (EffectHandle.IsValid())
+
+		// Instant GEs return an invalid handle by design (they don't persist),
+		// so treat Instant as success if we reached here. Duration/Infinite GEs need a valid handle.
+		const bool bIsInstant = DefaultGameplayEffect->DurationPolicy == EGameplayEffectDurationType::Instant;
+		if (bIsInstant || EffectHandle.IsValid())
 		{
 			UE_LOG(LogTemp, Log, TEXT("ApplyConsumableEffect: 角色%s成功应用消耗品%s效果"), *OwnerCharacter->GetName(), *ConsumableItem->GetDisplayName().ToString());
 			return true;
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("ApplyConsumableEffect: 角色%s应用消耗品%s效果失败（Effect应用返回无效句柄）"), *OwnerCharacter->GetName(), *TargetItemID.ToString());
+			UE_LOG(LogTemp, Warning, TEXT("ApplyConsumableEffect: 角色%s应用消耗品%s效果失败（GE=%s，可能 ASC 未初始化或被免疫标签阻挡）"), *OwnerCharacter->GetName(), *Data.Effect->GetName(), *TargetItemID.ToString());
 			return false;
 		}
 	}

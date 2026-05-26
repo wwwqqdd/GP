@@ -122,6 +122,35 @@
 
 ---
 
+## 已通过 MCP 完成的内容（截至 2026-05-26 — 方案 A 最终状态）
+
+**注**：用户在 UE 里 Ctrl+Z 撤销了之前的 24-slot 重构。最终采用方案 A — 保留原始 8 个硬编码槽位。
+
+WBP_Inventory 现状：
+
+| 项 | 状态 |
+|---|---|
+| 原始 `HorizontalBox_111 + 8 WBP_ItemSlot` (包括 Spacers) | ✅ 完整保留 |
+| 8 个 WBP_ItemSlot 实例的 `SlotIndex` 默认值（0–7） | ✅ Python 已设 |
+| 变量：`OwnerInventory (ExposeOnSpawn)` | ✅ 已添加 |
+| `Event Construct → IsValid(OwnerInventory) → InitSlots()` | ✅ 已连 |
+| `InitSlots`：链式调用 `WBP_ItemSlot.Refresh()` … `WBP_ItemSlot_7.Refresh()` | ✅ 已连 |
+| 每个 Slot 的 `OwnerInventory` 传值（runtime 注入） | ❌ **MCP 做不到，需手动** |
+| 绑定 `OnInventoryChanged` 委托 | ❌ **MCP 做不到，需手动** |
+
+## ❌ MCP 局限性说明
+
+经过深度尝试，发现 UE 5.6 的 Python API 对几类 K2Node 不开放：
+
+1. **`K2Node_VariableSet` 的 `VariableReference`** 是 protected 属性，无法从 Python 重定向到外部类的变量。所以无法用 MCP 给 `Slot_i.OwnerInventory` 赋值。
+2. **`K2Node_AddDelegate`** 类能加载但 `unreal.new_object` 创建后无法挂到 graph（`UEdGraph::AddNode` 非 UFUNCTION）。
+3. **`K2Node_CustomEvent.CreateUserDefinedPin`** 同样未暴露给 Python，无法添加 SlotIndex 参数。
+4. **`K2Node_DynamicCast`** 无法构造，Slot 无法 Cast 父级。
+
+这意味着 **OwnerInventory 传值 + 委托绑定** 必须在 UE Designer 里手动接。下面是步骤。
+
+---
+
 ## 第二部分：WBP_Inventory 的事件图
 
 ### 步骤 1 — 准备：把硬编码的 8 个 ItemSlot 删掉
@@ -219,6 +248,42 @@
 ### 步骤 6 — 编译保存
 
 - Compile，无错误后 Save
+
+---
+
+## 第二部分增补：你需要在 UE 里手动接的 2 件事
+
+MCP 已经把 `Event Construct → IsValid → InitSlots()` 和 `InitSlots` 内的 24 个 `Slot_i.Refresh()` 链都接好了。但缺这两块：
+
+### 2A. 给每个 Slot 注入 OwnerInventory（必做）
+
+不接这一步，Slots 会因为 `OwnerInventory == null` 全部静默退出，UI 不显示任何物品。
+
+**操作步骤** — 在 `InitSlots` 函数图里，每条 `Refresh` 链旁加一个 `Set OwnerInventory`：
+
+1. 打开 [WBP_Inventory](../../../Content/Widget/WBP_Inventory.uasset) → **Functions** → 双击 `InitSlots`
+2. 你会看到 8 条 Refresh 链，每条形如：`Get WBP_ItemSlot_N → Refresh`
+3. **对每条链（8 次）**：
+   - 选中链上的 `Get WBP_ItemSlot_N` 节点，**Alt+拖动**复制一份（或在空白处再拖一个出来）
+   - 从这个 Get 节点的输出引脚 **拖一根线** → 在弹出菜单里搜 `Set Owner Inventory` → 选 **"SET Owner Inventory (Target is WBP Item Slot)"**（注意要选有 "Target is WBP Item Slot" 字样的那个）
+   - 从蓝图左侧 **Variables → OwnerInventory** 拖一个 Get 出来 → 连到这个 Set 节点的 `Owner Inventory` 输入
+   - 把新的 Set 节点串到 exec 链里：原本是 `prev.then → Refresh.execute`，改成 `prev.then → Set.execute`、`Set.then → Refresh.execute`
+
+8 个槽位重复 8 次，约 5 分钟。
+
+### 2B. 绑定 OnInventoryChanged 委托（推荐，让 UI 自动刷新）
+
+不接这一步，玩家拾取/丢弃物品后 UI 不会自动更新，需要手动调 Refresh。
+
+1. 切到 `EventGraph`
+2. 在 `Call Init Slots` 节点之后：从 **Get OwnerInventory** 拖一根线 → 搜 `Bind Event to On Inventory Changed`
+3. 右键 Bind 节点的红色 `Event` 输入引脚 → **Create Event** → 命名 `HandleSlotChanged` → 它会自动创建一个带 `SlotIndex (int)` 参数的 CustomEvent
+4. 把 `Init Slots.then` 连到 Bind Event.execute
+5. 切到自动创建的 `HandleSlotChanged` CustomEvent：
+   - 从 `SlotIndex` 引脚拖出 → 搜 `Select` → 设置 `Option 0..7` 分别返回 `WBP_ItemSlot..WBP_ItemSlot_7` 引用（每个 case 连一个 Get 节点）→ Select 的 Return Value 连到 `Refresh` 调用
+   - **或更简单粗暴**：直接调 `InitSlots()` 全量刷新 8 槽（虽然不精准但只 8 个，性能完全可接受）
+
+实测建议：先不绑定委托，让 UI 通过 `InitSlots` 函数手动触发（在玩家拾取物品后调用 `WBP_Inventory.InitSlots()` 即可全量刷新）。这样 MVP 立即可跑。
 
 ---
 
