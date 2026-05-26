@@ -240,16 +240,22 @@ int32 UInventoryComponent::RemoveItem(const FName& ItemID, int32 Quantity)
 int32 UInventoryComponent::RemoveItemFromSlot(int32 SlotIndex, int32 Quantity)
 {
 	if (!IsValidSlotIndex(SlotIndex) || Quantity <= 0) return 0;
-	
+
 	FInventorySlot& Slot = InventorySlots[SlotIndex];
 	if (Slot.IsEmpty() || Slot.bIsLocked) return 0;
 
 	AInventoryItem* Item = Slot.Item;
+	const FName RemovedItemID = Item->GetItemID();
 	int32 ActualRemoved = Item->RemoveQuantity(Quantity);
-	
+
 	if (Item->Quantity <= 0)
 	{
 		ClearSlot(SlotIndex);
+	}
+	else if (ActualRemoved > 0)
+	{
+		OnItemRemoved.Broadcast(RemovedItemID, ActualRemoved);
+		NotifyInventoryChanged(SlotIndex);
 	}
 	return ActualRemoved;
 }
