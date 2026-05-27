@@ -55,7 +55,9 @@ AGameplayProjectCharacter::AGameplayProjectCharacter()
 	InventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("Inventory"));
 
 	ConversationComponent = CreateDefaultSubobject<UConversationComponent>(TEXT("Conversation"));
-	
+
+	InteractionComponent = CreateDefaultSubobject<UInteractionComponent>(TEXT("Interaction"));
+
 }
 
 void AGameplayProjectCharacter::BeginPlay()

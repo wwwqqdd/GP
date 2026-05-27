@@ -9,6 +9,7 @@
 #include "AbilitySystemInterface.h"
 #include "Inventory/InventoryComponent.h"
 #include "Conversation/ConversationComponent.h"
+#include "Interaction/InteractionComponent.h"
 #include "GameplayProjectCharacter.generated.h"
 
 class UGameplayProjectAttributeSet;
@@ -53,6 +54,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Conversation")
 	TObjectPtr<UConversationComponent> ConversationComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Interaction")
+	TObjectPtr<UInteractionComponent> InteractionComponent;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon")
 	bool bHasWeaponInSlot = false;
