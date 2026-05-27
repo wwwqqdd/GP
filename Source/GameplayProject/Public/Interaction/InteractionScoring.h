@@ -6,6 +6,10 @@
 
 namespace InteractionScoring
 {
+    // 评分权重：距离占主导，朝向作次要修正（两者之和应为 1）
+    constexpr float DistanceWeight = 0.7f;
+    constexpr float FacingWeight = 0.3f;
+
     /**
      * 给一个候选交互物打分。分越高越优先。
      * @param InstigatorLocation 交互者位置
@@ -38,6 +42,6 @@ namespace InteractionScoring
         const float DistScore = FMath::Clamp(1.f - Dist / SafeRadius, 0.f, 1.f);
         const float FacingScore = (Dot + 1.f) * 0.5f; // [-1,1] → [0,1]
 
-        return 0.7f * DistScore + 0.3f * FacingScore;
+        return DistanceWeight * DistScore + FacingWeight * FacingScore;
     }
 }

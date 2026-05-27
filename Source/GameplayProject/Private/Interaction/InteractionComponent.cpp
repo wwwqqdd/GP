@@ -10,6 +10,12 @@
 
 DEFINE_LOG_CATEGORY_STATIC(LogInteraction, Log, All);
 
+namespace
+{
+    // "无目标"语义的空提示：不显示、不可交互
+    static const FInteractionPrompt EmptyPrompt{ FText::GetEmpty(), nullptr, false };
+}
+
 UInteractionComponent::UInteractionComponent()
 {
     PrimaryComponentTick.bCanEverTick = false;
@@ -23,17 +29,23 @@ void UInteractionComponent::BeginPlay()
     if (!Owner) return;
 
     DetectionSphere = NewObject<USphereComponent>(Owner, TEXT("InteractionDetectionSphere"));
-    DetectionSphere->RegisterComponent();
-    DetectionSphere->AttachToComponent(Owner->GetRootComponent(), FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+    // 在 RegisterComponent 之前配置半径与碰撞，顺序更稳
     DetectionSphere->SetSphereRadius(DetectionRadius);
     DetectionSphere->SetCollisionProfileName(TEXT("OverlapAllDynamic"));
     DetectionSphere->SetGenerateOverlapEvents(true);
+    DetectionSphere->RegisterComponent();
+    // 挂载前校验 RootComponent 非空，避免无根 Actor 崩溃
+    if (USceneComponent* Root = Owner->GetRootComponent())
+    {
+        DetectionSphere->AttachToComponent(Root, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+    }
     DetectionSphere->OnComponentBeginOverlap.AddDynamic(this, &UInteractionComponent::OnSphereBeginOverlap);
     DetectionSphere->OnComponentEndOverlap.AddDynamic(this, &UInteractionComponent::OnSphereEndOverlap);
 
     if (UWorld* World = GetWorld())
     {
-        World->GetTimerManager().SetTimer(ScanTimerHandle, this, &UInteractionComponent::ScanAndUpdateTarget, ScanInterval, true);
+        const float SafeInterval = FMath::Max(ScanInterval, 0.01f);
+        World->GetTimerManager().SetTimer(ScanTimerHandle, this, &UInteractionComponent::ScanAndUpdateTarget, SafeInterval, true);
     }
 }
 
@@ -51,28 +63,43 @@ void UInteractionComponent::EndPlay(const EEndPlayReason::Type Reason)
     Super::EndPlay(Reason);
 }
 
-void UInteractionComponent::OnSphereBeginOverlap(UPrimitiveComponent* /*OverlappedComp*/, AActor* Other, UPrimitiveComponent* /*OtherComp*/, int32 /*BodyIndex*/, bool /*bFromSweep*/, const FHitResult& /*Sweep*/)
+void UInteractionComponent::OnSphereBeginOverlap(UPrimitiveComponent* /*OverlappedComp*/, AActor* /*Other*/, UPrimitiveComponent* /*OtherComp*/, int32 /*BodyIndex*/, bool /*bFromSweep*/, const FHitResult& /*Sweep*/)
 {
-    if (Other && Other != GetOwner() && Other->Implements<UInteractable>())
-    {
-        Candidates.AddUnique(Other);
-    }
+    // 候选集统一在 ScanAndUpdateTarget 中权威重建，无需在此增删。
+    // 保留回调以供未来即时性触发使用。
 }
 
 void UInteractionComponent::OnSphereEndOverlap(UPrimitiveComponent* /*OverlappedComp*/, AActor* Other, UPrimitiveComponent* /*OtherComp*/, int32 /*BodyIndex*/)
 {
-    if (!Other) return;
-    Candidates.RemoveAll([Other](const TWeakObjectPtr<AActor>& P) { return P.Get() == Other; });
-    if (CurrentTargetActor.Get() == Other)
+    // 仅保留低延迟行为：离开的是当前目标则立即重选。
+    // 注意：多 primitive Actor 任一碰撞体离开都会触发，但重建逻辑会用
+    // GetOverlappingActors 重新确认该 Actor 是否仍有其它碰撞体在范围内。
+    if (Other && CurrentTargetActor.Get() == Other)
     {
-        ScanAndUpdateTarget(); // 立即重选
+        ScanAndUpdateTarget();
     }
 }
 
 void UInteractionComponent::ScanAndUpdateTarget()
 {
-    // 清理失效弱引用
-    Candidates.RemoveAll([](const TWeakObjectPtr<AActor>& P) { return !P.IsValid(); });
+    // 权威重建候选集：以球体当前 overlap 的 Actor 为准，避免 Begin/End 计数
+    // 在多碰撞体 Actor 上不匹配（任一离开误删整个 Actor）的问题。
+    Candidates.Reset();
+
+    if (DetectionSphere)
+    {
+        TArray<AActor*> Overlapping;
+        DetectionSphere->GetOverlappingActors(Overlapping);
+
+        const AActor* Owner = GetOwner();
+        for (AActor* Actor : Overlapping)
+        {
+            if (Actor && Actor != Owner && Actor->Implements<UInteractable>())
+            {
+                Candidates.AddUnique(Actor);
+            }
+        }
+    }
 
     AActor* Best = PickBestCandidate();
     if (Best != CurrentTargetActor.Get())
@@ -116,7 +143,7 @@ AActor* UInteractionComponent::PickBestCandidate() const
 void UInteractionComponent::SetCurrentTarget(AActor* NewTarget)
 {
     CurrentTargetActor = NewTarget;
-    const FInteractionPrompt Prompt = NewTarget ? GetPromptFor(NewTarget) : FInteractionPrompt{ FText::GetEmpty(), nullptr, false };
+    const FInteractionPrompt Prompt = NewTarget ? GetPromptFor(NewTarget) : EmptyPrompt;
     UE_LOG(LogInteraction, Verbose, TEXT("Target -> %s"), *GetNameSafe(NewTarget));
     OnTargetChanged.Broadcast(Prompt);
 }
@@ -127,7 +154,7 @@ FInteractionPrompt UInteractionComponent::GetPromptFor(AActor* TargetActor) cons
     {
         return IInteractable::Execute_GetInteractionPrompt(TargetActor);
     }
-    return FInteractionPrompt{ FText::GetEmpty(), nullptr, false };
+    return EmptyPrompt;
 }
 
 bool UInteractionComponent::TryInteract()

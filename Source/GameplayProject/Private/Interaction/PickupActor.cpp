@@ -7,6 +7,8 @@
 
 DEFINE_LOG_CATEGORY_STATIC(LogPickup, Log, All);
 
+#define LOCTEXT_NAMESPACE "PickupActor"
+
 APickupActor::APickupActor()
 {
     PrimaryActorTick.bCanEverTick = false;
@@ -25,7 +27,7 @@ FInteractionPrompt APickupActor::GetInteractionPrompt_Implementation() const
         return PromptOverride;
     }
     FInteractionPrompt Fallback = PromptOverride;
-    Fallback.Text = FText::FromString(TEXT("[E] 拾取"));
+    Fallback.Text = LOCTEXT("DefaultPickupPrompt", "[E] 拾取");
     return Fallback;
 }
 
@@ -59,3 +61,5 @@ void APickupActor::OnInteract_Implementation(AActor* InteractInstigator)
         UE_LOG(LogPickup, Verbose, TEXT("Pickup: 库存已满，未入库"));
     }
 }
+
+#undef LOCTEXT_NAMESPACE
